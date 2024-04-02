@@ -13,10 +13,10 @@ const destinationSchema = new Schema({
     type: Date,
     required: [true, "please insert input"],
   },
-  destinationCategory:{
+  destinationCategory: {
     type: Schema.ObjectId,
-    ref: 'destinationCategory'
-  }
+    ref: "destinationCategory",
+  },
 });
 
 export const DestinationModel = model("destination", destinationSchema);
