@@ -11,23 +11,23 @@ const companySchema = new Schema({
   },
   info: {
     type: String,
-    required: [true, 'please insert info']
+    required: [true, "please insert info"],
   },
-  email:{
+  email: {
     type: String,
-    required: [true, 'please insert info'],
-    unique:[true, 'wrong email']
+    required: [true, "please insert info"],
+    unique: [true, "wrong email"],
   },
-  phoneNumber:{
+  phoneNumber: {
     type: Number,
-    max:[100000000, "wrong phone number"],
+    max: [100000000, "wrong phone number"],
     required: [true, "please insert input"],
   },
   createdAt: {
     type: Date,
     required: [true, "please insert input"],
   },
-  password:{
+  password: {
     type: String,
     required: [true, "please insert input"],
   },
@@ -35,12 +35,11 @@ const companySchema = new Schema({
     type: Date,
     required: [true, "please insert input"],
   },
-  role:{
+  role: {
     type: String,
-    enum: ['company', "admin"],
-    default: 'company'
-  }
-
+    enum: ["company", "admin"],
+    default: "company",
+  },
 });
 
 export const CompanyModel = model("company", companySchema);

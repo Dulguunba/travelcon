@@ -11,6 +11,7 @@ import categoryRouter from "./routes/categoryRoute";
 import destinationCategoryRouter from "./routes/destinationCategoryRoute";
 import destinationRouter from "./routes/destinationRoute";
 import companyRouter from "./routes/companyRoute";
+import userRouter from "./routes/userRoute";
 
 const app = express();
 const PORT = 8800;
@@ -26,6 +27,7 @@ app.use("/category", categoryRouter);
 app.use("/destination", destinationRouter);
 app.use("/destinationcategory", destinationCategoryRouter);
 app.use("/company", companyRouter);
+app.use("/user", userRouter);
 
 // app.use("/travelcalendar", );
 // app.use("/travelroute", );
