@@ -8,6 +8,9 @@ import cloudinary from "./utils/cloudinary";
 import { ImageModel } from "./models/imageModel";
 import touristRouter from "./routes/touristRoute";
 import categoryRouter from "./routes/categoryRoute";
+import destinationCategoryRouter from "./routes/destinationCategoryRoute";
+import destinationRouter from "./routes/destinationRoute";
+import companyRouter from "./routes/companyRoute";
 
 const app = express();
 const PORT = 8800;
@@ -20,6 +23,9 @@ app.use(cookieParser());
 app.use("/travel", travelRouter);
 app.use("/tourist", touristRouter);
 app.use("/category", categoryRouter);
+app.use("/destination", destinationRouter);
+app.use("/destinationcategory", destinationCategoryRouter);
+app.use("/company", companyRouter);
 
 // app.use("/travelcalendar", );
 // app.use("/travelroute", );
