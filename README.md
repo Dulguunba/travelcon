@@ -1,5 +1,9 @@
-## Асаах заавар
+## Нэршил
 
+1. folder name - [camelCase]
+2. component name - [PascalCase]
+
+## Асаах заавар
 
 1. Backend хавтаст ".env" файл үүсгэнэ.
 
@@ -65,7 +69,3 @@ import { ExampleIcon , ExampleShape } from "@/components/icons/aboutPage";
 import {ExampleIcon} from "@/components/icons/aboutPage/ExampleIcon"
 import {ExampleShape} from "@/components/icons/aboutPage/ExampleShape"
 ```
-## Нэршил
-
-1. folder name - [camelCase]
-2. component name - [PascalCase]
