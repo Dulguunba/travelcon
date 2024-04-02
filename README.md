@@ -1,49 +1,71 @@
-<!---------------------Ajluulah zaavar ------------------->
+## Ажлуулах заавар
 
-<!--
-1. terminal hesegt cursor oo bairshuulj "command" tovchiig "\" key iin hamt darj terminal aa slip hiine.
-    windows der "ctrl + shift + 5" tovchuudiig darj terminal split hiine.
 
-2. EHNII(1) terminal der "cd travel-back" command oruulj backend depository ruu orno
+1. Backend хавтасд ".env" файл үүсгэнэ.
 
-3. ".env" folder neene
+2. ".env" файл дотор teams дээрх мэдээллийг оруулж, хадгална.
 
-4. ".env" foldert teams derh medeelliig oruulj hadgalna
+3. Терминалаа slip хийнэ. Та терминал хэсгийн зүүн дээд хэсэгт байрлах terminal slip хийх товчлуурыг дарж хувааж болно. Эсвэл доорх гар хослолуулыг ашиглана уу.
 
-5. travel-back iin terminal der cursor oo bairshuulj "npm install" command oruulna.
+Гар хослол:
+- терминал хэсэг курсороо байршуулж "command" товчийг "\" товчтой хамт дарж терминалаа /slip/ хуваана.
+- windows ээр "ctrl" + "shift" + "5" товчнуудыг зэрэг дарж хуваана.
 
-6. "npx nodemon index.ts" backend server asaana
-    backend [http://localhost:8800] der asna
+4. Эхний терминал дээр доорх коммандуудыг дарааллын дагуу оруулна.
 
-7. KHOYR(2) dah terminal der "cd travel-front" command oruulj front end depositiry ruu orno
+```bash
+cd backend
+#
+npm install
+#
+npx nodemon index.ts
+```
+Дээрх коммандуудыг оруулсны дараа backend [http://localhost:8800] port дээр асна.
 
-8. "npm install" command iig oruulna
+5. Хоёр дахь терминал дээр доорх коммандуудыг дарааллын дагуу оруулна.
 
-9. 'npm run dev' command oruulj frontend server asaana
-    backend [http://localhost:3000] der asna 
-    -->
+```bash
+cd frontend
+#
+npm install
+#
+npm run dev
+```
 
-<!-----------------Icon import export hiih zaavar ----------------->
+Дээрх коммандуудыг оруулсны дараа backend [http://localhost:3000] port дээр асна.
 
-<!-- 
-1. icon iin component daraah zagvariin daguu uusgej export hiine.
+## Icon уудыг export import хийх заавар
 
+1. Icon component ийг дараах загварын дагуу үүсгэж экспорт хийнэ.
+
+```bash
 export const ExampleIcon =()=>{
     return(
         <svg></svg>
     )
 }
+```
 
-2. icon oruulsan tuhain folder burt baigaa "index.ts" folder daraah zagvariin daguu export hiine.
+2. Icon оруулсан тухайн хавтас бүрт байгаа "index.ts" дараах загварын дагуу [БҮХ!] Icon уудаа экспорт хийнэ.
 
-export * from './ExampleIcon'
+```bash
+export * from "./ExampleIcon"
+export * from "./ExampleShape"
+```
 
-3. icon ashiglah component der daraah baidlaar  importloj ashiglana /neg importoor buyu neg folder oos olon icon importloj oruulj irne/
+3. Icon уудаа дараах байдлаар импорт хийж ашиглана.
 
-ZUV IMPORT:
-import { ExampleIcon , ExampleShape } from "@/components/icons/aboutPage"; 
+ЗӨВ ИМПОРТ!
+```bash
+import { ExampleIcon , ExampleShape } from "@/components/icons/aboutPage";
+```
 
-BURUU IMPORT:
+БУРУУ импорт!
+```bash
 import {ExampleIcon} from "@/components/icons/aboutPage/ExampleIcon"
 import {ExampleShape} from "@/components/icons/aboutPage/ExampleShape"
--->
+```
+## Нэршил
+
+1. folder name - [camelCase]
+2. component name - [PascalCase]
