@@ -17,6 +17,7 @@ export const createTourist = async (req: Request, res: Response) => {
       english,
       group,
       createdAt: new Date(),
+      updatedAt: new Date(),
     });
     res.status(200).json({ message: "successfully created tourist" });
   } catch (error) {
@@ -26,7 +27,10 @@ export const createTourist = async (req: Request, res: Response) => {
 
 export const getTourist = async (req: Request, res: Response) => {
   try {
-    const touristData = await TouristModel.find({}).exec();
+    const touristQuery = TouristModel.find({});
+    touristQuery.sort("-createdAt");
+    // touristQuery.select("_id touristName email phoneNumber");
+    const touristData = await touristQuery.exec();
     res.status(200).json({ result: touristData });
   } catch (error) {
     res.status(400).json({ message: "fail to get tourist data", error: error });
