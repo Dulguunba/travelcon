@@ -5,7 +5,7 @@ const reviewSchema = new Schema({
     type: String,
     required: [true, "Please insert input"],
   },
-  starts: {
+  stars: {
     type: Number,
     required: [true, "Please insert input"],
     max: [5, "wrong star number"],
@@ -20,6 +20,18 @@ const reviewSchema = new Schema({
   updatedAt: {
     type: Date,
     required: [true, "Please insert input"],
+  },  
+  userId: {
+    type: String,
+  },
+  email: {
+    type: String,
+    required: [true, "please insert info"],
+  },
+  phoneNumber: {
+    type: Number,
+    max: [100000000, "wrong phone number"],
+    required: [true, "please insert input"],
   },
 });
 
