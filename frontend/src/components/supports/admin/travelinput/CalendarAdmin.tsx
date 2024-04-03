@@ -1,8 +1,17 @@
 import React, { useState } from "react";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import DeleteIcon from '@mui/icons-material/Delete';
+import {
+  usePageStore,
+  useTravelCalendarStore,
+  useTravelStore,
+  useTravelRouteStore,
+  CalendarType,
+} from "@/functions/AdminFunctions";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { CalendarAdd } from "./CalendarAdd";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { showToastMessage } from "@/functions/TravelUtilities";
 
 export const CalendarAdmin = () => {
   const {
@@ -22,32 +31,18 @@ export const CalendarAdmin = () => {
   };
 
   const submitTravelCalendar = () => {
+    showToastMessage();
     console.log("calendar", travelCalendarsZustand);
     updateTravel({ calendar: travelCalendarsZustand });
     console.log("travel ", travel);
-    increment(1);
   };
 
   return (
     <div
-      className={`   w-full h-full min-h-screen ${
-        page == 6 ? "flex" : "hidden"
-      } gap-7  flex-col justify-start items-start relative`}
+      className={`   w-full h-full flex gap-7  flex-col justify-start items-start relative`}
     >
-      <a className="w-full flex gap-7 items-center bg-white" href="/">
-        <ArrowBackIosIcon/>
-        <h1>Аялал нэмэх</h1>
-      </a>
-      <ul className="w-full justify-center steps steps-vertical lg:steps-horizontal mt-5">
-        <li className="step step-primary ">General information</li>
-        <li className="step step-primary">Food & Traffic</li>
-        <li className="step step-primary">Category</li>
-        <li className="step step-primary">Picture</li>
-        <li className="step step-primary">Routes</li>
-        <li className="step font-semibold step-primary">Calendar</li>
-      </ul>
       <div className="p-10 flex gap-5 w-full items-center justify-center h-full">
-        <div className="flex flex-col w-2/3  bg-white rounded-lg p-5">
+        <div className="flex flex-col w-full  bg-white rounded-lg p-5">
           <div className="w-full flex gap-3">
             <div className="w-1/3">
               <CalendarAdd />
@@ -80,7 +75,7 @@ export const CalendarAdmin = () => {
                             <button
                               onClick={() => deleteCalendar(calendarInfo)}
                             >
-                              <DeleteIcon/>
+                              <DeleteIcon />
                             </button>
                           </td>
                         </tr>
@@ -91,19 +86,15 @@ export const CalendarAdmin = () => {
               </table>
             </div>
           </div>
-          <div className="flex justify-between items-center mt-2">
-            <a
-              onClick={decreasePageNumber}
-              className="bg-primary p-2 rounded text-white"
-            >
-              Буцах
-            </a>
+          <div className="flex justify-end items-center">
             <button
+              type="submit"
               onClick={submitTravelCalendar}
-              className="bg-primary p-2 rounded text-white"
+              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
             >
-              Дараах
+              Хадгалах
             </button>
+            <ToastContainer autoClose={2000} />
           </div>
         </div>
       </div>

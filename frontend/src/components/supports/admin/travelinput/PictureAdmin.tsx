@@ -2,9 +2,18 @@ import React from "react";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { instance } from "@/functions/TravelUtilities";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { instance, showToastMessage } from "@/functions/TravelUtilities";
+import {
+  usePageStore,
+  useTravelCalendarStore,
+  useTravelStore,
+  useTravelRouteStore,
+  CalendarType,
+} from "@/functions/AdminFunctions";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export const PictureAdmin = () => {
   const { page, increment, decrement } = usePageStore();
   const { travel, updateTravel } = useTravelStore();
@@ -23,6 +32,7 @@ export const PictureAdmin = () => {
         .required("Additional information is required"),
     }),
     onSubmit: (values) => {
+      showToastMessage();
       const travelInputfour = {
         additionalInfo: formik.values.additionalInfo,
         image: {
@@ -32,7 +42,6 @@ export const PictureAdmin = () => {
       };
       console.log("travelinput step 4", travelInputfour);
       updateTravel(travelInputfour);
-      increment(1);
       console.log("travel", travel);
     },
   });
@@ -66,27 +75,13 @@ export const PictureAdmin = () => {
 
   return (
     <div
-      className={` ${
-        page == 4 ? "flex" : "hidden"
-      }  w-full h-full min-h-screen gap-7  flex-col justify-start items-start`}
+      className={` flex w-full h-full gap-7  flex-col justify-start items-start`}
     >
-      <a className="w-full flex gap-7 items-center bg-white" href="/">
-        <ArrowBackIosIcon />
-        <h1>Аялал нэмэх</h1>
-      </a>
-      <ul className="w-full justify-center steps steps-vertical lg:steps-horizontal mt-5">
-        <li className="step step-primary ">General information</li>
-        <li className="step step-primary">Food & Traffic</li>
-        <li className="step step-primary">Category</li>
-        <li className="step font-semibold step-primary">Picture</li>
-        <li className="step">Routes</li>
-        <li className="step">Calendar</li>
-      </ul>
       <form
         className="p-10 flex gap-5 w-full items-center justify-center h-full"
         onSubmit={formik.handleSubmit}
       >
-        <div className="flex flex-col w-1/2  bg-white rounded-lg p-5">
+        <div className="flex flex-col w-full  bg-white rounded-lg p-5">
           <div className="flex gap-5 w-full">
             <div className="w-1/2 text-sm h-96 flex-col mb-2 gap-1">
               <label htmlFor="additionalInfo">
@@ -191,16 +186,14 @@ export const PictureAdmin = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center mt-2">
-            <a
-              onClick={decreasePageNumber}
-              className="bg-primary p-2 rounded text-white"
+          <div className="flex justify-end items-center">
+            <button
+              type="submit"
+              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
             >
-              Буцах
-            </a>
-            <button type="submit" className="bg-primary p-2 rounded text-white">
-              Дараах
+              Хадгалах
             </button>
+            <ToastContainer autoClose={2000} />
           </div>
         </div>
       </form>

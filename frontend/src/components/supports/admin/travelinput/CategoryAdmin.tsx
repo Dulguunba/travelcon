@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useRouter } from "next/router";
-import { instance } from "@/functions/TravelUtilities";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
+import { instance, showToastMessage } from "@/functions/TravelUtilities";
+import {
+  usePageStore,
+  useTravelCalendarStore,
+  useTravelStore,
+  useTravelRouteStore,
+  CalendarType,
+} from "@/functions/AdminFunctions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const CategoryAdmin = () => {
   const { page, increment, decrement } = usePageStore();
@@ -81,42 +89,22 @@ export const CategoryAdmin = () => {
   };
 
   const submit = () => {
+    showToastMessage();
     const travelDataInput = {
       categoryType: selectedCategory,
       touristType: selectedTourist,
     };
     console.log("step", travelDataInput);
-
     updateTravel(travelDataInput);
-    increment(1);
     console.log("travel", travel);
-  };
-
-  const decreasePageNumber = () => {
-    decrement(1);
   };
 
   return (
     <div
-      className={`w-full h-full min-h-screen gap-7 ${
-        page == 3 ? "flex" : "hidden"
-      } flex-col justify-start items-start`}
+      className={`w-full h-full gap-7 flex flex-col justify-start items-start`}
     >
-      <a className="w-full flex gap-7 items-center bg-white" href="/">
-        <ArrowBackIosIcon/>
-        <h1>Аялал нэмэх</h1>
-      </a>
-      <ul className="w-full justify-center steps steps-vertical lg:steps-horizontal mt-5">
-        <li className="step step-primary ">General information</li>
-        <li className="step step-primary ">Food & Traffic</li>
-        <li className="step step-primary font-semibold">Category</li>
-        <li className="step semibold">Picture</li>
-        <li className="step">Routes</li>
-        <li className="step">Calendar</li>
-      </ul>
       <div className="p-5 flex  w-full justify-center items-start">
-        <div className="w-2/3 text-sm  flex flex-col mb-2 gap-5 p-10 bg-white rounded-lg mt-20">
-          <label htmlFor="duration">Аялалын ангилал</label>
+        <div className="w-full text-sm  flex flex-col mb-2 gap-5 p-10 bg-white rounded-lg ">
           <div className="flex">
             <div className="flex flex-col w-1/2">
               <label htmlFor="">1. Аялалын ангилалыг сонгоно уу.</label>
@@ -166,19 +154,15 @@ export const CategoryAdmin = () => {
             </div>
           </div>
 
-          <div className="flex justify-between items-center">
-            <a
-              className="bg-primary p-2 rounded text-white"
-              onClick={decreasePageNumber}
-            >
-              Буцах
-            </a>
+          <div className="flex justify-end items-center">
             <button
+              type="submit"
               onClick={submit}
-              className="bg-primary p-2 rounded text-white"
+              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
             >
-              Дараах
+              Хадгалах
             </button>
+            <ToastContainer autoClose={2000} />
           </div>
         </div>
       </div>

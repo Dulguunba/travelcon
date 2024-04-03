@@ -1,10 +1,18 @@
 import React from "react";
-import { instance } from "@/functions/TravelUtilities";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { instance, showToastMessage } from "@/functions/TravelUtilities";
+import {
+  usePageStore,
+  useTravelCalendarStore,
+  useTravelStore,
+  useTravelRouteStore,
+  CalendarType,
+} from "@/functions/AdminFunctions";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { RouteAdd } from "./RouteAdd";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import { RouteType } from "@/functions/AdminFunctions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const RouteAdmin = () => {
   const {
@@ -15,40 +23,22 @@ export const RouteAdmin = () => {
   const { page, increment, decrement } = usePageStore();
   const { travel, updateTravel } = useTravelStore();
 
-  const decreasePageNumber = () => {
-    decrement(1);
-  };
-
   const deleteRoute = (data: RouteType) => {
     deleteTravelRouteZustand(data);
   };
 
   const submitTravelRoute = () => {
+    showToastMessage();
     console.log("route", travelRoutesZustand);
 
     updateTravel({ route: travelRoutesZustand });
-    increment(1);
     console.log("travel", travel);
   };
 
   return (
     <div
-      className={`   w-full h-full min-h-screen ${
-        page == 5 ? "flex" : "hidden"
-      } gap-7  flex-col justify-start items-start`}
+      className={`   w-full h-full flex gap-7  flex-col justify-start items-start`}
     >
-      <a className="w-full flex gap-7 items-center bg-white" href="/">
-        <ArrowBackIosIcon />
-        <h1>Аялал нэмэх</h1>
-      </a>
-      <ul className="w-full justify-center steps steps-vertical lg:steps-horizontal mt-5">
-        <li className="step step-primary ">General information</li>
-        <li className="step step-primary">Food & Traffic</li>
-        <li className="step step-primary">Category</li>
-        <li className="step step-primary">Picture</li>
-        <li className="step font-semibold step-primary">Routes</li>
-        <li className="step">Calendar</li>
-      </ul>
       <div className="p-10 flex gap-5 w-full items-center justify-center h-full">
         <div className="flex flex-col w-[95%]  bg-white rounded-lg p-5">
           <div className="w-full flex gap-3">
@@ -56,7 +46,7 @@ export const RouteAdmin = () => {
               <RouteAdd />
             </div>
             <div className="w-2/3">
-              <table className="table bg-white">
+              <table className="table bg-gray-50">
                 {/* head */}
                 <thead>
                   <tr>
@@ -94,19 +84,15 @@ export const RouteAdmin = () => {
               </table>
             </div>
           </div>
-          <div className="flex justify-between items-center mt-2">
-            <a
-              onClick={decreasePageNumber}
-              className="bg-primary p-2 rounded text-white"
-            >
-              Буцах
-            </a>
+          <div className="flex justify-end items-center">
             <button
+              type="submit"
               onClick={submitTravelRoute}
-              className="bg-primary p-2 rounded text-white"
+              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
             >
-              Дараах
+              Хадгалах
             </button>
+            <ToastContainer autoClose={2000} />
           </div>
         </div>
       </div>

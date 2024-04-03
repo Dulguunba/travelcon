@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const instance = axios.create({
   baseURL: "http://localhost:8800",
@@ -26,31 +26,29 @@ export const createTravelInfo = async (data: {} | null) => {
   }
 };
 
-export const getTravel = async(set: Function)=>{
-
+export const getTravel = async (set: Function) => {
   try {
-    const response = await instance.get('/travel/get')
-    set(response.data.result)
-    console.log('travel data', response.data.response);
-    
+    const response = await instance.get("/travel/get");
+    set(response.data.result);
+    console.log("travel data", response.data.response);
   } catch (error) {
-    return alert( `Уучлаарай алдаа үүслээ`)
+    return alert(`Уучлаарай алдаа үүслээ`);
   }
-}
+};
 
-
-export const getDestination = async(set: Function)=>{
-
-    try {
-      const response = await instance.get('/destination/get')
-      set(response.data.result)
-      console.log('destination data', response.data.response);
-      
-    } catch (error) {
-      return alert( `Уучлаарай алдаа үүслээ`)
-    }
+export const getDestination = async (set: Function) => {
+  try {
+    const response = await instance.get("/destination/get");
+    set(response.data.result);
+    console.log("destination data", response.data.response);
+  } catch (error) {
+    return alert(`Уучлаарай алдаа үүслээ`);
   }
-  
- export const showToastMessage = () => {
-    toast.success("Мэдээлэл амжилттай хадгалагдлаа. Та NEXT товчийг дарна уу.", { });
-  };
+};
+
+export const showToastMessage = () => {
+  toast.success(
+    "Мэдээлэл амжилттай хадгалагдлаа. Та NEXT товчийг дарна уу.",
+    {}
+  );
+};
