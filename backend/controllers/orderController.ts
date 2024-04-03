@@ -48,3 +48,10 @@ export const getUser = async (req: Request, res: Response) => {
     res.status(400).json({ message: "fail to get user data", error: error });
   }
 };
+// export const deleteUser = async(req: Request, res: Response)=>{
+//   try {
+//     const {} =req.body
+//   } catch (error) {
+//     res.status(400).json({ message: "fail to delete user data", error: error });
+//   }
+// }
