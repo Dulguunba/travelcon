@@ -20,7 +20,7 @@ const reviewSchema = new Schema({
   updatedAt: {
     type: Date,
     required: [true, "Please insert input"],
-  },  
+  },
   userId: {
     type: String,
   },
