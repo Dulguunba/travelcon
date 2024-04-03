@@ -15,6 +15,7 @@ export const createCategory = async (req: Request, res: Response) => {
       name,
       english,
       createdAt: new Date(),
+      updatedAt: new Date(),
     });
     res.status(200).json({ message: "successfully created category" });
   } catch (error) {
@@ -24,7 +25,10 @@ export const createCategory = async (req: Request, res: Response) => {
 
 export const getCategory = async (req: Request, res: Response) => {
   try {
-    const categoryData = await CategoryModel.find({}).exec();
+    const categoryQuery = CategoryModel.find({});
+    categoryQuery.sort("-createdAt");
+    // categoryQuery.select("_id categoryName email phoneNumber");
+    const categoryData = await categoryQuery.exec();
     res.status(200).json({ result: categoryData });
   } catch (error) {
     res.status(400).json({ message: "fail to get tourist data", error: error });

@@ -13,6 +13,10 @@ const destinationSchema = new Schema({
     type: Date,
     required: [true, "please insert input"],
   },
+  updatedAt: {
+    type: Date,
+    required: [true, "please insert input"],
+  },
   destinationCategory: {
     type: Schema.ObjectId,
     ref: "destinationCategory",

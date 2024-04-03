@@ -16,6 +16,7 @@ export const createDestination = async (req: Request, res: Response) => {
       english,
       destinationCategory,
       createdAt: new Date(),
+      updatedAt: new Date(),
     });
     res.status(200).json({ message: "successfully created destination" });
   } catch (error) {
