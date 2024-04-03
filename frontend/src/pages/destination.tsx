@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { getServerSideProps } from "../../utils/fetchTravelDatas";
+import { GetServerSideProps } from "next";
+import { getServerSideProps } from "../utils/fetchTravelDatas";
 import { Travel } from "../types/travelTypes";
 import { Tours } from "../types/toursTypes";
 import { Destination } from "../types/destinationTypes";
