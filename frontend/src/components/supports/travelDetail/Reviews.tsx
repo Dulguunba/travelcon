@@ -17,18 +17,23 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
     const handlePrev = () => {
         if (index > 0) setIndex(index - 2);
     }
-
+    const handlePrevMobile = () => {
+        if (index > 0) setIndex(index - 1);
+    }
     const handleNext = () => {
         if (index < tourDatas.length - 2) setIndex(index + 2);
+    }
+    const handleNextMobile = () => {
+        if (index < tourDatas.length - 1) setIndex(index + 1);
     }
 
     return (
         <div className='flex flex-col mt-20 mb-20'>
             <div className='flex justify-between'>
-                <div className='lg:text-[40px] font-oswald font-bold'>
+                <div className='lg:text-[40px] text-3xl font-oswald font-bold'>
                     REVIEWS
                 </div>
-                <div className='flex lg:gap-20'>
+                <div className='lg:flex hidden lg:gap-20'>
                     <button onClick={handlePrev}>
                         {index > 0 ? <LeftArrow /> : <LeftArrow fill='#F6F6F6' />}
                     </button>
@@ -36,8 +41,16 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
                         {index < tourDatas.length - 2 ? <RightArrow /> : <RightArrow fill='#F6F6F6' />}
                     </button>
                 </div>
+                <div className='lg:hidden flex gap-10'>
+                    <button onClick={handlePrevMobile}>
+                        {index > 0 ? <LeftArrow /> : <LeftArrow fill='#F6F6F6' />}
+                    </button>
+                    <button onClick={handleNextMobile}>
+                        {index < tourDatas.length - 1 ? <RightArrow /> : <RightArrow fill='#F6F6F6' />}
+                    </button>
+                </div>
             </div>
-            <div className='lg:mt-10 flex justify-between'>
+            <div className='lg:mt-10 lg:flex hidden lg:flex-row flex-col justify-between'>
                 {tourDatas.slice(index, index + 2).map((review) => (
                     <ReviewCard
                         message={review.english}
@@ -47,7 +60,16 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
                     />
                 ))}
             </div>
-
+            <div className='mt-10 lg:hidden flex lg:flex-row flex-col justify-between'>
+                {tourDatas.slice(index, index + 1).map((review) => (
+                    <ReviewCard
+                        message={review.english}
+                        proPic={review.english}
+                        name={review.english}
+                        bio={review.english}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

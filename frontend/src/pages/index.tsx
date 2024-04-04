@@ -33,7 +33,7 @@ function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: Props
       <PopularDestinations travelDatas={travelDatas} destinationDatas={destinationDatas} />
       <Process />
       <Gallery travelDatas={travelDatas} />
-      <Value />
+      <Value text="VALUES" miniText="OUR VALUES" margin="mb-20" padding="pt-20" />
       <Questions />
       <MainFooter />
       {/* <Footer /> */}

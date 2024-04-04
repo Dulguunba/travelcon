@@ -3,7 +3,7 @@ import React from 'react'
 export const MainFooter = () => {
     return (
         <div className='flex items-center justify-center relative lg:h-[634px]'>
-            <img src="Pic2.jpg" className='absolute w-full h-full top-0 right-0 left-0' alt="" />
+            <img src="HomePageBackground.jpg" className='absolute w-full h-full top-0 right-0 left-0' alt="" />
             <div className='bg-[#D9D9D9] absolute w-full h-full opacity-35'></div>
             <div className='max-w-[1520px] w-[90%] pt-20 pb-20 z-20'>
                 <div className='flex flex-col gap-6 justify-center items-center'>

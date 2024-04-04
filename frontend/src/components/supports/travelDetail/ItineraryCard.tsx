@@ -24,7 +24,7 @@ const ItineraryCard = ({ image, title, time, description }: Props) => {
                 </div>
             </div>
             <div className='text-white absolute bottom-0 p-10 font-primary '>
-                <h1 className='text-3xl font-openSans font-medium'>{title}</h1>
+                <h1 className='lg:text-3xl text-xl font-openSans font-medium'>{title}</h1>
                 <div className='flex gap-3 items-center mt-5 font-openSans font-light'>
                     <TimeIcon width='20' height='20' fill='white' />
                     Estimated time: {time} hours
