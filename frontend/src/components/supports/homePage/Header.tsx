@@ -25,11 +25,8 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
         return { category, destination: destinationsInCategory };
     });
 
-    // const { user, error, isLoading } = useUser();
+    const { user, error, isLoading } = useUser();
 
-    // if (isLoading) return <div>Loading...</div>;
-    // if (error) return <div>{error.message}</div>;
-    // console.log("user", user);
 
     return (
         <>
@@ -99,11 +96,15 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                             <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Blog</p>
                             <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Contact</p>
                         </div>
-
-                        <a href="/api/auth/login" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
-                            Sign in
-                        </a>
-
+                        {user?.name ? (
+                            <a href="/api/auth/logout" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
+                                Log Out
+                            </a>
+                        ) : (
+                            <a href="/api/auth/login" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
+                                Log in
+                            </a>
+                        )}
                         <div className='lg:hidden block'>
                             <button onClick={() => { setShowMenu(true) }}>
                                 {isScrolled ? <BurgerMenu fill='#4997D3' /> : <BurgerMenu fill='white' />}
@@ -128,7 +129,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                         <Link className='w-full  text-xl font-semibold' href={'/destination'}><li>Destination</li></Link>
                         <Link className='w-full  text-xl font-semibold' href={'/tours'}><li>Tours</li></Link>
                         <Link className='w-full text-xl font-semibold' href={'/about'}><li>About</li></Link>
-                        <Link className='w-full text-xl font-semibold' href={'/about'}><li>Sign In</li></Link>
+                        {user?.name ? (<a className='w-full text-xl font-semibold' href='/api/auth/logout'>Log out</a>) : (<a className='w-full text-xl font-semibold' href='/api/auth/login'>Log in</a>)}
                     </ul>
                 </div>
             </div>
