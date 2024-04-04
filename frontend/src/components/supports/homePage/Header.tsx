@@ -97,9 +97,13 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                             <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
                         </div>
                         {user?.name ? (
-                            <a href="/api/auth/logout" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
-                                Log Out
-                            </a>
+                            <>
+                                <div className='flex gap-6 items-center'>Hi, {user.name}
+                                    <a href="/api/auth/logout" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
+                                        Log Out
+                                    </a>
+                                </div>
+                            </>
                         ) : (
                             <a href="/api/auth/login" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
                                 Log in
