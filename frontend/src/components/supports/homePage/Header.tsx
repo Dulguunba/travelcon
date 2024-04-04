@@ -93,9 +93,11 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                             <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Blog</p>
                             <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Contact</p>
                         </div>
+
                         <div className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
                             Sign in
                         </div>
+
                         <div className='lg:hidden block'>
                             <button onClick={() => { setShowMenu(true) }}>
                                 {isScrolled ? <BurgerMenu fill='#4997D3' /> : <BurgerMenu fill='white' />}
