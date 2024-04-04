@@ -2,8 +2,9 @@ import React from 'react'
 import { Dollar, Left, LocationWhite, Right, Select, } from '@/components/icons/destinationPage'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Props } from "@/types/fetchDataProps";
 
-export const FormComponent = () => {
+export const FormComponent = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) => {
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -40,14 +41,14 @@ export const FormComponent = () => {
     });
     return (
         <>
-            <div className="flex flex-col items-center justify-center bg-[url('/place.png')] bg-no-repeat bg-cover">
+            {/* <div className="flex flex-col items-center justify-center bg-[url('/place.png')] bg-no-repeat bg-cover">
                 <div className='flex max-w-[1520px] w-[90%] py-5 flex-col h-[600px] md:h-[950px]'>
                     <div className='flex items-center justify-center h-full flex-col'>
                         <p className='text-white'> Home    |   Destination</p>
                         <h1 className='font-oswald text-white font-bold  md:text-[200px] md:leading-[200px] text-[40px] leading-[50px]'>BOOKING FORM</h1>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="flex flex-col items-center justify-center bg-white pt-20">
                 <div className='flex max-w-[1520px] w-[90%] flex-col '>
                     <form onSubmit={formik.handleSubmit}>
@@ -103,8 +104,21 @@ export const FormComponent = () => {
                                 <Right />
                             </div>
                         </div>
+                        {/* {travelDatas.result.map((item, index) => (
+                            <div key={index} className='md:flex  rounded-xl  justify-between w-full gap-12'>
+                                <img className='lg:w-[30%] w-[100%] h-[206px] rounded-3xl ' src={`${item?.image?.mainImage}`} alt="winter" />
+                                <div className='lg:w-[40%] w-[100%]'>
+                                    <div className='max-w-[659px]'>
+                                        <h3 className='font-normal text-blue text-[20px] leading-[30px]'>{item.name}</h3>
+                                        <p className='font-normal text-[20px] leading-[30px] flex-wrap  text-[#222222] overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p>
+                                        <button className='border border-gray-400 px-8 py-4 rounded-xl text-red-600 font-semibold '>Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))} */}
                         <div>
-                            <div className="bg-[url('/sakura.png')] rounded-3xl h-[562px] flex flex-col pl-9 justify-between">
+                            <img src="./sakura.png" alt="" className="absolute -z-1 rounded-3xl h-[562px] flex flex-col  justify-between" />
+                            <div className='relative rounded-3xl h-[562px] flex flex-col pl-9 justify-between'>
                                 <div className='w-[56px] h-[56px] rounded-full border-white border-2 flex items-center justify-center bg-blue mt-8'>
                                     <Select />
                                 </div>
