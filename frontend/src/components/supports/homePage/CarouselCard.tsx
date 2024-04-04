@@ -46,8 +46,8 @@ const CarouselCard = ({ responsiveTitle, image, title, icon, miniTitle, descript
                 </div>
                 <p className='text-xl text-gray-500'>{description}</p>
                 <div className='flex gap-5'>
-                  <button className='lg:p-3  lg:w-[147px] rounded-lg font-medium bg-white text-black'>Book now</button>
-                  <button className='border lg:w-[147px] rounded-lg font-medium border-white p-3'>Learn more</button>
+                  <button className='lg:p-3  lg:w-[147px] rounded-lg font-medium bg-white btn text-black'>Book now</button>
+                  <button className='border lg:w-[147px] rounded-lg font-medium border-white btn bg-black text-white p-3'>Learn more</button>
                 </div>
               </div>
             </div>

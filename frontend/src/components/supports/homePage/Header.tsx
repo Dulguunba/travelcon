@@ -33,9 +33,11 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
             <div className="flex flex-col items-center justify-center">
                 <div className='flex max-w-[1520px] w-[90%] z-10'>
                     <div className={`${isScrolled ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black" : ""} flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}>
-                        <div className='p-2 bg-green-300'>
-                            Logo
-                        </div>
+                        <Link href={'/'}>
+                            <div className='p-2 bg-green-300'>
+                                Logo
+                            </div>
+                        </Link>
                         <div className='hidden lg:flex gap-14 lg:items-center lg:drop-shadow-lg'>
                             <div className='flex items-center relative gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
                                 <div className="dropdown dropdown-hover relative">
@@ -93,8 +95,6 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                 </div>
                             </div>
                             <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
-                            <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Blog</p>
-                            <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Contact</p>
                         </div>
                         {user?.name ? (
                             <a href="/api/auth/logout" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>

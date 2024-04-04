@@ -8,7 +8,7 @@ const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props
 
     return (
         <>
-            <img src="HomePageBackground.jpg" className='lg:w-full h-[600px] lg:h-[1042px]' alt="" />
+            <img src="HomeBackground.jpg" className='lg:w-full h-[600px] lg:h-[1200px]' alt="" />
             <div className='absolute top-0 right-0 left-0'>
                 <Header travelDatas={travelDatas} toursData={toursData} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
                 <div className='lg:max-w-[1520px] lg:m-auto lg:w-[90%] lg:h-[600px] mt-8 flex lg:mt-8 justify-center'>
