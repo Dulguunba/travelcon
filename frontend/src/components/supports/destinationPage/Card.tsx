@@ -40,7 +40,7 @@ export const Card = ({ travelDatas, toursData, destinationDatas, categoryDatas }
                   <p>Start from ₮{item.price.adultPrice}</p>
                 </div>
               </div>
-              <p className='overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p>
+              {/* <p className='overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p> */}
               <button className='button'>Learn more</button>
             </div>
           </div>

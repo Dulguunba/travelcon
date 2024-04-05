@@ -1,4 +1,4 @@
-import { Dollar, DollarBlack, LocationBlue, Time } from '@/components/icons/destinationPage'
+import { DollarBlack, LocationBlue, Time } from '@/components/icons/destinationPage'
 import { DestinationCategory } from '@/types/destinationCategoryTypes'
 import { Destination } from '@/types/destinationTypes'
 import { Tours } from '@/types/toursTypes'
@@ -27,7 +27,7 @@ export const ListCard = ({ travelDatas, toursData, destinationDatas, categoryDat
                                 <h3 className='font-normal text-blue text-[20px] leading-[30px]'>{item.name}</h3>
                             </div>
                             <h1 className='font-medium text-[32px] leading-[40px]  pt-[10px] pb-9'>{item.travelCompany}</h1>
-                            <p className='font-normal text-[20px] leading-[30px] flex-wrap  text-[#222222] overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p>
+                            <p className='font-normal text-[20px] leading-[30px] flex-wrap  text-[#222222] overflow-hidden  h-20'>{item.route[0].activity}</p>
                         </div>
                     </div>
 

@@ -104,18 +104,6 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
                                 <Right />
                             </div>
                         </div>
-                        {/* {travelDatas.result.map((item, index) => (
-                            <div key={index} className='md:flex  rounded-xl  justify-between w-full gap-12'>
-                                <img className='lg:w-[30%] w-[100%] h-[206px] rounded-3xl ' src={`${item?.image?.mainImage}`} alt="winter" />
-                                <div className='lg:w-[40%] w-[100%]'>
-                                    <div className='max-w-[659px]'>
-                                        <h3 className='font-normal text-blue text-[20px] leading-[30px]'>{item.name}</h3>
-                                        <p className='font-normal text-[20px] leading-[30px] flex-wrap  text-[#222222] overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p>
-                                        <button className='border border-gray-400 px-8 py-4 rounded-xl text-red-600 font-semibold '>Remove</button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))} */}
                         <div>
                             <img src="./sakura.png" alt="" className="absolute -z-1 rounded-3xl h-[562px] flex flex-col  justify-between" />
                             <div className='relative rounded-3xl h-[562px] flex flex-col pl-9 justify-between'>
