@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
 import Header from './Header'
 import DestinationDropdown from './DestinationDropdown'
-import { Props } from '@/pages'
+import { FetchDataProps } from '@/types/fetchDataProps';
 
-const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) => {
+
+const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
 
     return (
         <>

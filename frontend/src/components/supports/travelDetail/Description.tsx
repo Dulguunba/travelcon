@@ -5,9 +5,10 @@ import Included from './Included'
 import Itinerary from './Itinerary'
 import Reviews from './Reviews'
 import { getServerSideProps } from './TourDetailHero'
-import { Props } from '@/pages'
+import { FetchDataProps } from '@/types/fetchDataProps'
 
-const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }: Props) => {
+
+const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
     const tour = travelDatas.result.filter(travel => travel._id === "66069e7a464834a5e2273c97");
     const [isTextShown, setIsTextShown] = useState(false);
     const toggleText = () => {

@@ -13,20 +13,14 @@ import { Travel } from "@/types/travelTypes";
 import { Destination } from "@/types/destinationTypes";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
+import { FetchDataProps } from "@/types/fetchDataProps";
 
-
-export interface Props {
-  toursData: Tours
-  travelDatas: Travel
-  destinationDatas: Destination
-  categoryDatas: DestinationCategory
-}
 const poppins = Poppins({
   weight: "400",
   subsets: ["latin"],
 });
 
-function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) {
+function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) {
   return (
     <div>
       <Hero travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} />

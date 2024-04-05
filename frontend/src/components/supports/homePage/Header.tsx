@@ -3,11 +3,11 @@ import { useWindowScroll } from 'react-use'
 import Link from 'next/link';
 import { getServerSideProps } from '@/utils/fetchTravelDatas';
 import { BurgerMenu, DownArrow, XIcon } from '@/components/icons/homePage';
-import { Props } from '@/pages';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { FetchDataProps } from '@/types/fetchDataProps';
 
 
-const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
+const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
     const [showMenu, setShowMenu] = useState(false);
     const personalTours = toursData.result.filter(tour => tour.group === "personal tours");
     const groupTours = toursData.result.filter(tour => tour.group === "groups tour");
@@ -47,12 +47,12 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                             <div className='flex flex-col justify-start'>
                                                 <div className="text-gray-700 flex justify-between font-semibold capitalize">
                                                     <h1 className='border-b-2 pl-2 w-full pb-2 font-openSans'>
-                                                        {category.name}
+                                                        {category.english}
                                                     </h1>
                                                 </div>
                                                 <div className='text-black capitalize font-primary'>
                                                     {destination.map((dest) => (
-                                                        <div><p className='hover:bg-slate-200 font-openSans text-md rounded-lg p-2 duration-300 transition-all ease-in-out'>{dest.name}</p></div>
+                                                        <div><p className='hover:bg-slate-200 font-openSans text-md rounded-lg p-2 duration-300 transition-all ease-in-out'>{dest.english}</p></div>
                                                     ))}
                                                 </div>
                                             </div>
@@ -71,8 +71,8 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                             <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
                                                 {personalTours.map((tour) =>
                                                 (
-                                                    <Link href={`/tours/${tour.name}`}>
-                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.name}</p></div>
+                                                    <Link href={`/tours/${tour.english}`}>
+                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
                                                     </Link>)
                                                 )}
                                             </div>
@@ -85,8 +85,8 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                             </div>
                                             <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
                                                 {groupTours.map((tour) => (
-                                                    <Link href={`/tours/${tour.name}`}>
-                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.name}</p></div>
+                                                    <Link href={`/tours/${tour.english}`}>
+                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
                                                     </Link>
                                                 ))}
                                             </div>

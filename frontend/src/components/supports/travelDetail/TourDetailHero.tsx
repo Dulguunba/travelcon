@@ -5,11 +5,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/component.json'
 import { getServerSideProps } from '../../../utils/fetchTravelDatas'
 import Description from './Description';
-import { Props } from '@/pages';
 import Header from '../homePage/Header';
+import { FetchDataProps } from '@/types/fetchDataProps';
 
 
-const TourDetailHero = ({ toursData, travelDatas, destinationDatas, categoryDatas }: Props) => {
+const TourDetailHero = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
     const tour = travelDatas.result.filter(travel => travel._id === "66069e7a464834a5e2273c97");
     const widerName = travelDatas.result.map((data) => data.name.length > 28)
 

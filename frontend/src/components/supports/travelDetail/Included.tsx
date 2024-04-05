@@ -1,9 +1,10 @@
 import React from 'react'
 import { getServerSideProps } from './TourDetailHero'
-import { Props } from '@/pages';
+import { FetchDataProps } from '@/types/fetchDataProps';
 
 
-const Included = ({ toursData, travelDatas }: Props) => {
+
+const Included = ({ toursData, travelDatas }: FetchDataProps) => {
     const tourDatas = toursData.result;
     const slicedData = tourDatas.slice(0, 8)
     const notIncludedData = tourDatas.slice(8, 13)

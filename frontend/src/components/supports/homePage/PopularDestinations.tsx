@@ -1,8 +1,6 @@
 import { LocationIcon } from '@/components/icons/homePage';
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
 import { Travel } from '@/types/travelTypes';
-
-import Link from 'next/link';
 import CarouselCard from './CarouselCard';
 import { Destination } from '@/types/destinationTypes';
 

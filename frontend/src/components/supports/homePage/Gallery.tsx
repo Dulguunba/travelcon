@@ -27,7 +27,7 @@ const Gallery = ({ travelDatas }: { travelDatas: Travel }) => {
                                     <div className="row-span-3">
                                         <img className='h-full rounded-3xl' src="PersonWithEagle.jpg" alt="" />
                                     </div>
-                                    <div className="row-span-2">
+                                    <div className="row-span-3">
                                         <img className='h-full rounded-3xl' src="GobiDesert.jpg" alt="" />
                                     </div>
                                 </div>
