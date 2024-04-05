@@ -4,8 +4,6 @@ import { Correct, Wrong, LocationBlue, TimeBlue, DollarBlue, Human } from '@/com
 export const Order = () => {
     const [name, setName] = useState('')
     const [currentDate, setCurrentDate] = useState(new Date());
-
-    // Function to update the date
     const updateDate = () => {
         setCurrentDate(new Date());
     };

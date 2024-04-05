@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { OrderCard } from "@/components/supports/bookingOrderPage/OrderCard";
-
+import { FormComponent } from "@/components/supports/destinationPage/FormComponent";
+import { Props } from "@/types/fetchDataProps";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Bookingorder() {
+export default function Bookingorder({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) {
   const calendars = [
     {
       startDay: "2024-04-06",
@@ -15,9 +16,8 @@ export default function Bookingorder() {
   ];
 
   return (
-    <main
-      className={`flex min-h-screen max-h-screen h-full flex-col w-1/3 items-start justify-start bg-gray-50 ${inter.className}`}
-    >
+    <main>
+      <FormComponent toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
       <OrderCard calendar={calendars} />
     </main>
   );
