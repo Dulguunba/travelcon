@@ -77,6 +77,10 @@ const travelSchema = new Schema({
   calendar: {
     type: Array,
   },
+  destination:{
+    type: Schema.ObjectId,
+    ref: "destination"
+  },
   createdAt: {
     type: Date,
     required: [true, "Please insert input"],

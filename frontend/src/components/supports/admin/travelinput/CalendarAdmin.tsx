@@ -90,7 +90,7 @@ export const CalendarAdmin = () => {
             <button
               type="submit"
               onClick={submitTravelCalendar}
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
+              className="bg-blue text-white p-2 rounded-lg font-semibold"
             >
               Хадгалах
             </button>

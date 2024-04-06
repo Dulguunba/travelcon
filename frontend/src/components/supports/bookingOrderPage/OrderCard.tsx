@@ -10,7 +10,7 @@ type TravelCalendar = {
 
 export const OrderCard = ({ calendar }: { calendar: TravelCalendar[] }) => {
   return (
-    <div className="flex flex-col gap-4 w-full border border-gray-200 rounded-xl p-4">
+    <div className="flex flex-col gap-4 w-full border border-gray-200 rounded-xl p-4 bg-white">
       <h2 className="font-semibold text-xl">Аялал хийх өдрөө сонгоно уу</h2>
       <div className="w-full flex flex-col gap-3">
         {calendar.map((travelCalendar: TravelCalendar) => (
@@ -25,7 +25,7 @@ export const OrderCard = ({ calendar }: { calendar: TravelCalendar[] }) => {
                   <strong>{travelCalendar.startTime}</strong>
                 </p>
               </div>
-              <button className="p-2 text-center rounded-lg bg-blue-500 text-white">
+              <button className="p-2 text-center rounded-lg border bg-blue text-white">
                 Захиалга хийх
               </button>
             </div>
