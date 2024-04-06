@@ -52,7 +52,8 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                                 </div>
                                                 <div className='text-black capitalize font-primary'>
                                                     {destination.map((dest) => (
-                                                        <div><p className='hover:bg-slate-200 font-openSans text-md rounded-lg p-2 duration-300 transition-all ease-in-out'>{dest.english}</p></div>
+                                                        <Link href={`/destination/${dest.english}`}><div><p className='hover:bg-slate-200 font-openSans text-md rounded-lg p-2 duration-300 transition-all ease-in-out'>{dest.english}</p></div>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                             </div>

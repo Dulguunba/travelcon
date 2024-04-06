@@ -6,7 +6,7 @@ import { FetchDataProps } from '@/types/fetchDataProps';
 
 
 const Itinerary = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
-    const tour = travelDatas.result.filter(travel => travel._id === "66069e7a464834a5e2273c97");
+    const tour = travelDatas.result.filter(travel => travel._id === "66100067d0b3d401b5e0e2d8");
 
     return (
         <div className='w-full flex flex-col gap-10 mt-14'>

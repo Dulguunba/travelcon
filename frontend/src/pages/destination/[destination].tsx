@@ -1,9 +1,15 @@
 import React from 'react'
-import Header from '../homePage/Header'
 import { FetchDataProps } from '@/types/fetchDataProps'
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
+import { useRouter } from 'next/router'
+import Header from '@/components/supports/homePage/Header'
+import { DestinationDetailMain } from '@/components/supports/destinationDetail/DestinationDetailMain'
+import { TourPackages } from '@/components/supports/destinationDetail/TourPackages'
+import { Footer } from '@/components/supports/destinationPage/Footer'
 
 const DestinationDetailHero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
+    const router = useRouter();
+    const { destination } = router.query;
     return (
         <>
             <img src="GerWithStars.jpg" className='lg:w-full h-[600px] lg:h-[1042px]' alt="" />
@@ -12,23 +18,30 @@ const DestinationDetailHero = ({ travelDatas, toursData, destinationDatas, categ
                 <div className='lg:max-w-[1520px] lg:m-auto lg:w-[90%] lg:h-[600px] mt-8 flex lg:mt-8 justify-center'>
                     <div>
                         <div className='flex flex-col items-center'>
-                            <div className='z-10 text-white flex justify-center gap-3 lg:mt-20 lg:text-[20px] lg:leading-[30px] font-primary'>
+                            <div className='z-0 text-white flex justify-center gap-3 lg:mt-20 lg:text-[20px] lg:leading-[30px] font-primary'>
                                 <p className='border-r-2 pr-3'>Home</p>
                                 <p className='border-r-2 pr-3'>Destinations</p>
-                                <p>Eastern Mongolia</p>
+                                {destinationDatas.result.map((dest) => (
+                                    dest.english === destination
+                                        ? <p className='capitalize'>{dest.destinationCategory.english}</p>
+                                        : null
+                                ))}
                             </div>
                             <div className='flex flex-col items-center drop-shadow-md'>
-                                <h1 className='font-oswald drop-shadow-md font-bold lg:text-[200px] xl:text-[246px] text-[50px] text-white uppercase'>GOvisumber</h1>
+                                <h1 className='font-oswald drop-shadow-md font-bold lg:text-[200px] xl:text-[246px] text-[50px] text-white uppercase'>{destination}</h1>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='flex items-center justify-center'>
+            <div className='flex mt-20 items-center justify-center'>
                 <div className='max-w-[1520px] w-[90%]'>
-                    asdasd
+                    <DestinationDetailMain />
+                    <TourPackages />
+
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

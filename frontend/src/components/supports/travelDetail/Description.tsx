@@ -9,7 +9,7 @@ import { FetchDataProps } from '@/types/fetchDataProps'
 
 
 const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
-    const tour = travelDatas.result.filter(travel => travel._id === "66069e7a464834a5e2273c97");
+    const tour = travelDatas.result.filter(travel => travel._id === "66100067d0b3d401b5e0e2d8");
     const [isTextShown, setIsTextShown] = useState(false);
     const toggleText = () => {
         setIsTextShown(!isTextShown);
@@ -33,8 +33,7 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
                                     {tour.map((data) => (
                                         <div className='flex gap-4'>
                                             {/* <Dollar width='24' height='24' fill='#4997D3' /> */}
-                                            <div className='p-2 bg-blue w-[24px] h-[24px] font-openSans text-white flex justify-center items-center rounded-full'>₮</div>
-                                            <div className='flex gap-2'>
+                                            <div className='p-2 bg-blue w-[24px] h-[24px] font-openSans text-white flex justify-center items-center rounded-full'>₮</div>                                         <div className='flex gap-2'>
                                                 {data.price.adultPrice.toLocaleString()} <p className='font-semibold font-openSans'>(Adult)</p>
 
                                                 {data.price.childPrice.toLocaleString()} <p className='font-semibold font-openSans'>(Child)</p>
@@ -76,7 +75,7 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
                         </div>
                     ))}
                 </div>
-                {/* <Included destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} /> */}
+                <Included destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
                 <Itinerary destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
                 <Reviews toursData={toursData} travelDatas={travelDatas} />
             </div>
