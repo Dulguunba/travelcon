@@ -16,7 +16,7 @@ export { Check } from './Check';
 export { Checked } from './Checked';
 export { DownArrow } from './DownArrow';
 export { HamBurger } from './HamBurger';
-export { Ig } from './Ig';
+export { Instagram } from './Instagram';
 export { Fb } from './Fb'
 export { Twitter } from './Twitter'
 export { Search } from './Search';

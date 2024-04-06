@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LocationIcon } from '@/components/icons/homePage'
 import { TimeIcon, CalendarIcon } from '@/components/icons/travelDetail'
 import Included from './Included'
@@ -9,6 +9,11 @@ import { Props } from '@/pages'
 
 const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }: Props) => {
     const tour = travelDatas.result.filter(travel => travel._id === "66069e7a464834a5e2273c97");
+    const [isTextShown, setIsTextShown] = useState(false);
+    const toggleText = () => {
+        setIsTextShown(!isTextShown);
+    };
+
     return (
         <div className='flex items-center justify-center'>
             <div className='max-w-[1520px] w-[90%]'>
@@ -59,8 +64,14 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
 
                     </div>
                     {tour.map((data) => (
-                        <div className='font-openSans font-medium lg:text-lg lg:w-[693px]'>
-                            {data.additionalInfo}
+                        <div className='font-openSans font-medium lg:h-full lg:text-lg lg:w-[693px]'>
+                            {isTextShown
+                                ? data.additionalInfo
+                                : data.additionalInfo.substring(0, 300) + "..."
+                            }
+                            <button className='ml-5 text-gray-500' onClick={toggleText}>
+                                {isTextShown ? "See Less" : "See More"}
+                            </button>
                         </div>
                     ))}
                 </div>

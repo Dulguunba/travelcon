@@ -1,4 +1,4 @@
-import { Brand, Fb, Ig, Twitter } from '@/components/icons/destinationPage'
+import { Brand, Fb, Instagram, Twitter } from '@/components/icons/destinationPage'
 import React from 'react'
 
 export const Footer = () => {
@@ -13,11 +13,10 @@ export const Footer = () => {
                         <a className='text-white font-light text-base ' href="/destination">Destination</a>
                         <a className='text-white font-light text-base ' href="/tours">Tours</a>
                         <a className='text-white font-light text-base ' href="/about">About</a>
-                        <a className='text-white font-light text-base ' href="/contact">Contact</a>
                     </div>
                     <div className='flex gap-6 flex-wrap'>
                         <Fb />
-                        <Ig />
+                        <Instagram />
                         <Twitter />
                     </div>
                 </div>

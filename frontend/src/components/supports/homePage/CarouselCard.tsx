@@ -27,7 +27,7 @@ const CarouselCard = ({ responsiveTitle, image, title, icon, miniTitle, descript
   return (
     <div className='relative'>
       <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='cursor-pointer rounded-3xl'>
-        <img src={image} className={`${isHovered ? "lg:w-[713px] lg:h-[609px]" : "lg:w-[372px] lg:h-[503px]"} transition-all w-[417px] h-[464px] m-auto ease-out duration-1000 rounded-3xl`} />
+        <img src={image} className={`${isHovered ? "lg:w-[713px] lg:h-[609px]" : "lg:w-[472px] lg:h-[503px]"} transition-all w-[417px] h-[464px] m-auto ease-out duration-1000 rounded-3xl`} />
         <div className='lg:hidden flex items-center flex-col mt-2'>
           <div className='font-primary text-2xl font-bold'>{responsiveTitle}</div>
           <div className='flex gap-1 items-center font-primary mt-2'>
@@ -46,8 +46,8 @@ const CarouselCard = ({ responsiveTitle, image, title, icon, miniTitle, descript
                 </div>
                 <p className='text-xl text-gray-500'>{description}</p>
                 <div className='flex gap-5'>
-                  <button className='lg:p-3  lg:w-[147px] rounded-lg font-medium bg-white text-black'>Book now</button>
-                  <button className='border lg:w-[147px] rounded-lg font-medium border-white p-3'>Learn more</button>
+                  <button className='lg:p-3  lg:w-[147px] rounded-lg font-medium bg-white btn text-black'>Book now</button>
+                  <button className='border lg:w-[147px] rounded-lg font-medium border-white btn bg-black text-white p-3'>Learn more</button>
                 </div>
               </div>
             </div>

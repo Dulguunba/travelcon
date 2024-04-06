@@ -1,20 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Dollar, LocationWhite } from '@/components/icons/destinationPage'
-import { ListCard } from './ListCard'
-import { DestinationCategory } from '@/types/destinationCategoryTypes'
-import { Destination } from '@/types/destinationTypes'
-import { Tours } from '@/types/toursTypes'
-import { Travel } from '@/types/travelTypes'
-interface Props {
-  travelDatas: Travel
-  toursData: Tours
-  destinationDatas: Destination
-  categoryDatas: DestinationCategory
-}
+import { Props } from "@/types/fetchDataProps";
+
 export const Card = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) => {
   const LearnMore = () => {
     console.log("first")
   }
+  const widerName = travelDatas.result.map((data) => data.name.length > 25)
   return (
     <>
       {travelDatas.result.map((item, index) => (
@@ -22,7 +14,7 @@ export const Card = ({ travelDatas, toursData, destinationDatas, categoryDatas }
           <img className='rounded-3xl w-full h-full absolute -z-[1]' src={`${item?.image?.mainImage}`} alt="gazriin zurag" />
           <div className="image">
             <h1> {item.name}</h1 >
-            <div id='p' className='flex items-center w-[356px] gap-5'>
+            <div id='p' className='flex items-center  gap-5'>
               <div className='flex items-center w-[132px] gap-2'>
                 <LocationWhite />
                 <p>20 Packages</p>
@@ -30,25 +22,25 @@ export const Card = ({ travelDatas, toursData, destinationDatas, categoryDatas }
               <p>|</p>
               <div className='flex items-center w-[132px] gap-2'>
                 <Dollar />
-                <p>500 1000</p>
+                <p>Start from ₮{item.price.adultPrice}</p>
               </div>
             </div>
           </div >
           <div className="details">
             <div className="center">
-              <h1>Place name</h1>
-              <div className='flex items-center w-[356px] gap-5'>
-                <div className='flex items-center w-[132px]'>
+              <h1 className={` text-[32px] ${widerName ? "lg:text-[24px] text-[18px] font-medium" : " font-bold"}`}>{item.name}</h1>
+              <div className='flex items-center  gap-3'>
+                <div className='flex items-center w-[132px] gap-3'>
                   <LocationWhite />
                   <p>20 Packages </p>
                 </div>
                 <p>|</p>
-                <div className='flex items-center w-[132px]'>
+                <div className='flex items-center w-[132px] gap-3'>
                   <Dollar />
-                  <p>500 1000</p>
+                  <p>Start from ₮{item.price.adultPrice}</p>
                 </div>
               </div>
-              <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.</p>
+              <p className='overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p>
               <button className='button'>Learn more</button>
             </div>
           </div>

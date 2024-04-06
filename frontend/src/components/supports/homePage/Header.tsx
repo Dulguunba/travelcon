@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getServerSideProps } from '@/utils/fetchTravelDatas';
 import { BurgerMenu, DownArrow, XIcon } from '@/components/icons/homePage';
 import { Props } from '@/pages';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 
 const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
@@ -24,15 +25,19 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
         return { category, destination: destinationsInCategory };
     });
 
-    console.log('destByCat', destinationsByCategory)
+    const { user, error, isLoading } = useUser();
+
+
     return (
         <>
             <div className="flex flex-col items-center justify-center">
                 <div className='flex max-w-[1520px] w-[90%] z-10'>
                     <div className={`${isScrolled ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black" : ""} flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}>
-                        <div className='p-2 bg-green-300'>
-                            Logo
-                        </div>
+                        <Link href={'/'}>
+                            <div className='p-2 bg-green-300'>
+                                Logo
+                            </div>
+                        </Link>
                         <div className='hidden lg:flex gap-14 lg:items-center lg:drop-shadow-lg'>
                             <div className='flex items-center relative gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
                                 <div className="dropdown dropdown-hover relative">
@@ -63,11 +68,11 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                             <div className="text-gray-700 font-semibold pl-2 capitalize">
                                                 <h1 className='border-b-2 pb-1'>{personalTours.length > 0 ? personalTours[0].group : ''}</h1>
                                             </div>
-                                            <div className='text-black mt-2 flex flex-col gap-3 capitalize'>
+                                            <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
                                                 {personalTours.map((tour) =>
                                                 (
-                                                    <Link href={`/tours/${tour.english}`}>
-                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
+                                                    <Link href={`/tours/${tour.name}`}>
+                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.name}</p></div>
                                                     </Link>)
                                                 )}
                                             </div>
@@ -78,10 +83,10 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                                     {groupTours.length > 0 ? groupTours[0].group : ''}
                                                 </h1>
                                             </div>
-                                            <div className='text-black mt-2 flex flex-col gap-3 capitalize'>
+                                            <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
                                                 {groupTours.map((tour) => (
-                                                    <Link href={`/tours/${tour.english}`}>
-                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
+                                                    <Link href={`/tours/${tour.name}`}>
+                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.name}</p></div>
                                                     </Link>
                                                 ))}
                                             </div>
@@ -89,17 +94,24 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                                     </ul>
                                 </div>
                             </div>
-                            <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p>
-                            <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Blog</p>
-                            <p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Contact</p>
+                            <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
                         </div>
-                        <div className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
-                            Sign in
-                        </div>
+                        {user?.name ? (
+                            <>
+                                <div className='flex gap-6 items-center'>Hi, {user.name}
+                                    <a href="/api/auth/logout" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
+                                        Log Out
+                                    </a>
+                                </div>
+                            </>
+                        ) : (
+                            <a href="/api/auth/login" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
+                                Log in
+                            </a>
+                        )}
                         <div className='lg:hidden block'>
                             <button onClick={() => { setShowMenu(true) }}>
                                 {isScrolled ? <BurgerMenu fill='#4997D3' /> : <BurgerMenu fill='white' />}
-
                             </button>
                         </div>
                     </div>
@@ -121,7 +133,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: Props) => {
                         <Link className='w-full  text-xl font-semibold' href={'/destination'}><li>Destination</li></Link>
                         <Link className='w-full  text-xl font-semibold' href={'/tours'}><li>Tours</li></Link>
                         <Link className='w-full text-xl font-semibold' href={'/about'}><li>About</li></Link>
-                        <Link className='w-full text-xl font-semibold' href={'/about'}><li>Sign In</li></Link>
+                        {user?.name ? (<a className='w-full text-xl font-semibold' href='/api/auth/logout'>Log out</a>) : (<a className='w-full text-xl font-semibold' href='/api/auth/login'>Log in</a>)}
                     </ul>
                 </div>
             </div>

@@ -1,18 +1,8 @@
 import React, { useState } from 'react'
-import { Travel } from '@/types/travelTypes'
-import { Tours } from '@/types/toursTypes'
-import { Destination } from '@/types/destinationTypes'
-import { DestinationCategory } from '@/types/destinationCategoryTypes'
 import { HamBurger, Search, Window } from '@/components/icons/destinationPage'
 import { ListCard } from './ListCard'
 import { Card } from './Card'
-
-interface Props {
-    travelDatas: Travel
-    toursData: Tours
-    destinationDatas: Destination
-    categoryDatas: DestinationCategory
-}
+import { Props } from "@/types/fetchDataProps";
 
 export const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -38,17 +28,19 @@ export const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }
             <div className='flex flex-col items-center justify-center bg-[white]'>
                 <div className='flex max-w-[1520px] w-[90%] py-5 flex-col'>
                     <div className='flex justify-between w-full items-center flex-wrap'>
-                        <h1 className='font-oswald font-bold md:text-[40px] md:leading-[50px] '>POPULAR DESTINATION</h1>
-                        <div className='flex justify-between w-full items-center flex-wrap'>
-                            <div className='flex items-center border-b-2 py-4'>
-                                <input className='outline-0' type="search" placeholder='Search' />
-                                <Search />
+                        <div className='md:flex justify-between w-full'>
+                            <h1 className='font-oswald font-bold md:text-[40px] md:leading-[50px] '>POPULAR DESTINATION</h1>
+                            <div className='flex justify-between  items-center flex-wrap'>
+                                <div className='flex items-center border-b-2 py-4'>
+                                    <input className='outline-0' type="search" placeholder='Search' />
+                                    <Search />
+                                </div>
                             </div>
                         </div>
                         <div className='flex flex-wrap justify-between'>
 
                         </div>
-                        <div className='pt-16 flex justify-between gap-4 items-center flex-wrap w-full'>
+                        <div className={`pt-16 flex justify-between gap-4 items-center flex-wrap w-full z-1 ${toggle ? 'pb-[120px]' : 'pb-[1px]'} md:pb-1`}>
                             <div className='flex md:gap-10 gap-4 flex-wrap'>
                                 <button onClick={() => selectCategory('All')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4  font-medium text-xl  rounded-[10px] ${selectedCategory === 'All' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>All</button>
                                 <button onClick={() => selectCategory('Best')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Best' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>Best seller</button>
