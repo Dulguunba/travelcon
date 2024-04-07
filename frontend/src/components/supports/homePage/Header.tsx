@@ -27,16 +27,14 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
 
     const { user, error, isLoading } = useUser();
 
-
+    console.log(user)
     return (
         <>
             <div className="flex flex-col items-center justify-center">
                 <div className='flex max-w-[1520px] w-[90%] z-10'>
                     <div className={`${isScrolled ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black" : ""} flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}>
                         <Link href={'/'}>
-                            <div className='p-2 bg-green-300'>
-                                Logo
-                            </div>
+                            <img className='w-[100px] h-[50px]' src="logoNoBackground.png" alt="" />
                         </Link>
                         <div className='hidden lg:flex gap-14 lg:items-center lg:drop-shadow-lg'>
                             <div className='flex items-center relative gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
@@ -72,9 +70,9 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                             <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
                                                 {personalTours.map((tour) =>
                                                 (
-                                                    <Link href={`/tours/${tour.english}`}>
-                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-                                                    </Link>)
+
+                                                    <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
+                                                )
                                                 )}
                                             </div>
                                         </div>
@@ -86,9 +84,9 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                             </div>
                                             <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
                                                 {groupTours.map((tour) => (
-                                                    <Link href={`/tours/${tour.english}`}>
-                                                        <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-                                                    </Link>
+
+                                                    <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
+
                                                 ))}
                                             </div>
                                         </div>
@@ -96,10 +94,14 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                 </div>
                             </div>
                             <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
+                            {user &&
+                                <Link href={`dashboard/${user.sid}`}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>Dashboard</p></Link>
+                            }
                         </div>
                         {user?.name ? (
                             <>
-                                <div className='flex gap-6 items-center'>Hi, {user.name}
+                                <div className='flex gap-6 items-center'>
+
                                     <a href="/api/auth/logout" className='hidden lg:block p-3 border rounded-lg font-medium cursor-pointer hover:-translate-y-1 transition ease-in-out hover:scale-110'>
                                         Log Out
                                     </a>
@@ -110,7 +112,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                 Log in
                             </a>
                         )}
-                        <div className='lg:hidden block'>
+                        <div className='lg:hidden'>
                             <button onClick={() => { setShowMenu(true) }}>
                                 {isScrolled ? <BurgerMenu fill='#4997D3' /> : <BurgerMenu fill='white' />}
                             </button>
@@ -125,9 +127,10 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                         <button className='ml-4 mt-5' onClick={() => { setShowMenu(false) }}>
                             <XIcon width='18' fill='#4997D3' />
                         </button>
-                        <div className='p-3 flex mt-10 w-10 h-10 m-auto bg-black text-white'>
-                            Logo
+                        <div className='flex items-center justify-center'>
+                            <img className='w-1/2' src="logoNoBackground.png" alt="" />
                         </div>
+
                     </div>
                     <ul className='ml-2 mr-2 mt-10 font-primary flex flex-col gap-6'>
                         <Link className='w-full  text-xl font-semibold' href={'/'}><li>Home</li></Link>

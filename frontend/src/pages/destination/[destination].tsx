@@ -14,7 +14,7 @@ const DestinationDetailHero = ({ travelDatas, toursData, destinationDatas, categ
         <>
             {travelDatas.result.map((data) => (
                 data.destination.english === destination
-                    ? <img src={data.image.mainImage} className='lg:w-full h-[600px] lg:h-[1042px]' alt="" />
+                    ? <img src={data.image.mainImage} className='lg:w-full h-[500px] lg:h-[1042px]' alt="" />
                     : null
             ))}
 
@@ -41,8 +41,8 @@ const DestinationDetailHero = ({ travelDatas, toursData, destinationDatas, categ
             </div>
             <div className='flex mt-20 items-center justify-center'>
                 <div className='max-w-[1520px] w-[90%]'>
-                    <DestinationDetailMain />
-                    <TourPackages />
+                    <DestinationDetailMain destinationDatas={destinationDatas} />
+                    <TourPackages travelDatas={travelDatas} />
                 </div>
             </div>
             <Footer />
