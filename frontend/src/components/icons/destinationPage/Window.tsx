@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export const Window = ({ color }: { color: string }) => {
+  /// test
   return (
     <svg
       width="20"
