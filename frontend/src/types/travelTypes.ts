@@ -41,6 +41,7 @@ export interface Travel {
         createdAt: string;
         updatedAt: string;
         __v: number;
+        maxTourist: number;
     }
     ]
 }

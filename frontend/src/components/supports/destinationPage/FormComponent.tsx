@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dollar, Left, LocationWhite, Right, Select, } from '@/components/icons/destinationPage'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -11,8 +11,6 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
             lastName: '',
             email: '',
             phoneNumber: '',
-            insurance: false,
-            privacyAccept: false,
 
         },
         validationSchema: Yup.object({
@@ -24,8 +22,7 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
                 .required('Required'),
             email: Yup.string().email('Invalid email address').required('Required'),
             phoneNumber: Yup.string().required('Phone number is required'),
-            insurance: Yup.boolean().oneOf([true], 'Insurance acceptance is required'),
-            privacyAccept: Yup.boolean().oneOf([true], 'Privacy policy acceptance is required')
+
         }),
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
@@ -34,21 +31,47 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
                 firstName: formik.values.firstName,
                 email: formik.values.email,
                 phoneNumber: formik.values.phoneNumber,
-                insurance: formik.values.insurance,
-                privacyAccept: formik.values.privacyAccept
+
             }
         },
     });
+    const [childCount, setChildCount] = useState(0);
+    const [adultCount, setAdultCount] = useState(1);
+    const [disableChild, setDisableChild] = useState('')
+    const [disableAdult, setDisableAdult] = useState('')
+
+    const handleChildIncrement = () => {
+        if (childCount < 20 - 1) {
+            setChildCount(childCount + 1);
+        }
+    };
+
+    const handleChildDecrement = () => {
+        if (childCount > 0) {
+            setChildCount(childCount - 1);
+        }
+        if (childCount === 0) {
+            setDisableAdult('enable')
+        }
+    };
+
+    const handleAdultIncrement = () => {
+        if (adultCount < 20) {
+            setAdultCount(adultCount + 1);
+        }
+    };
+
+    const handleAdultDecrement = () => {
+        if (childCount === 1) {
+            setDisableAdult('enable')
+        }
+        if (adultCount > 1) {
+            setAdultCount(adultCount - 1);
+        }
+    };
+
     return (
         <>
-            {/* <div className="flex flex-col items-center justify-center bg-[url('/place.png')] bg-no-repeat bg-cover">
-                <div className='flex max-w-[1520px] w-[90%] py-5 flex-col h-[600px] md:h-[950px]'>
-                    <div className='flex items-center justify-center h-full flex-col'>
-                        <p className='text-white'> Home    |   Destination</p>
-                        <h1 className='font-oswald text-white font-bold  md:text-[200px] md:leading-[200px] text-[40px] leading-[50px]'>BOOKING FORM</h1>
-                    </div>
-                </div>
-            </div> */}
             <div className="flex flex-col items-center justify-center bg-white pt-20">
                 <div className='flex max-w-[1520px] w-[90%] flex-col '>
                     <form onSubmit={formik.handleSubmit}>
@@ -63,8 +86,6 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
                                 <div className='flex gap-[30px] w-full'>
                                     <div className='max-w-[745px] w-full flex items-center rounded-[15px] bg-grayColor h-[100px]'><input id="firstName" type="firstName" {...formik.getFieldProps('firstName')} className='bg-grayColor rounded-[15px] pl-12 w-full h-full' placeholder='Amelia' /> </div>
                                 </div>
-
-
                             </div>
                             <div className='w-full'>
                                 <div className='flex pb-4'>
@@ -72,7 +93,6 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
                                     <p className='text-blue'>*</p>
                                     {formik.touched.firstName && formik.errors.firstName ? (<div className='lg:pl-[20px]'>{formik.errors.firstName}</div>) : null}
                                 </div>
-
                                 <div className='lg:max-w-[745px] w-full  flex items-center rounded-[15px] bg-grayColor h-[100px]'> <input id="lastName" type="lastName" {...formik.getFieldProps('lastName')} className='bg-grayColor rounded-[15px] pl-12 w-full h-full' placeholder='Watson' /></div>
                             </div>
                         </div>
@@ -123,36 +143,43 @@ export const FormComponent = ({ travelDatas, toursData, destinationDatas, catego
                             </div>
                         </div>
                         <div className='md:flex justify-between pt-20 pb-[120px]'>
-                            <div>
-                                <div className='flex gap-4 items-center'>
-                                    <input
-                                        id='insurance'
-                                        type="checkbox"
-                                        checked={formik.values.insurance}
-                                        {...formik.getFieldProps('insurance')}
-                                        className="checkbox"
-                                    />
-                                    <p>Get me a travel insurance that covers my whole trip safety and cancellation.</p>
-                                </div>
-                                {formik.touched.insurance && formik.errors.insurance ? (<div className='pl-5'>{formik.errors.insurance}</div>) : null}
-                                <div className='flex gap-4 items-center py-4'>
-                                    <input
-                                        id='privacyAccept'
-
-                                        type="checkbox"
-                                        checked={formik.values.privacyAccept}
-                                        {...formik.getFieldProps('privacyAccept')}
-                                        className="checkbox"
-                                    />
-                                    <p>I have read all terms & condition and privacy policy.</p>
-                                </div>
-                                {formik.touched.privacyAccept && formik.errors.privacyAccept ? (<div className='pl-5'>{formik.errors.privacyAccept}</div>) : null}
-                            </div>
+                            {travelDatas.result.map((item, index) => (
+                                item._id === "66100067d0b3d401b5e0e2d8" ? (
+                                    <>
+                                        <div key={index} className='border-2 w-[500px] rounded-xl border-[#F15D31] p-4' >
+                                            <div className='flex items-center justify-between pb-4'>
+                                                <div>
+                                                    <h1>Children</h1>
+                                                    <p>{item.price.childPrice}</p>
+                                                </div>
+                                                <div className='p-4 border border-black rounded-lg flex justify-between'>
+                                                    <button className='w-7 h-7 bg-orange-500 rounded-sm flex items-center justify-center' onClick={handleChildDecrement}>-</button>
+                                                    <input className='outline-0 w-[84px] px-3 text-center' min={0} max={item.maxTourist - 1} value={childCount} readOnly />
+                                                    <button className='w-7 h-7 bg-orange-500 rounded-sm flex items-center justify-center' onClick={handleChildIncrement}>+</button>
+                                                </div>
+                                            </div>
+                                            <div className='flex items-center justify-between'>
+                                                <div>
+                                                    <h1>Adult</h1>
+                                                    <p>{item.price.adultPrice}</p>
+                                                </div>
+                                                <div className='p-4 border border-black rounded-lg flex justify-between'>
+                                                    <button className='w-7 h-7 bg-orange-500 rounded-sm flex items-center justify-center' onClick={handleAdultDecrement}>-</button>
+                                                    <input className='outline-0 w-[84px] px-3 text-center' min={1} max={item.maxTourist} value={adultCount} readOnly />
+                                                    <button className='w-7 h-7 bg-orange-500 rounded-sm flex items-center justify-center' onClick={handleAdultIncrement}>+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        < div > Total</div>
+                                        <div>{childCount * item.price.childPrice + adultCount * item.price.adultPrice}</div>
+                                    </>)
+                                    : null
+                            ))}
                             <button type="submit" className='md:py-[30px] md:px-[100px] py-[15px] px-12 bg-blue text-white rounded-xl'>Book Now</button>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </form >
+                </div >
+            </div >
         </>
     )
 }
