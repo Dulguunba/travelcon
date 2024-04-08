@@ -9,24 +9,19 @@ import Gallery from "@/components/supports/homePage/Gallery";
 import PopularDestinations from "@/components/supports/homePage/PopularDestinations";
 import { Tours } from "@/types/toursTypes";
 import { Travel } from "@/types/travelTypes";
-// import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/supports/destinationPage/Footer";
 import { Destination } from "@/types/destinationTypes";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
+import { FetchDataProps } from "@/types/fetchDataProps";
+import { Loading } from "@/components/supports/Loading";
 
-
-export interface Props {
-  toursData: Tours
-  travelDatas: Travel
-  destinationDatas: Destination
-  categoryDatas: DestinationCategory
-}
 const poppins = Poppins({
   weight: "400",
   subsets: ["latin"],
 });
 
-function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) {
+function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) {
   return (
     <div>
       <Hero travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} />
@@ -36,7 +31,7 @@ function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: Props
       <Value text="VALUES" miniText="OUR VALUES" margin="mb-20" padding="pt-20" />
       <Questions />
       <MainFooter />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

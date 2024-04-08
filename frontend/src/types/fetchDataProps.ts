@@ -3,7 +3,7 @@ import { Destination } from "./destinationTypes"
 import { Tours } from "./toursTypes"
 import { Travel } from "./travelTypes"
 
-export interface Props {
+export interface FetchDataProps {
     toursData: Tours
     travelDatas: Travel
     destinationDatas: Destination

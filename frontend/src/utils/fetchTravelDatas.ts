@@ -24,7 +24,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
                 travelDatas,
                 toursData,
                 categoryDatas,
-                destinationDatas
+                destinationDatas,
+
             }
         }
     } catch (error) {
@@ -34,7 +35,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
                 travelDatas: [],
                 toursData: [],
                 categoryDatas: [],
-                destinationDatas: []
+                destinationDatas: [],
+
             }
         };
     }

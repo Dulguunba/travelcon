@@ -1,14 +1,21 @@
-import { useRouter } from 'next/router'
-import React from 'react'
+import { Travel } from '@/types/travelTypes'
+import TourDetailHero, { getServerSideProps } from '@/components/supports/travelDetail/TourDetailHero'
+import React, { useState } from 'react'
+// import { Footer } from '@/components/Footer'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { FetchDataProps } from '@/types/fetchDataProps';
 
-const Tours = () => {
-    const router = useRouter();
-    const { tour } = router.query;
+
+const TourDetail = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
+
     return (
         <div>
-            {tour ? `Tour: ${tour}` : 'Loading...'}
+            <TourDetailHero destinationDatas={destinationDatas} categoryDatas={categoryDatas} travelDatas={travelDatas} toursData={toursData} />
         </div>
     )
 }
 
-export default Tours
+export { getServerSideProps };
+
+export default TourDetail;

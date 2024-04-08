@@ -4,6 +4,7 @@ import ReviewCard from './ReviewCard';
 import { getServerSideProps } from './TourDetailHero';
 import { Tours } from '@/types/toursTypes';
 import { Travel } from '@/types/travelTypes';
+import { ReviewForm } from './ReviewForm';
 
 interface Props {
     toursData: Tours
@@ -70,6 +71,7 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
                     />
                 ))}
             </div>
+            <ReviewForm />
         </div>
     );
 };

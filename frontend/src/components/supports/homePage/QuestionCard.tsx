@@ -6,7 +6,7 @@ export const QuestionCard = () => {
     const [showAnswers, setShowAnswers] = useState(false);
 
     return (
-        <div className='lg:w-[987px] lg:p-6 p-2 rounded-3xl border transition-all duration-700 ease-in-out'>
+        <div className='lg:w-[987px] lg:p-6 p-4 rounded-2xl lg:rounded-3xl border transition-all duration-700 ease-in-out'>
             <div className='flex justify-between'>
                 <h1 className='lg:text-3xl text-lg font-primary font-medium'>How do I book a trip with Vacasky?</h1>
                 <button onClick={() => { setShowAnswers(!showAnswers) }}>
