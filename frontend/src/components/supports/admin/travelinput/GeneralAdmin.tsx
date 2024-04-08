@@ -8,8 +8,11 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
-import { getDestination, showToastMessage } from "@/functions/TravelUtilities";
+} from "@/utils/functions/AdminFunctions";
+import {
+  getDestination,
+  showToastMessage,
+} from "@/utils/functions/TravelUtilities";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

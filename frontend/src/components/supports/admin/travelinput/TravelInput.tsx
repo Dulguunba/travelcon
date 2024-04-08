@@ -9,7 +9,7 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import { PictureAdmin } from "./PictureAdmin";
 import { RouteAdmin } from "./RouteAdmin";
 import { CalendarAdmin } from "./CalendarAdmin";
