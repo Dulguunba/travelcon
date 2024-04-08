@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
-import { getDestination, showToastMessage } from "@/functions/TravelUtilities";
+import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/utils/functions/AdminFunctions";
+import { getDestination, showToastMessage } from "@/utils/functions/TravelUtilities";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -30,7 +30,7 @@ export const GeneralAdmin = () => {
     },
     validationSchema: Yup.object({
       travelName: Yup.string()
-        .max(50, "Must be 50 characters or less")
+        .max(25, "Must be 25 characters or less")
         .required("Travel name is required"),
       travelCompany: Yup.string()
         .max(50, "Must be 50 characters or less")

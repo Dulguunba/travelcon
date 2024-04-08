@@ -5,13 +5,13 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CalendarAdd } from "./CalendarAdd";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { showToastMessage } from "@/functions/TravelUtilities";
+import { showToastMessage } from "@/utils/functions/TravelUtilities";
 
 export const CalendarAdmin = () => {
   const {

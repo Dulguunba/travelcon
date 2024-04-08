@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { CategoryAdmin } from "./CategoryAdmin";
 import { GeneralAdmin } from "./GeneralAdmin";
 import { FoodAdmin } from "./FoodAdmin";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
+import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/utils/functions/AdminFunctions";
 import { PictureAdmin } from "./PictureAdmin";
 import { RouteAdmin } from "./RouteAdmin";
 import { CalendarAdmin } from "./CalendarAdmin";

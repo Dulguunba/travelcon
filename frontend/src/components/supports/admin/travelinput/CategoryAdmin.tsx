@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useRouter } from "next/router";
-import { instance, showToastMessage } from "@/functions/TravelUtilities";
+import { instance, showToastMessage } from "@/utils/functions/TravelUtilities";
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

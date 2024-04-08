@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { createTravelInfo } from "@/functions/TravelUtilities";
+import { createTravelInfo } from "@/utils/functions/TravelUtilities";
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { showToastMessage } from "@/functions/TravelUtilities";
+import { showToastMessage } from "@/utils/functions/TravelUtilities";
 
 export const LoadingAdmin = () => {
   const { page, increment, decrement } = usePageStore();
