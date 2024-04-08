@@ -3,21 +3,29 @@ import { Inter } from "next/font/google";
 import { getServerSideProps } from "../utils/fetchTravelDatas";
 import React from "react";
 import { Cart } from "@/components/supports/destinationPage/Cart";
-import { Props } from "@/types/fetchDataProps";
+import { FetchDataProps } from "@/types/fetchDataProps";
 const inter = Inter({ subsets: ["latin"] });
 
-
-
-function Destination({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) {
+function Destination({
+  travelDatas,
+  toursData,
+  destinationDatas,
+  categoryDatas,
+}: FetchDataProps) {
   return (
     <>
-      <Cart toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
+      <Cart
+        toursData={toursData}
+        travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+      />
       {/* <Order /> */}
       {/* <Hero toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} /> */}
       {/* <FormComponent /> */}
     </>
   );
-};
+}
 
 export { getServerSideProps };
 
