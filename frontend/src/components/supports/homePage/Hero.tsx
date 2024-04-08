@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
-import Header from './Header'
 import DestinationDropdown from './DestinationDropdown'
 import { FetchDataProps } from '@/types/fetchDataProps';
+import Header from './Header';
 
 
 const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
@@ -16,7 +16,7 @@ const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Fetch
                     <div>
                         <div className='flex flex-col items-center'>
                             <div className='flex flex-col items-center drop-shadow-md'>
-                                <h1 className='lg:text-3xl text-white font-primary lg:text-[32px] text-sm lg:leading-10 drop-shadow-md lg:tracking-widest'>UNFORGETTABLE TRAVEL AWAITS THE</h1>
+                                <h1 className='lg:text-3xl text-white font-primary lg:text-[32px] text-sm lg:leading-10 drop-shadow-md lg:tracking-widest'>TRAVEL TO MONGOLIA</h1>
                                 <h1 className='font-oswald drop-shadow-md font-bold lg:text-[200px] xl:text-[246px] text-[50px] text-white'>ADVENTURE</h1>
                             </div>
                             <p className='text-white font-primary font-normal p-2 lg:w-[730px] text-center'>Experience the thrill of exploring the world's most fascinating destinations

@@ -3,10 +3,14 @@ import TourPackageCard from './TourPackageCard'
 import { useRouter } from 'next/router'
 import { Travel } from '@/types/travelTypes';
 import Link from 'next/link';
+import { Loading } from '../Loading';
 
-export const TourPackages = ({ travelDatas }: { travelDatas: Travel }) => {
+export const TourPackages = ({ travelDatas, isLoading }: { travelDatas: Travel, isLoading: boolean }) => {
     const router = useRouter();
     const { destination } = router.query;
+    if (isLoading) {
+        return <Loading />
+    }
     return (
         <div className='flex items-center flex-col mt-20 mb-20'>
             <h1 className='font-oswald text-3xl lg:text-[40px] font-bold'>AVAILABLE TOUR PACKAGES</h1>

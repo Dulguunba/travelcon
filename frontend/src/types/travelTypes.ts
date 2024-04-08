@@ -45,6 +45,8 @@ export interface Travel {
             _id: string
             name: string
             english: string
+            additionalInfo: string
+            image: string
         }
     }
     ]

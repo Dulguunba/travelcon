@@ -46,7 +46,7 @@ const TourDetailHero = ({ toursData, travelDatas, destinationDatas, categoryData
                         <div className='absolute top-0 right-0 left-0'>
                             <Header toursData={toursData} destinationDatas={destinationDatas} categoryDatas={categoryDatas} travelDatas={travelDatas} />
                             <div className=' max-w-[1520px] m-auto w-[90%] h-[600px] flex lg:mt-8 bg justify-center'>
-                                <div className={`flex flex-col items-center ${data.name.length > 25 ? 'mt-0' : ' mt-20'}`}>
+                                <div className={`flex flex-col items-center ${data.name.length > 25 ? 'mt-0' : 'mt-20'}`}>
                                     <div className='flex-col items-center drop-shadow-lg'>
                                         <div className='z-50 text-white flex justify-center gap-3 lg:text-[20px] lg:leading-[30px] font-primary'>
                                             <p className='border-r-2 pr-3'>Home</p>

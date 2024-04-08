@@ -25,7 +25,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
         return { category, destination: destinationsInCategory };
     });
 
-    const { user, error, isLoading } = useUser();
+    const { user, error } = useUser();
 
     console.log(user)
     return (
@@ -34,7 +34,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                 <div className='flex max-w-[1520px] w-[90%] z-10'>
                     <div className={`${isScrolled ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black" : ""} flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}>
                         <Link href={'/'}>
-                            <img className='w-[100px] h-[50px]' src="logoNoBackground.png" alt="" />
+                            <img className='w-[100px] h-[50px]' src="http://localhost:3000/logoNoBackground.png" alt="" />
                         </Link>
                         <div className='hidden lg:flex gap-14 lg:items-center lg:drop-shadow-lg'>
                             <div className='flex items-center relative gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
@@ -61,8 +61,8 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                             </div>
                             <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
                                 <div className="dropdown dropdown-hover relative">
-                                    <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours <DownArrow /></div>
-                                    <ul tabIndex={0} className="dropdown-content absolute -left-40 z-50 menu p-2 shadow bg-base-100 w-[400px] rounded-box flex-row grid grid-cols-2">
+                                    <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours</div>
+                                    {/* <ul tabIndex={0} className="dropdown-content absolute -left-40 z-50 menu p-2 shadow bg-base-100 w-[400px] rounded-box flex-row grid grid-cols-2">
                                         <div className='flex flex-col'>
                                             <div className="text-gray-700 font-semibold pl-2 capitalize">
                                                 <h1 className='border-b-2 pb-1'>{personalTours.length > 0 ? personalTours[0].group : ''}</h1>
@@ -70,7 +70,6 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                             <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
                                                 {personalTours.map((tour) =>
                                                 (
-
                                                     <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
                                                 )
                                                 )}
@@ -84,13 +83,11 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                             </div>
                                             <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
                                                 {groupTours.map((tour) => (
-
                                                     <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-
                                                 ))}
                                             </div>
                                         </div>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                             <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
@@ -119,7 +116,6 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                         </div>
                     </div>
                 </div >
-
             </div >
             <div className='fixed right-0 left-auto top-0 z-50 transition-all bg-slate-900 text-white w-[200px] h-screen duration-500 ease-in-out' style={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)', opacity: showMenu ? '1' : '0', visibility: showMenu ? 'visible' : 'hidden' }}>
                 <div className='flex flex-col gap-4'>
@@ -130,7 +126,6 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                         <div className='flex items-center justify-center'>
                             <img className='w-1/2' src="logoNoBackground.png" alt="" />
                         </div>
-
                     </div>
                     <ul className='ml-2 mr-2 mt-10 font-primary flex flex-col gap-6'>
                         <Link className='w-full  text-xl font-semibold' href={'/'}><li>Home</li></Link>

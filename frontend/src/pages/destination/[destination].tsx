@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FetchDataProps } from '@/types/fetchDataProps'
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
 import { useRouter } from 'next/router'
@@ -10,14 +10,14 @@ import { Footer } from '@/components/supports/destinationPage/Footer'
 const DestinationDetailHero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
     const router = useRouter();
     const { destination } = router.query;
+
     return (
         <>
             {travelDatas.result.map((data) => (
                 data.destination.english === destination
-                    ? <img src={data.image.mainImage} className='lg:w-full h-[500px] lg:h-[1042px]' alt="" />
+                    ? <img src={data.destination.image} className='lg:w-full h-[500px] lg:h-[1042px]' alt="" />
                     : null
             ))}
-
             <div className='absolute top-0 right-0 left-0'>
                 <Header travelDatas={travelDatas} toursData={toursData} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
                 <div className='lg:max-w-[1520px] lg:m-auto lg:w-[90%] lg:h-[600px] mt-8 flex lg:mt-8 justify-center'>

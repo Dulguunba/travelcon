@@ -8,5 +8,7 @@ export interface Destination {
             name: string
             english: string
         }
+        additionalInfo: string
+        image: string
     }]
 }
