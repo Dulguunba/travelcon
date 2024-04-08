@@ -2,14 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+<<<<<<< HEAD
+import { instance, showToastMessage } from "@/functions/TravelUtilities";
+=======
 import { instance, showToastMessage } from "@/utils/functions/TravelUtilities";
+>>>>>>> main
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
+<<<<<<< HEAD
+} from "@/functions/AdminFunctions";
+=======
 } from "@/utils/functions/AdminFunctions";
+>>>>>>> main
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,7 +36,11 @@ export const PictureAdmin = () => {
     },
     validationSchema: Yup.object({
       additionalInfo: Yup.string()
+<<<<<<< HEAD
+        .max(250, "Must be 50 characters or less")
+=======
         .max(500, "Must be 500 characters or less")
+>>>>>>> main
         .required("Additional information is required"),
     }),
     onSubmit: (values) => {

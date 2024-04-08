@@ -35,10 +35,10 @@ app.use("/company", companyRouter);
 app.use("/user", userRouter);
 app.use("/order", orderRouter);
 
-app.use('/comment', commmentRouter)
-app.use('/review', reviewRouter)
-app.use('/payment', paymentRouter)
-app.use('/shoppingcart', shoppingCartRouter)
+app.use("/comment", commmentRouter);
+app.use("/review", reviewRouter);
+app.use("/payment", paymentRouter);
+app.use("/shoppingcart", shoppingCartRouter);
 // app.use("/travelcalendar", );
 // app.use("/travelroute", );
 
