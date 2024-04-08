@@ -1,14 +1,24 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-
+import { getServerSideProps } from "../utils/fetchTravelDatas";
+import React from "react";
+import { Cart } from "@/components/supports/destinationPage/Cart";
+import { Props } from "@/types/fetchDataProps";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Destination() {
-  return (
-    <main
-      className={`flex min-h-screen max-h-screen h-full flex-col w-full items-start justify-start bg-gray-50 ${inter.className}`}
-    >
 
-    </main>
+
+function Destination({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) {
+  return (
+    <>
+      <Cart toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
+      {/* <Order /> */}
+      {/* <Hero toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} /> */}
+      {/* <FormComponent /> */}
+    </>
   );
-}
+};
+
+export { getServerSideProps };
+
+export default Destination;

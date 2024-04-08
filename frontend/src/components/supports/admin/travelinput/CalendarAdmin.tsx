@@ -5,13 +5,21 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
+<<<<<<< HEAD
 } from "@/functions/AdminFunctions";
+=======
+} from "@/utils/functions/AdminFunctions";
+>>>>>>> main
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CalendarAdd } from "./CalendarAdd";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+<<<<<<< HEAD
 import { showToastMessage } from "@/functions/TravelUtilities";
+=======
+import { showToastMessage } from "@/utils/functions/TravelUtilities";
+>>>>>>> main
 
 export const CalendarAdmin = () => {
   const {
@@ -90,7 +98,7 @@ export const CalendarAdmin = () => {
             <button
               type="submit"
               onClick={submitTravelCalendar}
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
+              className="bg-blue text-white p-2 rounded-lg font-semibold"
             >
               Хадгалах
             </button>

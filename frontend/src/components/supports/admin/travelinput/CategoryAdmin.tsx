@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useRouter } from "next/router";
+<<<<<<< HEAD
 import { instance, showToastMessage } from "@/functions/TravelUtilities";
+=======
+import { instance, showToastMessage } from "@/utils/functions/TravelUtilities";
+>>>>>>> main
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
+<<<<<<< HEAD
 } from "@/functions/AdminFunctions";
+=======
+} from "@/utils/functions/AdminFunctions";
+>>>>>>> main
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -158,7 +166,7 @@ export const CategoryAdmin = () => {
             <button
               type="submit"
               onClick={submit}
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
+              className="bg-blue text-white p-2 rounded-lg font-semibold"
             >
               Хадгалах
             </button>
