@@ -3,14 +3,18 @@ import { Inter } from "next/font/google";
 import { CategoryAdmin } from "./CategoryAdmin";
 import { GeneralAdmin } from "./GeneralAdmin";
 import { FoodAdmin } from "./FoodAdmin";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore, CalendarType} from "@/functions/AdminFunctions";
+import {
+  usePageStore,
+  useTravelCalendarStore,
+  useTravelStore,
+  useTravelRouteStore,
+  CalendarType,
+} from "@/functions/AdminFunctions";
 import { PictureAdmin } from "./PictureAdmin";
 import { RouteAdmin } from "./RouteAdmin";
 import { CalendarAdmin } from "./CalendarAdmin";
 import { LoadingAdmin } from "./LoadingAdmin";
 import { SuccessAdmin } from "./SuccessAdmin";
-
-
 
 const inter = Inter({ subsets: ["latin"] });
 

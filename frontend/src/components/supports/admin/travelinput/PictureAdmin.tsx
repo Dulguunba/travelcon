@@ -189,7 +189,7 @@ export const PictureAdmin = () => {
           <div className="flex justify-end items-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
+              className="bg-blue text-white p-2 rounded-lg font-semibold"
             >
               Хадгалах
             </button>
