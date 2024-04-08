@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { createTravelInfo } from "@/functions/TravelUtilities";
+import { createTravelInfo } from "@/utils/functions/TravelUtilities";
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 export const SuccessAdmin = () => {
   const { page, increment, decrement } = usePageStore();

@@ -21,6 +21,14 @@ const destinationSchema = new Schema({
     type: Schema.ObjectId,
     ref: "destinationCategory",
   },
+  image: {
+    type: String,
+    required: [true, "please insert input"],
+  },
+  additionalInfo: {
+    type: String,
+    required: [true, "please insert data"],
+  },
 });
 
 export const DestinationModel = model("destination", destinationSchema);

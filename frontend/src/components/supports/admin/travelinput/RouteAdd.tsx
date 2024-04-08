@@ -7,8 +7,8 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
-import { instance } from "@/functions/TravelUtilities";
+} from "@/utils/functions/AdminFunctions";
+import { instance } from "@/utils/functions/TravelUtilities";
 
 export const RouteAdd = () => {
   const { travelRoutesZustand, updateTravelRouteZustand } =
