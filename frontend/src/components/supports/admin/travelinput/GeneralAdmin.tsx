@@ -33,7 +33,7 @@ export const GeneralAdmin = () => {
     },
     validationSchema: Yup.object({
       travelName: Yup.string()
-        .max(50, "Must be 50 characters or less")
+        .max(25, "Must be 25 characters or less")
         .required("Travel name is required"),
       travelCompany: Yup.string()
         .max(50, "Must be 50 characters or less")

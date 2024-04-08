@@ -19,6 +19,7 @@ export const createTravel = async (req: Request, res: Response) => {
     additionalInfo,
     image,
     route,
+    destination,
     calendar,
   } = req.body;
   console.log(
@@ -32,6 +33,7 @@ export const createTravel = async (req: Request, res: Response) => {
     touristType,
     additionalInfo,
     image,
+    destination,
     route,
     calendar
   );
@@ -49,6 +51,7 @@ export const createTravel = async (req: Request, res: Response) => {
       additionalInfo,
       image,
       route,
+      destination,
       calendar,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -65,12 +68,64 @@ export const createTravel = async (req: Request, res: Response) => {
 
 export const getTravel = async (req: Request, res: Response) => {
   try {
-    const travelQuery = TravelModel.find({});
+    const travelQuery = TravelModel.find({}).populate("destination");
     travelQuery.sort("-createdAt");
     // travelQuery.select("_id travelName email phoneNumber");
     const travelData = await travelQuery.exec();
     res.status(200).json({ result: travelData });
   } catch (error) {
-    res.status(400).json({ message: "fail to get tourist data", error: error });
+    res.status(400).json({ message: "fail to get travel data", error: error });
   }
 };
+
+export const getTravelByDestination = async(req: Request, res: Response)=>{
+  const {destinationId } = req.body
+  console.log(destinationId);
+  try {
+    const travelQuery = TravelModel.find({})
+    travelQuery.sort("-createdAt")
+    const travelData = await travelQuery.exec()
+    const destinationData = await travelData.filter((travel) => {travel.destination === destinationId})
+    const travelNumber = destinationData.length
+    res.status(200).json({result: destinationData, count: travelNumber})
+  } catch (error) {
+    res.status(400).json({message: 'fail to get travel data by destination'})
+  }
+}
+
+export const getNumberofTravel = async(req: Request, res: Response)=>{
+  try {
+    const travelQuery = TravelModel.find({})
+    travelQuery.sort("-createdAt")
+    const travelData = await travelQuery.exec()
+    const travelNumber = travelData.length
+    res.status(200).json({result: travelNumber}) 
+  } catch (error) {
+    res.status(400).json({message: 'fail to get travel number'})
+  }
+}
+
+export const getNumberTravelLastWeek = async(req:Request, res:Response)=>{
+  const today= new Date()
+  const lastWeek = new Date(today);
+  lastWeek.setDate(today.getDate() - 7);
+  const date =[]
+  const travelNumber =[]
+  
+  try {
+    const travelQuery = TravelModel.find({})
+    travelQuery.sort("-createdAt")
+    const travelData = await travelQuery.exec()
+    
+    for(let i = lastWeek; i <= today; i.setDate(i.getDate()+1)){
+      const travelBeforeDate = travelData.filter((travel)=> travel.createdAt <= i)
+      const numberTravelBeforeDate= travelBeforeDate.length
+      date.push(i);
+      travelNumber.push(numberTravelBeforeDate)
+    }
+    res.status(200).json({result: {label: date, data: travelNumber}})
+    
+  } catch (error) {
+    res.status(400).json({message: 'fail to get travel statistic'})
+  }
+}
