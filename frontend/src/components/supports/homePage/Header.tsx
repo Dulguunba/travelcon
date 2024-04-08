@@ -3,7 +3,7 @@ import { useWindowScroll } from 'react-use'
 import Link from 'next/link';
 import { getServerSideProps } from '@/utils/fetchTravelDatas';
 import { BurgerMenu, DownArrow, XIcon } from '@/components/icons/homePage';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser } from '@auth0/nextjs-auth0/client'
 import { FetchDataProps } from '@/types/fetchDataProps';
 
 
@@ -25,7 +25,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
         return { category, destination: destinationsInCategory };
     });
 
-    const { user, error } = useUser();
+    const { user, error, isLoading } = useUser();
 
     console.log(user)
     return (
@@ -61,7 +61,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                             </div>
                             <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
                                 <div className="dropdown dropdown-hover relative">
-                                    <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours</div>
+                                    <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours <DownArrow /></div>
                                     {/* <ul tabIndex={0} className="dropdown-content absolute -left-40 z-50 menu p-2 shadow bg-base-100 w-[400px] rounded-box flex-row grid grid-cols-2">
                                         <div className='flex flex-col'>
                                             <div className="text-gray-700 font-semibold pl-2 capitalize">
@@ -70,6 +70,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                             <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
                                                 {personalTours.map((tour) =>
                                                 (
+
                                                     <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
                                                 )
                                                 )}
@@ -83,7 +84,9 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                             </div>
                                             <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
                                                 {groupTours.map((tour) => (
+
                                                     <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
+
                                                 ))}
                                             </div>
                                         </div>
@@ -116,6 +119,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                         </div>
                     </div>
                 </div >
+
             </div >
             <div className='fixed right-0 left-auto top-0 z-50 transition-all bg-slate-900 text-white w-[200px] h-screen duration-500 ease-in-out' style={{ transform: showMenu ? 'translateX(0)' : 'translateX(100%)', opacity: showMenu ? '1' : '0', visibility: showMenu ? 'visible' : 'hidden' }}>
                 <div className='flex flex-col gap-4'>

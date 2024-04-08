@@ -6,13 +6,12 @@
 // export const ReviewForm = () => {
 //     const { user } = useUser();
 //     const validation = (values: { review: string }) => {
-//         let errors:{review} = {};
+//         let errors = {};
 //         if (!user) {
 //             errors.review = 'Please log in to post a review';
 //         }
 //         return errors;
 //     }
-
 //     const formik = useFormik({
 //         initialValues: {
 //             review: ''

@@ -24,21 +24,21 @@ const Included = ({ toursData, travelDatas }: FetchDataProps) => {
                         <div>
                             <ul className='font-primary'>
                                 {data.food.IsIncludeFoodCheck
-                                    ? <li className='text-green-700 font-semibold text-2xl flex items-center gap-2'>
+                                    ? <li className='text-gray-500 font-semibold text-2xl flex items-center gap-2'>
                                         <CheckIcon />
                                         Food
                                     </li>
-                                    : <li className='text-red-500 font-semibold text-2xl flex items-center gap-2'>
+                                    : <li className='text-gray-500 font-semibold text-2xl flex items-center gap-2'>
                                         <XIcon />
                                         Food
                                     </li>
                                 }
                                 {data.traffic.IsIncludeTrafficCheck
-                                    ? <li className='text-green-700 font-semibold text-2xl flex items-center gap-2'>
+                                    ? <li className='text-gray-500 font-semibold text-2xl flex items-center gap-2'>
                                         <CheckIcon />
                                         Traffic
                                     </li>
-                                    : <li className='text-red-500 font-semibold text-2xl flex items-center gap-2'>
+                                    : <li className='text-gray-500 font-semibold text-2xl flex items-center gap-2'>
                                         <XIcon />
                                         Traffic
                                     </li>
@@ -53,6 +53,7 @@ const Included = ({ toursData, travelDatas }: FetchDataProps) => {
                         <ul className='list-disc font-primary ml-5'>
                             {notIncludedData.map((data) => <li>{data.english}</li>)}
                         </ul> */}
+
                         <div className='relative'>
                             <img src={data.image.mainImage} className='w-full lg:h-[204px] rounded-3xl' alt="" />
                             <div className='w-full lg:h-[204px] rounded-3xl bg-[#D9D9D9] absolute top-0 opacity-30'>
