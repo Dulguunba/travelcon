@@ -88,11 +88,7 @@ export const RouteAdmin = () => {
             <button
               type="submit"
               onClick={submitTravelRoute}
-<<<<<<< HEAD
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
-=======
               className="bg-blue text-white p-2 rounded-lg font-semibold"
->>>>>>> main
             >
               Хадгалах
             </button>

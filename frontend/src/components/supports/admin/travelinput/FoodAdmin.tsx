@@ -8,17 +8,10 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-<<<<<<< HEAD
-} from "@/functions/AdminFunctions";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { showToastMessage } from "@/functions/TravelUtilities";
-=======
 } from "@/utils/functions/AdminFunctions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { showToastMessage } from "@/utils/functions/TravelUtilities";
->>>>>>> main
 
 export const FoodAdmin = () => {
   const { page, increment, decrement } = usePageStore();

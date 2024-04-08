@@ -2,10 +2,10 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { OrderCard } from "@/components/supports/bookingOrderPage/OrderCard";
 import { FormComponent } from "@/components/supports/destinationPage/FormComponent";
-import { Props } from "@/types/fetchDataProps";
+import { FetchDataProps } from "@/types/fetchDataProps";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Bookingorder({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) {
+export default function Bookingorder({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps ) {
   const calendars = [
     {
       startDay: "2024-04-06",
