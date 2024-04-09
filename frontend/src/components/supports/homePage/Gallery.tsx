@@ -13,20 +13,23 @@ const Gallery = ({ travelDatas }: { travelDatas: Travel }) => {
                         <PageTitleDesign title='GALLERY' textColor='text-grayColor' frontText='OUR ADVENTURES' />
                         <div className='mt-20'>
                             <div>
-                                <div className="lg:grid lg:grid-rows-2 lg:grid-cols-2 lg:gap-4 flex flex-col gap-4">
-                                    {slicedData.map((data) => <img className='lg:w-[900px] lg:h-[400px] w-full h-[400px] rounded-3xl' src={data.image.mainImage} alt="" />)}
-                                    {/* <div className="row-span-5">
-                                        <img className='w-full h-full rounded-3xl' src="Pic2.jpg" alt="" />
+                                <div className="lg:grid lg:grid-rows-2 lg:grid-cols-3 lg:gap-4 flex flex-col gap-4">
+                                    {/* {slicedData.map((data) => <img className='lg:w-[900px] lg:h-[400px] w-full h-[400px] rounded-3xl' src={data.image.mainImage} alt="" />)} */}
+                                    <div className="row-span-2">
+                                        <img className='lg:w-full lg:h-full rounded-3xl' src="GenghisKhaan.jpg" alt="" />
+                                    </div>
+                                    <div className="row-span-5">
+                                        <img className='lg:w-full lg:h-full rounded-3xl' src="LandscapeMongolia.jpg" alt="" />
                                     </div>
                                     <div className="row-span-2">
-                                        <img className='w-full h-full rounded-3xl' src="Pic.jpg" alt="" />
+                                        <img className='lg:w-full lg:h-full rounded-3xl' src="GerWithStars.jpg" alt="" />
                                     </div>
                                     <div className="row-span-3">
-                                        <img className='h-full rounded-3xl' src="Pic2.jpg" alt="" />
+                                        <img className='lg:h-full rounded-3xl' src="PersonWithEagle.jpg" alt="" />
                                     </div>
-                                    <div className="row-span-2">
-                                        <img className='h-full rounded-3xl' src="Pic3.jpg" alt="" />
-                                    </div> */}
+                                    <div className="row-span-3">
+                                        <img className='lg:h-full rounded-3xl' src="GobiDesert.jpg" alt="" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

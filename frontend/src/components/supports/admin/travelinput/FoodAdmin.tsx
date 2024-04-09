@@ -8,10 +8,10 @@ import {
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { showToastMessage } from "@/functions/TravelUtilities";
+import { showToastMessage } from "@/utils/functions/TravelUtilities";
 
 export const FoodAdmin = () => {
   const { page, increment, decrement } = usePageStore();
@@ -237,7 +237,7 @@ export const FoodAdmin = () => {
           <div className="flex justify-end items-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
+              className="bg-blue text-white p-2 rounded-lg font-semibold"
             >
               Хадгалах
             </button>

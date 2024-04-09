@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
-import Header from './Header'
 import DestinationDropdown from './DestinationDropdown'
-import { Props } from '@/pages'
+import { FetchDataProps } from '@/types/fetchDataProps';
+import Header from './Header';
 
-const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) => {
+
+const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
 
     return (
         <>
-            <img src="https://lp-cms-production.imgix.net/2023-08/GettyRF511801037.jpg" className='lg:w-full h-[700px] lg:h-[1042px]' alt="" />
+            <img src="HomeBackground.jpg" className='lg:w-full h-[600px] lg:h-[1200px]' alt="" />
             <div className='absolute top-0 right-0 left-0'>
                 <Header travelDatas={travelDatas} toursData={toursData} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
                 <div className='lg:max-w-[1520px] lg:m-auto lg:w-[90%] lg:h-[600px] mt-8 flex lg:mt-8 justify-center'>
                     <div>
                         <div className='flex flex-col items-center'>
                             <div className='flex flex-col items-center drop-shadow-md'>
-                                <h1 className='lg:text-3xl text-white font-primary lg:text-[32px] text-sm lg:leading-10 drop-shadow-md lg:tracking-widest'>UNFORGETTABLE TRAVEL AWAITS THE</h1>
+                                <h1 className='lg:text-3xl text-white font-primary lg:text-[32px] text-sm lg:leading-10 drop-shadow-md lg:tracking-widest'>TRAVEL TO MONGOLIA</h1>
                                 <h1 className='font-oswald drop-shadow-md font-bold lg:text-[200px] xl:text-[246px] text-[50px] text-white'>ADVENTURE</h1>
                             </div>
                             <p className='text-white font-primary font-normal p-2 lg:w-[730px] text-center'>Experience the thrill of exploring the world's most fascinating destinations

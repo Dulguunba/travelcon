@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore} from "@/functions/AdminFunctions";
-import { instance } from "@/functions/TravelUtilities";
+import { usePageStore, useTravelCalendarStore, useTravelStore , useTravelRouteStore} from "@/utils/functions/AdminFunctions";
+import { instance } from "@/utils/functions/TravelUtilities";
 
 export const CalendarAdd = () => {
   const { travelCalendarsZustand, updateTravelCalendarZustand } =

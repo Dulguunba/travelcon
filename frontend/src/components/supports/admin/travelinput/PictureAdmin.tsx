@@ -2,14 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { instance, showToastMessage } from "@/functions/TravelUtilities";
+import { instance, showToastMessage } from "@/utils/functions/TravelUtilities";
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,7 +28,7 @@ export const PictureAdmin = () => {
     },
     validationSchema: Yup.object({
       additionalInfo: Yup.string()
-        .max(250, "Must be 50 characters or less")
+        .max(500, "Must be 500 characters or less")
         .required("Additional information is required"),
     }),
     onSubmit: (values) => {
@@ -189,7 +189,7 @@ export const PictureAdmin = () => {
           <div className="flex justify-end items-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white p-2 rounded-lg font-semibold"
+              className="bg-blue text-white p-2 rounded-lg font-semibold"
             >
               Хадгалах
             </button>

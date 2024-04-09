@@ -1,14 +1,29 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import { FetchDataProps } from "@/types/fetchDataProps";
+import { getServerSideProps } from "@/utils/fetchTravelDatas";
+import AboutPageHero from "@/components/supports/aboutPage/AboutPageHero";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About() {
+function About({
+  travelDatas,
+  toursData,
+  destinationDatas,
+  categoryDatas,
+}: FetchDataProps) {
   return (
-    <main
-      className={`flex min-h-screen max-h-screen h-full flex-col w-full items-start justify-start bg-gray-50 ${inter.className}`}
-    >
-
-    </main>
+    <div>
+      <AboutPageHero
+        travelDatas={travelDatas}
+        toursData={toursData}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+      />
+    </div>
   );
 }
+
+export { getServerSideProps };
+
+export default About;

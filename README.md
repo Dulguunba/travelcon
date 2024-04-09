@@ -2,7 +2,7 @@
 
 1. folder name - [camelCase]
 2. component name - [PascalCase]
-
+<!--  -->
 ## Асаах заавар
 
 1. Backend хавтаст ".env" файл үүсгэнэ.
