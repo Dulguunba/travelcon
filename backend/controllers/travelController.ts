@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import { consumers } from "stream";
 
 dotenv.config();
 
@@ -142,3 +143,38 @@ export const getNumberTravelLastWeek = async (req: Request, res: Response) => {
     res.status(400).json({ message: "fail to get travel statistic" });
   }
 };
+
+export const deleteTravel = async(req: Request, res: Response)=>{
+  try {
+    const { name,
+      travelCompany,
+      duration,
+      price,
+      food,
+      traffic,
+      categoryType,
+      touristType,
+      additionalInfo,
+      image,
+      route,
+      calendar, } = req.body;
+      if(!name || !duration || !food || !categoryType || !additionalInfo || !route){
+        res.status(400).json({message:"undifined travel data"})
+      }
+      const deleteTravel = await TravelModel.deleteMany({name,
+        travelCompany,
+        duration,
+        price,
+        food,
+        traffic,
+        categoryType,
+        touristType,
+        additionalInfo,
+        image,
+        route,
+        calendar,})
+        res.status(201).json({message:"successfully to delete"})
+  } catch (error) {
+     res.status(400).json({message:"fail to delete travel"})
+  }
+}

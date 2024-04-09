@@ -9,7 +9,6 @@ export const instance = axios.create({
 });
 
 export const createTravelInfo = async (data: {} | null) => {
-  console.log("data", data);
 
   try {
     const response = await instance.post("/travel/create", data);

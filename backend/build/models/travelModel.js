@@ -79,6 +79,10 @@ const travelSchema = new mongoose_1.Schema({
     calendar: {
         type: Array,
     },
+    destination: {
+        type: mongoose_1.Schema.ObjectId,
+        ref: "destination"
+    },
     createdAt: {
         type: Date,
         required: [true, "Please insert input"],

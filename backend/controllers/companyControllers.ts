@@ -64,7 +64,7 @@ export const createCompany = async (req: Request, res: Response) => {
 
 export const getCompany = async (req: Request, res: Response) => {
   try {
-    const companyQuery = CompanyModel.find({});
+    const companyQuery =  CompanyModel.find({});
     companyQuery.sort("-createdAt");
     companyQuery.select("_id name english info email phoneNumber role");
     const companyData = await companyQuery.exec();
@@ -73,3 +73,16 @@ export const getCompany = async (req: Request, res: Response) => {
     res.status(400).json({ message: "fail to get company data", error: error });
   }
 };
+
+export const deleteCompany = async(req: Request, res: Response)=>{
+  try {
+    const {name, email, phoneNumber}= req.body;
+    if(!name || !email || !phoneNumber){
+      return res.status(400).json({message:"undifined name or email"})
+    }
+    const deleteCompany = await  CompanyModel.deleteMany({name, email, phoneNumber})
+    res.status(200).json({message:"successfull delete company"})
+  } catch (error) {
+    res.status(400).json({message:"faild delete company"})
+  }
+}

@@ -15,6 +15,10 @@ const touristSchema = new mongoose_1.Schema({
         type: Date,
         required: [true, "please insert input"],
     },
+    updatedAt: {
+        type: Date,
+        required: [true, "please insert input"],
+    },
     group: {
         type: String,
         required: [true, "please insert input"],

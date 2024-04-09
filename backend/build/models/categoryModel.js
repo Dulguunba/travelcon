@@ -15,5 +15,9 @@ const categorySchema = new mongoose_1.Schema({
         type: Date,
         required: [true, "please insert input"],
     },
+    updatedAt: {
+        type: Date,
+        required: [true, "please insert input"],
+    },
 });
 exports.CategoryModel = (0, mongoose_1.model)("category", categorySchema);

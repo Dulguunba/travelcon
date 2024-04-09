@@ -1,12 +1,15 @@
 import React from 'react'
 import { Header } from './Header'
+import { SettingsBook } from './SettingsBook'
 
 export const GenerelSetting = () => {
   return (
     <div className='bg-gray-50 h-full w-full flex flex-col'>
       <Header/>
       <div className='w-full h-full bg-gray-50 p-5'>
-        guest
+        <div>
+          <SettingsBook/>
+        </div>
       </div>
     </div>
   )
