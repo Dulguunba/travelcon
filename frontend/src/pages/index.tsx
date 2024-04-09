@@ -7,6 +7,10 @@ import { MainFooter } from "@/components/supports/homePage/MainFooter";
 import Hero from "@/components/supports/homePage/Hero";
 import Gallery from "@/components/supports/homePage/Gallery";
 import PopularDestinations from "@/components/supports/homePage/PopularDestinations";
+<<<<<<< HEAD
+import { getServerSideProps } from '@/utils/fetchTravelDatas'
+import { Props } from "@/types/fetchDataProps";
+=======
 import { Tours } from "@/types/toursTypes";
 import { Travel } from "@/types/travelTypes";
 import { Footer } from "@/components/supports/destinationPage/Footer";
@@ -15,6 +19,7 @@ import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
 import { FetchDataProps } from "@/types/fetchDataProps";
 import { Loading } from "@/components/supports/Loading";
+>>>>>>> main
 
 const poppins = Poppins({
   weight: "400",
@@ -31,7 +36,10 @@ function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: Fetch
       <Value text="VALUES" miniText="OUR VALUES" margin="mb-20" padding="pt-20" />
       <Questions />
       <MainFooter />
+<<<<<<< HEAD
+=======
       <Footer />
+>>>>>>> main
     </div>
   );
 }
