@@ -4,7 +4,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { getTravelNumber } from '@/utils/functions/AdminUtilities';
 import { DashboardChart } from './DashboardChart';
 
-export const DashboardCard = () => {
+export const DashboardCard = ({ title, number, chartData, changes}:{ title: string, number: number, chartData: {label: string[], data: number[]}, changes: number}) => {
     const [numberTravel, setNumberTravel]= useState()
 
     useEffect(()=>{ getTravelNumber(setNumberTravel)},[])

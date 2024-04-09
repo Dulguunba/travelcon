@@ -113,7 +113,10 @@ export const getNumberofTravel = async (req: Request, res: Response) => {
 export const getNumberTravelLastWeek = async (req: Request, res: Response) => {
   const today = new Date();
   const lastWeek = new Date(today);
+  const lastMonth = new Date(today);
+
   lastWeek.setDate(today.getDate() - 7);
+  lastMonth.setDate(today.getDate()-30)
   const date = [];
   const travelNumber = [];
 
@@ -121,6 +124,7 @@ export const getNumberTravelLastWeek = async (req: Request, res: Response) => {
     const travelQuery = TravelModel.find({});
     travelQuery.sort("-createdAt");
     const travelData = await travelQuery.exec();
+    const totalTravelNumber = travelData.length
 
     for (let i = lastWeek; i <= today; i.setDate(i.getDate() + 1)) {
       const travelBeforeDate = travelData.filter(
@@ -130,7 +134,10 @@ export const getNumberTravelLastWeek = async (req: Request, res: Response) => {
       date.push(i);
       travelNumber.push(numberTravelBeforeDate);
     }
-    res.status(200).json({ result: { label: date, data: travelNumber } });
+    const travelDataLastMonth = travelData.filter((travel)=> travel.createdAt <= lastMonth )
+    const travelNumberLastMonth = travelDataLastMonth.length
+    const changes = totalTravelNumber/travelNumberLastMonth-1 | 0;
+    res.status(200).json({ result: { label: date, data: travelNumber, changes: changes } });
   } catch (error) {
     res.status(400).json({ message: "fail to get travel statistic" });
   }
