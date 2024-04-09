@@ -18,7 +18,7 @@ export const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }
         setToggle('')
     };
     console.log('travelData', travelDatas.result)
-    type CategoryType = 'All' | 'Best' | 'Nature' | 'City' | 'Seasonal';
+    type CategoryType = 'All' | 'Best' | 'Nature' | 'City' | 'Seasonal' | 'bus';
 
     const selectCategory = (category: CategoryType) => {
         setSelectedCategory(category);
@@ -37,16 +37,14 @@ export const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }
                                 </div>
                             </div>
                         </div>
-                        <div className='flex flex-wrap justify-between'>
-
-                        </div>
                         <div className={`pt-16 flex justify-between gap-4 items-center flex-wrap w-full z-1 ${toggle ? 'pb-[120px]' : 'pb-[1px]'} md:pb-1`}>
                             <div className='flex md:gap-10 gap-4 flex-wrap'>
-                                <button onClick={() => selectCategory('All')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4  font-medium text-xl  rounded-[10px] ${selectedCategory === 'All' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>All</button>
-                                <button onClick={() => selectCategory('Best')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Best' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>Best seller</button>
-                                <button onClick={() => selectCategory('Nature')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Nature' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>Nature</button>
-                                <button onClick={() => selectCategory('City')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'City' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>City</button>
-                                <button onClick={() => selectCategory('Seasonal')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Seasonal' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'}`}>Seasonal</button>
+                                <button onClick={() => selectCategory('All')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4  font-medium text-xl  rounded-[10px] ${selectedCategory === 'All' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>All </button>
+                                <button onClick={() => selectCategory('Best')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Best' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>Zuun bus </button>
+                                <button onClick={() => selectCategory('Nature')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Nature' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>Towiin bus </button>
+                                <button onClick={() => selectCategory('City')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'City' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'} `}>baruun bus </button>
+                                <button onClick={() => selectCategory('Seasonal')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'Seasonal' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'}`}>Hoid bus </button>
+                                <button onClick={() => selectCategory('bus')} className={`hover:bg-blue hover:text-white hover:duration-500 md:py-3 md:px-8 py-2 px-4 font-medium text-xl  rounded-[10px] ${selectedCategory === 'bus' ? 'text-white bg-blue' : 'text-black bg-[#F6F6F6]'}`}>Omno bvs</button>
                             </div>
                             <div className='flex items-center gap-4'>
                                 <button onClick={toggleFunction} className={`bg-${grid == 'list' ? '[#F6F6F6]' : 'blue'} flex items-center gap-3 md:py-3 md:px-8 py-2 px-4 rounded-[10px]  text-${grid == 'list' ? '#222222' : 'white'}`}>

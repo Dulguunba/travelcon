@@ -17,6 +17,7 @@ export const ListCard = ({ travelDatas, toursData, destinationDatas, categoryDat
     }
     return (
         <>
+
             {travelDatas.result.map((item, index) => (
                 <div key={index} className='md:flex  rounded-xl  justify-between w-full gap-12'>
                     <img className='lg:w-[30%] w-[100%] h-[206px] rounded-3xl ' src={`${item?.image?.mainImage}`} alt="winter" />

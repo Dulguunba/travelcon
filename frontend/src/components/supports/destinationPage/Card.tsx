@@ -9,6 +9,7 @@ export const Card = ({ travelDatas, toursData, destinationDatas, categoryDatas }
   const widerName = travelDatas.result.map((data) => data.name.length > 25)
   return (
     <>
+
       {travelDatas.result.map((item, index) => (
         <div key={index} id='card' className={`card`}>
           <img className='rounded-3xl w-full h-full absolute -z-[1]' src={`${item?.image?.mainImage}`} alt="gazriin zurag" />

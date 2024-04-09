@@ -18,8 +18,8 @@ function Destination({ travelDatas, toursData, destinationDatas, categoryDatas }
     <>
       {/* <Cart toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} /> */}
       {/* <Order /> */}
-      {/* <Hero toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} /> */}
-      <FormComponent toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
+      <Hero toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
+      {/* <FormComponent toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} /> */}
       {/* <TravelBlog /> */}
     </>
   );
