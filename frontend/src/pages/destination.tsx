@@ -4,7 +4,10 @@ import { getServerSideProps } from "../utils/fetchTravelDatas";
 import React from "react";
 import { Cart } from "@/components/supports/destinationPage/Cart";
 import { FetchDataProps } from "@/types/fetchDataProps";
+import Top from "@/components/supports/destinationPage/Top";
 const inter = Inter({ subsets: ["latin"] });
+import { Hero } from "@/components/supports/destinationPage/Hero";
+import { MainTours } from "@/components/supports/destinationPage/MainTours";
 
 function Destination({
   travelDatas,
@@ -14,15 +17,8 @@ function Destination({
 }: FetchDataProps) {
   return (
     <>
-      <Cart
-        toursData={toursData}
-        travelDatas={travelDatas}
-        destinationDatas={destinationDatas}
-        categoryDatas={categoryDatas}
-      />
-      {/* <Order /> */}
-      {/* <Hero toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} /> */}
-      {/* <FormComponent /> */}
+      <Top travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} />
+      <MainTours/>
     </>
   );
 }

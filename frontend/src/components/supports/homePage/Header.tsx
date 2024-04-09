@@ -5,9 +5,11 @@ import { getServerSideProps } from '@/utils/fetchTravelDatas';
 import { BurgerMenu, DownArrow, XIcon } from '@/components/icons/homePage';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { FetchDataProps } from '@/types/fetchDataProps';
+import { useRouter } from 'next/router';
 
 
 const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
+    const route = useRouter()
     const [showMenu, setShowMenu] = useState(false);
     const personalTours = toursData.result.filter(tour => tour.group === "personal tours");
     const groupTours = toursData.result.filter(tour => tour.group === "groups tour");
@@ -24,6 +26,10 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
 
         return { category, destination: destinationsInCategory };
     });
+
+    const jumpToDestination=()=>{
+        route.push("/destination")
+    }
 
     const { user, error } = useUser();
 
@@ -59,35 +65,9 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                     </ul>
                                 </div>
                             </div>
-                            <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
+                            <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out' onClick={jumpToDestination}>
                                 <div className="dropdown dropdown-hover relative">
                                     <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours</div>
-                                    {/* <ul tabIndex={0} className="dropdown-content absolute -left-40 z-50 menu p-2 shadow bg-base-100 w-[400px] rounded-box flex-row grid grid-cols-2">
-                                        <div className='flex flex-col'>
-                                            <div className="text-gray-700 font-semibold pl-2 capitalize">
-                                                <h1 className='border-b-2 pb-1'>{personalTours.length > 0 ? personalTours[0].group : ''}</h1>
-                                            </div>
-                                            <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
-                                                {personalTours.map((tour) =>
-                                                (
-                                                    <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-                                                )
-                                                )}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="text-gray-700 font-semibold pl-2 capitalize">
-                                                <h1 className='border-b-2 pb-1'>
-                                                    {groupTours.length > 0 ? groupTours[0].group : ''}
-                                                </h1>
-                                            </div>
-                                            <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
-                                                {groupTours.map((tour) => (
-                                                    <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </ul> */}
                                 </div>
                             </div>
                             <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
