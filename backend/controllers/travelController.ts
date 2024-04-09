@@ -20,6 +20,7 @@ export const createTravel = async (req: Request, res: Response) => {
     additionalInfo,
     image,
     route,
+    destination,
     calendar,
   } = req.body;
   console.log(
@@ -33,6 +34,7 @@ export const createTravel = async (req: Request, res: Response) => {
     touristType,
     additionalInfo,
     image,
+    destination,
     route,
     calendar
   );
@@ -50,6 +52,7 @@ export const createTravel = async (req: Request, res: Response) => {
       additionalInfo,
       image,
       route,
+      destination,
       calendar,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -66,7 +69,10 @@ export const createTravel = async (req: Request, res: Response) => {
 
 export const getTravel = async (req: Request, res: Response) => {
   try {
-    const travelData = await TravelModel.find({}).exec();
+    const travelQuery = TravelModel.find({}).populate("destination");
+    travelQuery.sort("-createdAt");
+    // travelQuery.select("_id travelName email phoneNumber");
+    const travelData = await travelQuery.exec();
     res.status(200).json({ result: travelData });
   } catch (error) {
     res.status(400).json({ message: "fail to get tourist data", error: error });

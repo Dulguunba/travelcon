@@ -14,13 +14,20 @@ const orderSchema = new Schema({
       "захиалга баталгаажсан",
     ],
     required: [true, "Please insert input"],
+    default: "шинэ захиалга",
   },
   phoneNumber: {
     type: Number,
     required: [true, "Please insert input"],
   },
-  firstName: { type: String, required: [true, "Please insert input"] },
-
+  firstName: {
+    type: String,
+    required: [true, "Please insert input"],
+  },
+  lastName: {
+    type: String,
+    required: [true, "Please insert input"],
+  },
   travelDate: {
     type: Date,
   },
@@ -39,7 +46,7 @@ const orderSchema = new Schema({
   },
   details: {
     type: Array,
-    required: [true, "please insert data"],
+    // required: [true, "please insert data"],
   },
   createdAt: {
     type: Date,
@@ -51,4 +58,4 @@ const orderSchema = new Schema({
   },
 });
 
-export const OrderModel = model("users", orderSchema);
+export const OrderModel = model("orders", orderSchema);
