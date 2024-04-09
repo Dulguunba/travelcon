@@ -1,6 +1,7 @@
 import React from "react";
 import { Dollar, LocationWhite } from "@/components/icons/destinationPage";
 import { FetchDataProps } from "@/types/fetchDataProps";
+import { FetchAdminDataProps } from "@/types/dashboardAdminCard";
 
 export const Card = ({
   travelDatas,
