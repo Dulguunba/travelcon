@@ -33,7 +33,7 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
             {travelDatas.result.map((data) => data._id === tour
                 ? <div className='flex items-center justify-center'>
                     <div className='max-w-[1520px] w-[90%]'>
-                        <div className='flex justify-between w-full'>
+                        <div className='flex lg:flex-row flex-col lg:justify-between w-full'>
                             <div className='w-full flex flex-col lg:items-start lg:gap-10 items-center gap-2'>
                                 <div className='lg:w-[615px] flex p-10 bg-grayColor rounded-3xl'>
                                     <div className='flex flex-col gap-5'>
@@ -84,20 +84,23 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
                                     </button>
                                 </div>
                             </div>
-                            <div className='flex flex-col gap-5 w-[1000px]'>
+                            <div className='flex flex-col gap-5 w-full
+                             lg:w-[1000px] lg:mt-0 mt-10'>
                                 {data.route.map((route, index) => {
                                     const vehicleIcon = route.vehicle === 'Airplane'
                                         ? { planeIcon: <PlaneIconTourDetail width='45' height='45' fill='#4997D3' /> }
                                         : { busIcon: <BusIcon width='45' height='45' fill='#4997D3' /> };
-
                                     return (
                                         <RouteTours
                                             key={index}
                                             day={`Day ${index + 1}`}
                                             {...vehicleIcon}
+                                            startDay={route.startPoint}
+                                            endDay={route.endPoint}
                                         />
                                     );
                                 })}
+
                             </div>
                         </div>
                         <Included destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
