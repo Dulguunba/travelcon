@@ -7,6 +7,7 @@ import { Destination } from "@/types/destinationTypes";
 import { instance } from "./functions/TravelUtilities";
 
 export const getServerSideProps: GetServerSideProps = async () => {
+<<<<<<< HEAD
   try {
     const travelRes = await instance.get("/travel/get");
     const travelDatas: Travel = travelRes.data;
@@ -19,6 +20,20 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     const destinationRes = await instance.get("/destination/get");
     const destinationDatas: Destination = destinationRes.data;
+=======
+    try {
+        const travelRes = await instance.get("/travel/get");
+        const travelDatas: Travel = travelRes.data;
+
+        const toursRes = await instance.get("tourist/get");
+        const toursData: Tours = toursRes.data;
+
+        const categoryRes = await instance.get("/destinationcategory/get");
+        const categoryDatas: DestinationCategory = categoryRes.data;
+
+        const destinationRes = await instance.get("/destination/get");
+        const destinationDatas: Destination = destinationRes.data;
+>>>>>>> 63ad85165b95afb271983da93476af7464a3cf0d
 
     return {
       props: {

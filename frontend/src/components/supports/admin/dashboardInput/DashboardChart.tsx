@@ -35,7 +35,6 @@ export const DashboardChart: React.FC = () => {
                     scales: {
                         y: {
                             display: false,
-                            // beginAtZero: true,
                             grid: {
                                 display: false 
                             }
