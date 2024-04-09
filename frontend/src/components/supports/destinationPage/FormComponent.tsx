@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
   Dollar,
-  Minus,
-  Plus,
   Left,
   LocationWhite,
   Right,
@@ -221,16 +219,14 @@ export const FormComponent = ({
                         </div>
                         <div className="p-4 border border-black rounded-lg flex justify-between">
                           <button
-                            className={`w-7 h-7 ${
-                              childCount === 0 ? "bg-white" : "bg-orange-500"
-                            } border-gray-400  border rounded-sm flex items-center justify-center text-[30px] text-center`}
+                            className={`w-7 h-7 ${childCount === 0 ? "bg-white" : "bg-orange-500"
+                              } border-gray-400  border rounded-sm flex items-center justify-center text-[30px] text-center`}
                             disabled={childCount === 0}
                             onClick={handleChildDecrement}
                           >
                             <RemoveIcon
-                              className={`text-${
-                                childCount === 0 ? "gray-400" : "white"
-                              } w-[14px] `}
+                              className={`text-${childCount === 0 ? "gray-400" : "white"
+                                } w-[14px] `}
                             />
                           </button>
                           <input
@@ -241,15 +237,13 @@ export const FormComponent = ({
                             readOnly
                           />
                           <button
-                            className={`w-7 h-7 ${
-                              childCount === 19 ? "bg-white" : "bg-orange-500"
-                            }  border-gray-400 border  rounded-sm flex items-center justify-center`}
+                            className={`w-7 h-7 ${childCount === 19 ? "bg-white" : "bg-orange-500"
+                              }  border-gray-400 border  rounded-sm flex items-center justify-center`}
                             onClick={handleChildIncrement}
                           >
                             <AddIcon
-                              className={`text-${
-                                childCount === 19 ? "gray-400" : "white"
-                              } w-[14px] h-[14px]`}
+                              className={`text-${childCount === 19 ? "gray-400" : "white"
+                                } w-[14px] h-[14px]`}
                             />
                           </button>
                         </div>
@@ -261,16 +255,14 @@ export const FormComponent = ({
                         </div>
                         <div className="p-4 border border-black rounded-lg flex justify-between">
                           <button
-                            className={`w-7 h-7 ${
-                              adultCount === 1 ? "bg-white" : "bg-orange-500"
-                            } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            className={`w-7 h-7 ${adultCount === 1 ? "bg-white" : "bg-orange-500"
+                              } border-gray-400  border rounded-sm flex items-center justify-center`}
                             onClick={handleAdultDecrement}
                           >
                             {" "}
                             <RemoveIcon
-                              className={`text-${
-                                adultCount === 1 ? "gray-400" : "white"
-                              } w-[14px] `}
+                              className={`text-${adultCount === 1 ? "gray-400" : "white"
+                                } w-[14px] `}
                             />
                           </button>
                           <input
@@ -281,15 +273,13 @@ export const FormComponent = ({
                             readOnly
                           />
                           <button
-                            className={`w-7 h-7 ${
-                              adultCount === 20 ? "bg-white" : "bg-orange-500"
-                            } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            className={`w-7 h-7 ${adultCount === 20 ? "bg-white" : "bg-orange-500"
+                              } border-gray-400  border rounded-sm flex items-center justify-center`}
                             onClick={handleAdultIncrement}
                           >
                             <AddIcon
-                              className={`text-${
-                                adultCount === 20 ? "gray-400" : "white"
-                              } w-[14px] h-[14px]`}
+                              className={`text-${adultCount === 20 ? "gray-400" : "white"
+                                } w-[14px] h-[14px]`}
                             />
                           </button>
                         </div>

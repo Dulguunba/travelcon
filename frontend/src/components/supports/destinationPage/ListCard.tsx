@@ -5,28 +5,24 @@ import {
 } from "@/components/icons/destinationPage";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { Destination } from "@/types/destinationTypes";
+import { FetchDataProps } from "@/types/fetchDataProps";
 import { Tours } from "@/types/toursTypes";
 import { Travel } from "@/types/travelTypes";
 import React from "react";
 
-interface Props {
-  travelDatas: Travel;
-  toursData: Tours;
-  destinationDatas: Destination;
-  categoryDatas: DestinationCategory;
-}
-export const ListCard = ({
-  travelDatas,
-  toursData,
-  destinationDatas,
-  categoryDatas,
-}: Props) => {
+export const ListCard = ({ travelDatas, toursData, destinationDatas, categoryDatas, state }: FetchDataProps) => {
   const LearnMore = () => {
     console.log("click learn more");
   };
+  const allData = travelDatas.result ? travelDatas.result.filter(item => item.destination.destinationCategory) : [];
+  const widerName = travelDatas.result ? travelDatas.result.map((data) => data.name.length > 25) : [];
+  const filteredData = travelDatas.result ? travelDatas.result.filter(item => item.destination.destinationCategory === state)
+    : [];
+  const mapData = state === 'All' ? allData : filteredData;
+
   return (
     <>
-      {travelDatas.result.map((item, index) => (
+      {mapData.map((item, index) => (
         <div
           key={index}
           className="md:flex  rounded-xl  justify-between w-full gap-12"
