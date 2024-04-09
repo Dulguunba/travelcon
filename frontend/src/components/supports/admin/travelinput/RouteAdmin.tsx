@@ -1,16 +1,16 @@
 import React from "react";
-import { instance, showToastMessage } from "@/functions/TravelUtilities";
+import { instance, showToastMessage } from "@/utils/functions/TravelUtilities";
 import {
   usePageStore,
   useTravelCalendarStore,
   useTravelStore,
   useTravelRouteStore,
   CalendarType,
-} from "@/functions/AdminFunctions";
+} from "@/utils/functions/AdminFunctions";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { RouteAdd } from "./RouteAdd";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { RouteType } from "@/functions/AdminFunctions";
+import { RouteType } from "@/utils/functions/AdminFunctions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

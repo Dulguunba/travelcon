@@ -4,9 +4,10 @@ import React from 'react'
 // import { Footer } from '@/components/Footer'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Props } from './index'
+import { FetchDataProps } from '@/types/fetchDataProps';
 
-const Detail = ({ toursData, travelDatas, destinationDatas, categoryDatas }: Props) => {
+
+const Detail = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
     return (
         <div>
             <TourDetailHero destinationDatas={destinationDatas} categoryDatas={categoryDatas} travelDatas={travelDatas} toursData={toursData} />

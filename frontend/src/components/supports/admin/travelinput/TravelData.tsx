@@ -1,5 +1,5 @@
 
-import { getTravel } from '@/functions/TravelUtilities'
+import { getTravel } from '@/utils/functions/TravelUtilities'
 import React, { useEffect, useState } from 'react'
 
 

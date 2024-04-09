@@ -19,7 +19,7 @@ const ItineraryCard = ({ image, title, time, description }: Props) => {
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='relative overflow-hidden lg:w-[487px] lg:h-[459px] rounded-3xl cursor-pointer'>
             <div className={`w-full h-full ${isHovered ? "scale-125" : "scale-100 "} transform transition-all duration-700`}>
-                <img src={image} alt="" className='h-full w-full ' />
+                <img src={image} alt="" className='h-full w-full' />
                 <div className='w-full h-full absolute top-0 bg-gradient-to-t from-black'>
                 </div>
             </div>

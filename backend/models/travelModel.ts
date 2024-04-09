@@ -55,6 +55,10 @@ const travelSchema = new Schema({
       required: [true, "Please insert input"],
     },
   },
+  maxTourist: {
+    type: Number,
+    required: [true, "required"],
+  },
   categoryType: {},
   touristType: {},
   additionalInfo: {
@@ -77,9 +81,9 @@ const travelSchema = new Schema({
   calendar: {
     type: Array,
   },
-  destination:{
+  destination: {
     type: Schema.ObjectId,
-    ref: "destination"
+    ref: "destination",
   },
   createdAt: {
     type: Date,

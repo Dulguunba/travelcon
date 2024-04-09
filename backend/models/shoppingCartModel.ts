@@ -17,6 +17,10 @@ const shoppingCartSchema = new Schema({
     type: Date,
     required: [true, "Please insert input"],
   },
+  email: {
+    type: String,
+    required: [true, "please insert data"],
+  },
 });
 
 export const ShoppingCartModel = model("shoppingCarts", shoppingCartSchema);

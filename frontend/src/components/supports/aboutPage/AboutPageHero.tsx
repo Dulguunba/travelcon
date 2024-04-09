@@ -1,12 +1,12 @@
 import React from 'react'
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
-import { Props } from '@/pages';
 import Header from '../homePage/Header';
 import { Value } from '../homePage/Value';
 import { ValueCard } from '../homePage/ValueCard';
 import { ContactTextDesign } from './ContactTextDesign';
+import { FetchDataProps } from '@/types/fetchDataProps';
 
-const AboutPageHero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Props) => {
+const AboutPageHero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
     return (
         <>
             <img src="GerWithStars.jpg" className='lg:w-full h-[600px] lg:h-[1042px]' alt="" />
