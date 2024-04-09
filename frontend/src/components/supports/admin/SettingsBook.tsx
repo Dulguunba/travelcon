@@ -1,12 +1,9 @@
 import React from 'react'
-import { UserAdminBooking } from '../Baatar/mybook/UserAdminBook'
+import { TableMui } from '../Baatar/mybook/TableMui'
 
-export const Booking = () => {
+export const SettingsBook = () => {
   return (
-    <div className='bg-gray-100 h-full w-full'>
-      {/* <Header/> */}
-      <UserAdminBooking/>
-      {/* <div className='p-5'>
+    <div>
       <div className=' bg-blue w-fit p-12 rounded-lg flex flex-wrap gap-5 h-fit'>
         <div className=' w-3/12 h-fit '>
           <h1 className=' text-white text-2xl font-bold mb-4'>Summary</h1>
@@ -41,7 +38,6 @@ export const Booking = () => {
       <div>
         <TableMui/>
       </div>
-    </div> */}
     </div>
   )
 }
