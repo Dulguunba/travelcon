@@ -28,9 +28,7 @@ function Bookingorder({
   const { tour } = router.query;
   const { travelId, updateTravel, removeTravel } = useTravelCartStore();
   const [travelChoose, setTravelChoose] = useState<TravelObjectType>();
-  useEffect(() => {
-    getTravelId(setTravelChoose, travelId);
-  }, []);
+
   const [childCount, setChildCount] = useState(0);
   const [adultCount, setAdultCount] = useState(1);
 

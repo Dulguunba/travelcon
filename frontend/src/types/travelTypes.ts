@@ -48,6 +48,7 @@ export interface Travel {
         english: string;
         additionalInfo: string;
         image: string;
+        destinationCategory: string;
       };
       maxTourist: number;
     }
@@ -102,6 +103,7 @@ export interface TravelObjectType {
     english: string;
     additionalInfo: string;
     image: string;
+    destinationCategory: string;
   };
   maxTourist: number;
 }

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
 import Link from "next/link";
-import { getServerSideProps } from "@/utils/fetchTravelDatas";
+import {
+  getDestinationCategory,
+  getServerSideProps,
+} from "@/utils/fetchTravelDatas";
 import { BurgerMenu, DownArrow, XIcon } from "@/components/icons/homePage";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { FetchDataProps } from "@/types/fetchDataProps";
@@ -18,14 +21,19 @@ const Header = ({
 
   const { y } = useWindowScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [destinationCategory, setDestinationCategory] = useState([]);
 
   useEffect(() => {
     setIsScrolled(y > 450);
   }, [y]);
 
-  const destinationsByCategory = categoryDatas.result?.map((category) => {
-    const destinationsInCategory = destinationDatas.result.filter(
-      (destination) => destination.destinationCategory._id === category._id
+  useEffect(() => {
+    getDestinationCategory(setDestinationCategory);
+  }, []);
+
+  const destinationsByCategory = categoryDatas?.result?.map((category) => {
+    const destinationsInCategory = destinationDatas?.result?.filter(
+      (destination) => destination?.destinationCategory?._id === category._id
     );
 
     return { category, destination: destinationsInCategory };
@@ -79,26 +87,28 @@ const Header = ({
                     tabIndex={0}
                     className="dropdown-content -left-80 z-[1] menu p-2 shadow bg-base-100 rounded-box  w-[60vw] flex-row grid grid-cols-5"
                   >
-                    {destinationsByCategory.map(({ category, destination }) => (
-                      <div className="flex flex-col justify-start">
-                        <div className="text-gray-700 flex justify-between font-semibold capitalize">
-                          <h1 className="border-b-2 pl-2 w-full pb-2 font-openSans">
-                            {category.english}
-                          </h1>
+                    {destinationsByCategory?.map(
+                      ({ category, destination }) => (
+                        <div className="flex flex-col justify-start">
+                          <div className="text-gray-700 flex justify-between font-semibold capitalize">
+                            <h1 className="border-b-2 pl-2 w-full pb-2 font-openSans">
+                              {category.english}
+                            </h1>
+                          </div>
+                          <div className="text-black capitalize font-primary">
+                            {destination.map((dest) => (
+                              <Link href={`/destination/${dest.english}`}>
+                                <div>
+                                  <p className="hover:bg-slate-200 font-openSans text-md rounded-lg p-2 duration-300 transition-all ease-in-out">
+                                    {dest.english}
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                        <div className="text-black capitalize font-primary">
-                          {destination.map((dest) => (
-                            <Link href={`/destination/${dest.english}`}>
-                              <div>
-                                <p className="hover:bg-slate-200 font-openSans text-md rounded-lg p-2 duration-300 transition-all ease-in-out">
-                                  {dest.english}
-                                </p>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
+                      )
+                    )}
                   </ul>
                 </div>
               </div>
