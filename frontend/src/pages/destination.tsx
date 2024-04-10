@@ -6,7 +6,6 @@ import { Cart } from "@/components/supports/destinationPage/Cart";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import Top from "@/components/supports/destinationPage/Top";
 const inter = Inter({ subsets: ["latin"] });
-import { Hero } from "@/components/supports/destinationPage/Hero";
 import { MainTours } from "@/components/supports/destinationPage/MainTours";
 
 function Destination({
@@ -17,8 +16,13 @@ function Destination({
 }: FetchDataProps) {
   return (
     <>
-      <Top travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} />
-      <MainTours/>
+      <Top
+        travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+        toursData={toursData}
+      />
+      <MainTours />
     </>
   );
 }
