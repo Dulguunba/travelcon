@@ -173,6 +173,109 @@ export const FormComponent = () => {
             </div>
 
             <div className="md:flex justify-between pt-20 pb-[120px]">
+              {/* {travelDatas.result.map((item, index) =>
+                item._id === "66100067d0b3d401b5e0e2d8" ? (
+                  <>
+                    <div
+                      key={index}
+                      className="border-2 lg:w-[500px] rounded-xl border-[#F15D31] p-4"
+                    >
+                      <div className="flex items-center justify-between pb-4">
+                        <div>
+                          <h1>Children</h1>
+                          <p>{item.price.childPrice}₮</p>
+                        </div>
+                        <div className="p-4 border border-black rounded-lg flex justify-between">
+                          <button
+                            className={`w-7 h-7 ${
+                              childCount === 0 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center text-[30px] text-center`}
+                            disabled={childCount === 0}
+                            onClick={handleChildDecrement}
+                          >
+                            <RemoveIcon
+                              className={`text-${
+                                childCount === 0 ? "gray-400" : "white"
+                              } w-[14px] `}
+                            />
+                          </button>
+                          <input
+                            className="outline-0 w-[84px] px-3 text-center"
+                            min={0}
+                            max={item.maxTourist - 1}
+                            value={childCount}
+                            readOnly
+                          />
+                          <button
+                            className={`w-7 h-7 ${
+                              childCount === 19 ? "bg-white" : "bg-orange-500"
+                            }  border-gray-400 border  rounded-sm flex items-center justify-center`}
+                            onClick={handleChildIncrement}
+                          >
+                            <AddIcon
+                              className={`text-${
+                                childCount === 19 ? "gray-400" : "white"
+                              } w-[14px] h-[14px]`}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h1>Adult</h1>
+                          <p>{item.price.adultPrice}₮</p>
+                        </div>
+                        <div className="p-4 border border-black rounded-lg flex justify-between">
+                          <button
+                            className={`w-7 h-7 ${
+                              adultCount === 1 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            onClick={handleAdultDecrement}
+                          >
+                            {" "}
+                            <RemoveIcon
+                              className={`text-${
+                                adultCount === 1 ? "gray-400" : "white"
+                              } w-[14px] `}
+                            />
+                          </button>
+                          <input
+                            className="outline-0 w-[84px] px-3 text-center"
+                            min={1}
+                            max={item.maxTourist}
+                            value={adultCount}
+                            readOnly
+                          />
+                          <button
+                            className={`w-7 h-7 ${
+                              adultCount === 20 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            onClick={handleAdultIncrement}
+                          >
+                            <AddIcon
+                              className={`text-${
+                                adultCount === 20 ? "gray-400" : "white"
+                              } w-[14px] h-[14px]`}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      <hr className="my-3" />
+                      <div className="flex items-center justify-between">
+                        <div className="font-semibold text-[16px] leading-[20px]">
+                          {" "}
+                          Total :
+                        </div>
+                        <div className="font-semibold text-[20px] leading-[28px]">
+                          {childCount * item.price.childPrice +
+                            adultCount * item.price.adultPrice}
+                          ₮
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : null
+              )} */}
               <button
                 type="submit"
                 className="md:py-[30px] md:px-[100px] py-[15px] px-12 bg-blue text-white rounded-xl"

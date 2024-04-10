@@ -15,11 +15,12 @@ const Included = ({ toursData, travelDatas }: FetchDataProps) => {
   const { tour } = router.query;
   const { travelId, removeTravel, updateTravel } = useTravelCartStore();
 
-  const AddTravelToCart = (id: string) => {
-    updateTravel(id);
-    console.log("travelId", travelId);
-    router.push("/bookingorder");
-  };
+  //   const AddTravelToCart = () => {
+  //     router.push("/bookingorder");
+
+  //     updateTravel(String(tour));
+  //   };
+  //   console.log("travelId", travelId);
   return (
     <>
       {travelDatas.result.map((data) =>
@@ -75,9 +76,11 @@ const Included = ({ toursData, travelDatas }: FetchDataProps) => {
                     {" "}
                     Ready for an adventure?
                   </h1>
-                  <button className="p-3 bg-black font-normal text-white lg:text-[20px] font-primary rounded-xl border border-black btn">
-                    Book Now
-                  </button>
+                  <Link href={`/bookingorder/${tour}`}>
+                    <button className="p-3 bg-black font-normal text-white lg:text-[20px] font-primary rounded-xl border border-black btn">
+                      Book Now
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
