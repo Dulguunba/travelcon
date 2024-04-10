@@ -7,6 +7,7 @@ import { Destination } from "@/types/destinationTypes";
 import { instance } from "./functions/TravelUtilities";
 
 export const getServerSideProps: GetServerSideProps = async () => {
+
   try {
     const travelRes = await instance.get("/travel/get");
     const travelDatas: Travel = travelRes.data;
@@ -20,14 +21,16 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const destinationRes = await instance.get("/destination/get");
     const destinationDatas: Destination = destinationRes.data;
 
+
     return {
       props: {
         travelDatas,
         toursData,
         categoryDatas,
         destinationDatas,
-      },
-    };
+
+      }
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
     return {
@@ -36,7 +39,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
         toursData: [],
         categoryDatas: [],
         destinationDatas: [],
-      },
+
+      }
     };
   }
-};
+}

@@ -14,7 +14,10 @@ import { Destination } from "@/types/destinationTypes";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
 import { FetchDataProps } from "@/types/fetchDataProps";
+import { useEffect, useState } from "react";
 import { Loading } from "@/components/supports/Loading";
+import { useLoading } from "@/functions/UseLoading";
+
 
 const poppins = Poppins({
   weight: "400",
@@ -22,6 +25,12 @@ const poppins = Poppins({
 });
 
 function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) {
+  const isLoading = useLoading([travelDatas, destinationDatas, categoryDatas])
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div>
       <Hero travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} />

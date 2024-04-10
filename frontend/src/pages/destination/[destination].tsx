@@ -6,6 +6,8 @@ import Header from "@/components/supports/homePage/Header";
 import { DestinationDetailMain } from "@/components/supports/destinationDetail/DestinationDetailMain";
 import { TourPackages } from "@/components/supports/destinationDetail/TourPackages";
 import { Footer } from "@/components/supports/destinationPage/Footer";
+import { Loading } from "@/components/supports/Loading";
+import { useLoading } from "@/functions/UseLoading";
 
 const DestinationDetailHero = ({
   travelDatas,
@@ -15,6 +17,12 @@ const DestinationDetailHero = ({
 }: FetchDataProps) => {
   const router = useRouter();
   const { destination } = router.query;
+
+  const isLoading = useLoading([travelDatas, toursData, destinationDatas, categoryDatas])
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
