@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Dollar,
-  Left,
-  LocationWhite,
-  Right,
-  Select,
-} from "@/components/icons/destinationPage";
+import { Dollar, Left, LocationWhite, Right, Select, } from "@/components/icons/destinationPage";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FetchDataProps } from "@/types/fetchDataProps";

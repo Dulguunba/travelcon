@@ -21,7 +21,6 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
 
     const destinationsByCategory = categoryDatas.result.map(category => {
         const destinationsInCategory = destinationDatas.result.filter(destination => destination.destinationCategory._id === category._id);
-
         return { category, destination: destinationsInCategory };
     });
 
