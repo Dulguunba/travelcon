@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const instance = axios.create({
-  baseURL: "http://localhost:8800",
+  baseURL: "https://backenddeploy-so3p.onrender.com",
   timeout: 10000,
   headers: { "Content-Type": "application/json" },
 });
