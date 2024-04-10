@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { travelInfoType } from '../Baatar/mybook/TableMui';
 
 export const Header = () => {
   return (
@@ -31,6 +32,8 @@ export const Header = () => {
                 <h2>{'Dulguun'}</h2>
                 <h2 className='text-gray-400'>{'Dulguun@gmail.com'}</h2>
             </div>
+        </div>
+        <div>
         </div>
     </div>
   )

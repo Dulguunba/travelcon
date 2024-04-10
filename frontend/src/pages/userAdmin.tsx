@@ -3,24 +3,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import MenuIcon from "@mui/icons-material/Menu";
-import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
-import SettingsIcon from "@mui/icons-material/Settings";
-import { Dashboard } from "@/components/supports/admin/Dashboard";
-import { Booking } from "@/components/supports/admin/Booking";
-import { Tour } from "@/components/supports/admin/Tour";
-import { GenerelSetting } from "@/components/supports/admin/GeneralSetting";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import { Income } from "@/components/supports/admin/Income";
-import { Reviews } from "@/components/supports/admin/Reviews";
-import { StarHalfRounded } from "@mui/icons-material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { adminDashboardData } from "@/utils/fetchAdminDatas";
-import {
-  FetchAdminDataProps,
-  dashboardDataType,
-} from "@/types/dashboardAdminCard";
+import SettingsIcon from '@mui/icons-material/Settings';
+import { ProfileSettings } from "@/components/supports/userAdmin/ProfileSettings";
+import { MyProfile } from "@/components/supports/userAdmin/MyProfile";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -110,81 +98,27 @@ export default function Admin() {
           </div>
         </div>
         <Tab
-          icon={<SpaceDashboardIcon />}
+          icon={<AccountCircleIcon />}
           iconPosition="start"
-          label={`${toggle ? "Dashboard" : ""}`}
+          label={`${toggle ? "My Profile" : ""}`}
           sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
           {...tabPageNumber(0)}
         />
 
         <Tab
-          icon={<AirplaneTicketIcon />}
+          icon={<SettingsIcon />}
           iconPosition="start"
-          label={`${toggle ? "booking" : ""}`}
+          label={`${toggle ? "Settings" : ""}`}
           sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
           {...tabPageNumber(1)}
         />
-
-        <Tab
-          icon={<AccountBalanceWalletIcon />}
-          iconPosition="start"
-          label={`${toggle ? "Income" : ""}`}
-          sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(2)}
-        />
-
-        <Tab
-          icon={<TravelExploreIcon />}
-          iconPosition="start"
-          label={`${toggle ? "tour" : ""}`}
-          sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(3)}
-        />
-
-        <Tab
-          icon={<StarHalfRounded />}
-          iconPosition="start"
-          label={`${toggle ? "reviews" : ""}`}
-          sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(4)}
-        />
-
-        <Tab
-          icon={<SettingsIcon />}
-          iconPosition="start"
-          label={`${toggle ? "setting" : ""}`}
-          sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(5)}
-        />
       </Tabs>
-      <TabPanel value={value} index={0}>
-        {/* <Dashboard/> */}
-      </TabPanel>
       <TabPanel value={value} index={1}>
-        <Dashboard />
+        <MyProfile/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Booking />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Income />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <Tour />
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        <Reviews />
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        <GenerelSetting />
+        <ProfileSettings/>
       </TabPanel>
     </Box>
   );
 }
-
-// export const getServerSideProps = async () => {
-//   const dashboardResponse = await adminDashboardData()
-//   console.log(dashboardResponse);
-
-//   return { props: { dashboardData: dashboardResponse } }
-// }

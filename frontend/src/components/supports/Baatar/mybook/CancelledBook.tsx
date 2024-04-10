@@ -10,7 +10,7 @@ export const CancelledBook = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className='bg-red-200'>
               <th className='text-lg font-bold text-black'>Check-In</th>
               <th className='text-lg font-bold text-black'>Check-Out</th>
               <th className='text-lg font-bold text-black'>Travel</th>

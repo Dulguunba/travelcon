@@ -1,5 +1,5 @@
 import React from 'react'
-import { TableMui } from '../Baatar/mybook/TableMui'
+import { TableMui } from './TableMui'
 
 export const SettingsBook = () => {
   return (

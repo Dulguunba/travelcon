@@ -1,8 +1,9 @@
+import { ObjectId } from "mongodb";
 import { Schema, model } from "mongoose";
 
 const reviewSchema = new Schema({
   travelId: {
-    type: String,
+    type: ObjectId,
     required: [true, "Please insert input"],
   },
   stars: {
