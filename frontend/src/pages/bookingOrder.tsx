@@ -5,7 +5,12 @@ import { FormComponent } from "@/components/supports/destinationPage/FormCompone
 import { FetchDataProps } from "@/types/fetchDataProps";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Bookingorder({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps ) {
+export default function Bookingorder({
+  travelDatas,
+  toursData,
+  destinationDatas,
+  categoryDatas,
+}: FetchDataProps) {
   const calendars = [
     {
       startDay: "2024-04-06",
@@ -29,7 +34,12 @@ export default function Bookingorder({ travelDatas, toursData, destinationDatas,
 
   return (
     <main>
-      <FormComponent toursData={toursData} travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
+      <FormComponent
+        toursData={toursData}
+        travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+      />
       <OrderCard calendar={calendars} />
     </main>
   );

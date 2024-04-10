@@ -5,9 +5,11 @@ import { getServerSideProps } from '@/utils/fetchTravelDatas';
 import { BurgerMenu, DownArrow, XIcon } from '@/components/icons/homePage';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { FetchDataProps } from '@/types/fetchDataProps';
+import { useRouter } from 'next/router';
 
 
 const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
+    const route = useRouter()
     const [showMenu, setShowMenu] = useState(false);
 
     const { y } = useWindowScroll();
@@ -22,6 +24,10 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
 
         return { category, destination: destinationsInCategory };
     });
+
+    const jumpToDestination=()=>{
+        route.push("/destination")
+    }
 
     const { user, error } = useUser();
 
@@ -60,7 +66,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                                     </ul>
                                 </div>
                             </div>
-                            <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
+                            <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out' onClick={jumpToDestination}>
                                 <div className="dropdown dropdown-hover relative">
                                     <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours</div>
                                 </div>

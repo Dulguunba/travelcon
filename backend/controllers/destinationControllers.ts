@@ -34,3 +34,15 @@ export const getDestination = async (req: Request, res: Response) => {
     res.status(400).json({ message: "fail to get destination data", error: error });
   }
 };
+export const deleteDestination = async (req:Request, res:Response)=>{
+  try {
+    const {  name, english, destinationCategory  } = req.body;
+    if( !name|| !english || !destinationCategory){
+      return res.status(401).json({message:"undifinded name or english or destination"})
+    }
+    const deleteDestination = await DestinationModel.deleteMany({ name, english, destinationCategory })
+    res.status(200).json({message:"successfully delete Destination"})
+  } catch (error) {
+    res.status(400).json({message:"fail to delete destination"})
+  }
+}

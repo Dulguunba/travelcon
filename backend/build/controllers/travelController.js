@@ -12,13 +12,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTravel = exports.createTravel = void 0;
+exports.deleteTravel = exports.getTravel = exports.createTravel = void 0;
 const travelModel_1 = require("../models/travelModel");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const createTravel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, travelCompany, duration, price, food, traffic, categoryType, touristType, additionalInfo, image, route, calendar, } = req.body;
-    console.log(name, travelCompany, duration, price, food, traffic, categoryType, touristType, additionalInfo, image, route, calendar);
+    const { name, travelCompany, duration, price, food, traffic, categoryType, touristType, additionalInfo, image, route, destination, calendar, } = req.body;
+    console.log(name, travelCompany, duration, price, food, traffic, categoryType, touristType, additionalInfo, image, destination, route, calendar);
     try {
         const newTravel = yield travelModel_1.TravelModel.create({
             name,
@@ -32,6 +32,7 @@ const createTravel = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             additionalInfo,
             image,
             route,
+            destination,
             calendar,
             createdAt: new Date(),
             updatedAt: new Date(),
@@ -49,7 +50,10 @@ const createTravel = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.createTravel = createTravel;
 const getTravel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const travelData = yield travelModel_1.TravelModel.find({}).exec();
+        const travelQuery = travelModel_1.TravelModel.find({}).populate("destination");
+        travelQuery.sort("-createdAt");
+        // travelQuery.select("_id travelName email phoneNumber");
+        const travelData = yield travelQuery.exec();
         res.status(200).json({ result: travelData });
     }
     catch (error) {
@@ -57,3 +61,28 @@ const getTravel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getTravel = getTravel;
+const deleteTravel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { name, travelCompany, duration, price, food, traffic, categoryType, touristType, additionalInfo, image, route, calendar, } = req.body;
+        if (!name || !duration || !food || !categoryType || !additionalInfo || !route) {
+            res.status(400).json({ message: "undifined travel data" });
+        }
+        const deleteTravel = yield travelModel_1.TravelModel.deleteMany({ name,
+            travelCompany,
+            duration,
+            price,
+            food,
+            traffic,
+            categoryType,
+            touristType,
+            additionalInfo,
+            image,
+            route,
+            calendar, });
+        res.status(201).json({ message: "successfully to delete" });
+    }
+    catch (error) {
+        res.status(400).json({ message: "fail to delete travel" });
+    }
+});
+exports.deleteTravel = deleteTravel;

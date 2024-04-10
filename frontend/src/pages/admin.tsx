@@ -17,7 +17,10 @@ import { Income } from "@/components/supports/admin/Income";
 import { Reviews } from "@/components/supports/admin/Reviews";
 import { StarHalfRounded } from "@mui/icons-material";
 import { adminDashboardData } from "@/utils/fetchAdminDatas";
-import { FetchAdminDataProps, dashboardDataType } from "@/types/dashboardAdminCard";
+import {
+  FetchAdminDataProps,
+  dashboardDataType,
+} from "@/types/dashboardAdminCard";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -55,17 +58,18 @@ function tabPageNumber(index: number) {
 // {props}: {props: FetchAdminDataProps}
 
 export default function Admin() {
-  const [AdminData, setAdminData] = React.useState({})
+  const [AdminData, setAdminData] = React.useState({});
 
   // const {dashboardData} = props
 
-  React.useEffect( ()=>{
-    const callData= async ()=>{    
+  React.useEffect(() => {
+    const callData = async () => {
       const adminDashboardDataRes = await adminDashboardData();
-      setAdminData(adminDashboardDataRes)
-      console.log('dashboard data', adminDashboardDataRes);}
-    callData()
-  },[])
+      setAdminData(adminDashboardDataRes);
+      console.log("dashboard data", adminDashboardDataRes);
+    };
+    callData();
+  }, []);
   const [value, setValue] = React.useState(0);
 
   const [toggle, setToggle] = React.useState(true);
@@ -155,7 +159,7 @@ export default function Admin() {
         />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <Dashboard dashboardData={AdminData}/>
+        {/* <Dashboard dashboardData={AdminData}/> */}
       </TabPanel>
       <TabPanel value={value} index={1}>
         {/* <Dashboard dashboardData={props.dashboardData}/> */}
@@ -182,6 +186,6 @@ export default function Admin() {
 // export const getServerSideProps = async () => {
 //   const dashboardResponse = await adminDashboardData()
 //   console.log(dashboardResponse);
-  
+
 //   return { props: { dashboardData: dashboardResponse } }
 // }

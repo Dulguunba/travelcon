@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dollar,
+  Minus,
+  Plus,
   Left,
   LocationWhite,
   Right,
@@ -9,6 +11,8 @@ import {
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FetchDataProps } from "@/types/fetchDataProps";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
 export const FormComponent = ({
   travelDatas,
@@ -22,8 +26,6 @@ export const FormComponent = ({
       lastName: "",
       email: "",
       phoneNumber: "",
-      insurance: false,
-      privacyAccept: false,
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -34,14 +36,6 @@ export const FormComponent = ({
         .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
       phoneNumber: Yup.string().required("Phone number is required"),
-      insurance: Yup.boolean().oneOf(
-        [true],
-        "Insurance acceptance is required"
-      ),
-      privacyAccept: Yup.boolean().oneOf(
-        [true],
-        "Privacy policy acceptance is required"
-      ),
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -50,21 +44,38 @@ export const FormComponent = ({
         firstName: formik.values.firstName,
         email: formik.values.email,
         phoneNumber: formik.values.phoneNumber,
-        insurance: formik.values.insurance,
-        privacyAccept: formik.values.privacyAccept,
       };
     },
   });
+  const [childCount, setChildCount] = useState(0);
+  const [adultCount, setAdultCount] = useState(1);
+
+  const handleChildIncrement = () => {
+    if (childCount < 20 - 1) {
+      setChildCount(childCount + 1);
+    }
+  };
+
+  const handleChildDecrement = () => {
+    if (childCount > 0) {
+      setChildCount(childCount - 1);
+    }
+  };
+
+  const handleAdultIncrement = () => {
+    if (adultCount < 20) {
+      setAdultCount(adultCount + 1);
+    }
+  };
+
+  const handleAdultDecrement = () => {
+    if (adultCount > 1) {
+      setAdultCount(adultCount - 1);
+    }
+  };
+
   return (
     <>
-      {/* <div className="flex flex-col items-center justify-center bg-[url('/place.png')] bg-no-repeat bg-cover">
-                <div className='flex max-w-[1520px] w-[90%] py-5 flex-col h-[600px] md:h-[950px]'>
-                    <div className='flex items-center justify-center h-full flex-col'>
-                        <p className='text-white'> Home    |   Destination</p>
-                        <h1 className='font-oswald text-white font-bold  md:text-[200px] md:leading-[200px] text-[40px] leading-[50px]'>BOOKING FORM</h1>
-                    </div>
-                </div>
-            </div> */}
       <div className="flex flex-col items-center justify-center bg-white pt-20">
         <div className="flex max-w-[1520px] w-[90%] flex-col ">
           <form onSubmit={formik.handleSubmit}>
@@ -102,7 +113,6 @@ export const FormComponent = ({
                     </div>
                   ) : null}
                 </div>
-
                 <div className="lg:max-w-[745px] w-full  flex items-center rounded-[15px] bg-grayColor h-[100px]">
                   {" "}
                   <input
@@ -165,18 +175,6 @@ export const FormComponent = ({
                 <Right />
               </div>
             </div>
-            {/* {travelDatas.result.map((item, index) => (
-                            <div key={index} className='md:flex  rounded-xl  justify-between w-full gap-12'>
-                                <img className='lg:w-[30%] w-[100%] h-[206px] rounded-3xl ' src={`${item?.image?.mainImage}`} alt="winter" />
-                                <div className='lg:w-[40%] w-[100%]'>
-                                    <div className='max-w-[659px]'>
-                                        <h3 className='font-normal text-blue text-[20px] leading-[30px]'>{item.name}</h3>
-                                        <p className='font-normal text-[20px] leading-[30px] flex-wrap  text-[#222222] overflow-hidden overflow-y-auto h-20'>{item.additionalInfo}</p>
-                                        <button className='border border-gray-400 px-8 py-4 rounded-xl text-red-600 font-semibold '>Remove</button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))} */}
             <div>
               <img
                 src="./sakura.png"
@@ -209,37 +207,109 @@ export const FormComponent = ({
               </div>
             </div>
             <div className="md:flex justify-between pt-20 pb-[120px]">
-              <div>
-                <div className="flex gap-4 items-center">
-                  <input
-                    id="insurance"
-                    type="checkbox"
-                    checked={formik.values.insurance}
-                    {...formik.getFieldProps("insurance")}
-                    className="checkbox"
-                  />
-                  <p>
-                    Get me a travel insurance that covers my whole trip safety
-                    and cancellation.
-                  </p>
-                </div>
-                {formik.touched.insurance && formik.errors.insurance ? (
-                  <div className="pl-5">{formik.errors.insurance}</div>
-                ) : null}
-                <div className="flex gap-4 items-center py-4">
-                  <input
-                    id="privacyAccept"
-                    type="checkbox"
-                    checked={formik.values.privacyAccept}
-                    {...formik.getFieldProps("privacyAccept")}
-                    className="checkbox"
-                  />
-                  <p>I have read all terms & condition and privacy policy.</p>
-                </div>
-                {formik.touched.privacyAccept && formik.errors.privacyAccept ? (
-                  <div className="pl-5">{formik.errors.privacyAccept}</div>
-                ) : null}
-              </div>
+              {travelDatas.result.map((item, index) =>
+                item._id === "66100067d0b3d401b5e0e2d8" ? (
+                  <>
+                    <div
+                      key={index}
+                      className="border-2 lg:w-[500px] rounded-xl border-[#F15D31] p-4"
+                    >
+                      <div className="flex items-center justify-between pb-4">
+                        <div>
+                          <h1>Children</h1>
+                          <p>{item.price.childPrice}₮</p>
+                        </div>
+                        <div className="p-4 border border-black rounded-lg flex justify-between">
+                          <button
+                            className={`w-7 h-7 ${
+                              childCount === 0 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center text-[30px] text-center`}
+                            disabled={childCount === 0}
+                            onClick={handleChildDecrement}
+                          >
+                            <RemoveIcon
+                              className={`text-${
+                                childCount === 0 ? "gray-400" : "white"
+                              } w-[14px] `}
+                            />
+                          </button>
+                          <input
+                            className="outline-0 w-[84px] px-3 text-center"
+                            min={0}
+                            max={item.maxTourist - 1}
+                            value={childCount}
+                            readOnly
+                          />
+                          <button
+                            className={`w-7 h-7 ${
+                              childCount === 19 ? "bg-white" : "bg-orange-500"
+                            }  border-gray-400 border  rounded-sm flex items-center justify-center`}
+                            onClick={handleChildIncrement}
+                          >
+                            <AddIcon
+                              className={`text-${
+                                childCount === 19 ? "gray-400" : "white"
+                              } w-[14px] h-[14px]`}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h1>Adult</h1>
+                          <p>{item.price.adultPrice}₮</p>
+                        </div>
+                        <div className="p-4 border border-black rounded-lg flex justify-between">
+                          <button
+                            className={`w-7 h-7 ${
+                              adultCount === 1 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            onClick={handleAdultDecrement}
+                          >
+                            {" "}
+                            <RemoveIcon
+                              className={`text-${
+                                adultCount === 1 ? "gray-400" : "white"
+                              } w-[14px] `}
+                            />
+                          </button>
+                          <input
+                            className="outline-0 w-[84px] px-3 text-center"
+                            min={1}
+                            max={item.maxTourist}
+                            value={adultCount}
+                            readOnly
+                          />
+                          <button
+                            className={`w-7 h-7 ${
+                              adultCount === 20 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            onClick={handleAdultIncrement}
+                          >
+                            <AddIcon
+                              className={`text-${
+                                adultCount === 20 ? "gray-400" : "white"
+                              } w-[14px] h-[14px]`}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      <hr className="my-3" />
+                      <div className="flex items-center justify-between">
+                        <div className="font-semibold text-[16px] leading-[20px]">
+                          {" "}
+                          Total :
+                        </div>
+                        <div className="font-semibold text-[20px] leading-[28px]">
+                          {childCount * item.price.childPrice +
+                            adultCount * item.price.adultPrice}
+                          ₮
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : null
+              )}
               <button
                 type="submit"
                 className="md:py-[30px] md:px-[100px] py-[15px] px-12 bg-blue text-white rounded-xl"
