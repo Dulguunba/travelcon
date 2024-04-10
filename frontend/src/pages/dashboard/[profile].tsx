@@ -3,6 +3,7 @@ import { useUser } from '@auth0/nextjs-auth0/client'
 
 const Profile = () => {
     const { user } = useUser();
+
     return (
         <div className='flex items-center justify-center'>
             <div className='max-w-[1520px] w-[90%] flex'>

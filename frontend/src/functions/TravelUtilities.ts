@@ -60,3 +60,13 @@ export const showToastMessage = () => {
     {}
   );
 };
+
+export const getReviews = async (set: Function) => {
+  try {
+    const response = await instance.get("/review/get");
+    set(response.data.result);
+    console.log("review data", response.data.response);
+  } catch (error) {
+    return alert(`Уучлаарай алдаа үүслээ`);
+  }
+};

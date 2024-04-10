@@ -10,7 +10,7 @@ import { FetchDataProps } from '@/types/fetchDataProps';
 import { useRouter } from 'next/router';
 
 
-const TourDetailHero = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
+const TourDetailHero = ({ toursData, travelDatas, destinationDatas, categoryDatas, reviewDatas }: FetchDataProps) => {
     const router = useRouter();
     const { tour } = router.query;
 
@@ -73,7 +73,7 @@ const TourDetailHero = ({ toursData, travelDatas, destinationDatas, categoryData
                             </Slider>
                         </div>
                         {/* <SimpleSlider /> */}
-                        <Description destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
+                        <Description reviewDatas={reviewDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
                     </>
                 )
                 : null
