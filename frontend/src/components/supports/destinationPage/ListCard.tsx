@@ -5,6 +5,7 @@ import {
 } from "@/components/icons/destinationPage";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { Destination } from "@/types/destinationTypes";
+import { FetchDataProps } from "@/types/fetchDataProps";
 import { Tours } from "@/types/toursTypes";
 import { Travel, TravelObjectType } from "@/types/travelTypes";
 import { useRouter } from "next/router";

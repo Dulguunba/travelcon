@@ -9,5 +9,6 @@ export interface FetchDataProps {
   travelDatas: Travel;
   destinationDatas: Destination;
   categoryDatas: DestinationCategory;
+  state?: string;
   reviewDatas?: Review;
 }

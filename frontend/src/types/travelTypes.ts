@@ -47,6 +47,7 @@ export interface Travel {
         name: string;
         english: string;
         additionalInfo: string;
+        destinationCategory: string;
         image: string;
         destinationCategory: string;
       };
