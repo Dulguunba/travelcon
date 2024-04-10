@@ -5,6 +5,7 @@ import { Travel } from "@/types/travelTypes";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { Destination } from "@/types/destinationTypes";
 import { instance } from "./functions/TravelUtilities";
+import { Review } from "@/types/reviewTypes";
 
 export const getServerSideProps: GetServerSideProps = async () => {
 
@@ -21,6 +22,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const destinationRes = await instance.get("/destination/get");
     const destinationDatas: Destination = destinationRes.data;
 
+    const res = await instance.get("/review/get");
+    const reviewDatas: Review = res.data;
 
     return {
       props: {
@@ -28,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         toursData,
         categoryDatas,
         destinationDatas,
-
+        reviewDatas
       }
     }
   } catch (error) {
@@ -39,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         toursData: [],
         categoryDatas: [],
         destinationDatas: [],
-
+        reviewDatas: []
       }
     };
   }

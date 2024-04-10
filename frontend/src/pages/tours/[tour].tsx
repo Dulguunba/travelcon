@@ -8,7 +8,7 @@ import { useLoading } from '@/functions/UseLoading';
 import { Loading } from '@/components/supports/Loading';
 
 
-const TourDetail = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
+const TourDetail = ({ toursData, travelDatas, destinationDatas, categoryDatas, reviewDatas }: FetchDataProps) => {
     const isLoading = useLoading([travelDatas, , toursData, destinationDatas, categoryDatas])
 
     if (isLoading) {
@@ -16,7 +16,7 @@ const TourDetail = ({ toursData, travelDatas, destinationDatas, categoryDatas }:
     }
     return (
         <div>
-            <TourDetailHero destinationDatas={destinationDatas} categoryDatas={categoryDatas} travelDatas={travelDatas} toursData={toursData} />
+            <TourDetailHero reviewDatas={reviewDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} travelDatas={travelDatas} toursData={toursData} />
             {/* <Footer /> */}
         </div>
     )

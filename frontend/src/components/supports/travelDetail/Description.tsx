@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 import RouteTours from './RouteTours'
 
 
-const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }: FetchDataProps) => {
+const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas, reviewDatas }: FetchDataProps) => {
     const [isTextShown, setIsTextShown] = useState(false);
     const toggleText = () => {
         setIsTextShown(!isTextShown);
@@ -52,12 +52,14 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
                                                 </div>
                                                 <div className='flex gap-4'>
                                                     <CalendarIcon />
-                                                    {data.calendar.map((cal) => {
-                                                        const startDay = new Date(cal.startDay);
-                                                        const endDay = new Date(cal.endDay);
+                                                    {(() => {
+                                                        const startDays = data.calendar.map(cal => new Date(cal.startDay).getTime());
+                                                        const endDays = data.calendar.map(cal => new Date(cal.endDay).getTime());
+                                                        const firstStartDay = new Date(Math.min(...startDays));
+                                                        const lastEndDay = new Date(Math.max(...endDays));
                                                         const formatter = new Intl.DateTimeFormat('default', { month: 'long', day: 'numeric' });
-                                                        return formatter.format(startDay) + " - " + formatter.format(endDay) + " ";
-                                                    })}
+                                                        return formatter.format(firstStartDay) + " - " + formatter.format(lastEndDay);
+                                                    })()}
                                                 </div>
                                             </div>
 
@@ -73,31 +75,35 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas }
                                         {isTextShown ? "See Less" : "See More"}
                                     </button>
                                 </div>
+                                <div className='lg:w-[615px] h-[310px] flex justify-center items-center lg:p-5 lg:justify-between lg:items-start  bg-blue rounded-3xl'>
+                                    <div className='flex flex-col ml-5 lg:text-4xl text-white fond bold font-oswald '>
+                                        <li className='lg:mt-5 '>Travel Guide</li>
+                                        <li className='lg:mt-5'>Travel Blog</li>
+                                        <li className='lg:mt-5 '>Visit</li>
+                                    </div>
+                                    <img className='w-1/2 rounded-3xl' src="/logoWithColor.png" alt="" />
+                                </div>
                                 <Included destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
                             </div>
                             <div className='w-full flex flex-col lg:mt-0 mt-10 lg:mb-0 mb-10 lg:w-[1000px] gap-5'>
                                 {data.route.map((routes, index) => {
-                                    return data.calendar.map((time) => {
-                                        const vehicleIcon = routes.vehicle === 'Airplane'
-                                            ? { planeIcon: <PlaneIcon width='45' height='45' fill='#4997D3' /> }
-                                            : { busIcon: <BusIcon width='45' height='45' fill='#4997D3' /> };
+                                    const vehicleIcon = routes.vehicle === 'Airplane'
+                                        ? { planeIcon: <PlaneIcon width='45' height='45' fill='#4997D3' /> }
+                                        : { busIcon: <BusIcon width='45' height='45' fill='#4997D3' /> };
 
-                                        return (
-                                            <RouteTours
-                                                startTime={time.startTime}
-                                                endTime={time.endTime}
-                                                startPoint={routes.startPoint}
-                                                endPoint={routes.endPoint}
-                                                day={`Day ${index + 1}`}
-                                                {...vehicleIcon}
-                                            />
-                                        );
-                                    })
+                                    return (
+                                        <RouteTours
+                                            startPoint={routes.startPoint}
+                                            endPoint={routes.endPoint}
+                                            day={`Day ${index + 1}`}
+                                            {...vehicleIcon}
+                                        />
+                                    );
                                 })}
                             </div>
                         </div>
                         <Itinerary destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
-                        <Reviews toursData={toursData} travelDatas={travelDatas} />
+                        <Reviews reviewDatas={reviewDatas} toursData={toursData} travelDatas={travelDatas} />
                     </div>
                 </div>
                 : null

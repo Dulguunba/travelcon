@@ -5,7 +5,10 @@ export const useLoading = (data: any[]) => {
 
     useEffect(() => {
         if (data.every(item => item !== undefined)) {
-            setIsLoading(false);
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 2000)
+
         }
     }, data);
 
