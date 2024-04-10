@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export const Loading = () => {
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
     return (
-        <div className='flex flex-col items-center justify-center h-screen bg-blue fixed z-50 left-0 right-0 top-0 bottom-0'>
+        <div className='flex flex-col overflow-hidden items-center justify-center h-screen bg-blue fixed z-50 left-0 right-0 top-0 bottom-0'>
             <div className='max-w-[1520px] w-[90%] h-screen flex items-center justify-start flex-col'>
                 <img src="logoWithColor.png" className='w-[40vw] h-[60vh]' alt="" />
                 <div role="status">

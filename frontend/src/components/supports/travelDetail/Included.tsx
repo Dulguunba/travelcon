@@ -16,7 +16,7 @@ const Included = ({ toursData, travelDatas }: FetchDataProps) => {
     return (
         <>
             {travelDatas.result.map((data) => data._id === tour
-                ? <div className='mt-14 flex lg:flex-row flex-col lg:justify-between'>
+                ? <div className='mt-14 flex flex-col gap-20 lg:justify-between'>
                     <div className='flex flex-col gap-5 lg:mb-0 mb-5'>
                         <div className='lg:text-[40px] text-3xl font-oswald font-bold'>
                             INCLUDED

@@ -9,8 +9,6 @@ import { FetchDataProps } from '@/types/fetchDataProps';
 
 const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
     const [showMenu, setShowMenu] = useState(false);
-    const personalTours = toursData.result.filter(tour => tour.group === "personal tours");
-    const groupTours = toursData.result.filter(tour => tour.group === "groups tour");
 
     const { y } = useWindowScroll();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -27,14 +25,17 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
 
     const { user, error } = useUser();
 
-    console.log(user)
+
     return (
         <>
             <div className="flex flex-col items-center justify-center">
                 <div className='flex max-w-[1520px] w-[90%] z-10'>
                     <div className={`${isScrolled ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black" : ""} flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}>
                         <Link href={'/'}>
-                            <img className='w-[100px] h-[50px]' src="http://localhost:3000/logoNoBackground.png" alt="" />
+                            {isScrolled
+                                ? <img className='w-[70px] h-[50px]' src="/logoWithColor.png" alt="" />
+                                : <img className='w-[100px] h-[50px]' src="/logoNoBackground.png" alt="" />
+                            }
                         </Link>
                         <div className='hidden lg:flex gap-14 lg:items-center lg:drop-shadow-lg'>
                             <div className='flex items-center relative gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
@@ -62,32 +63,6 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                             <div className='flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out'>
                                 <div className="dropdown dropdown-hover relative">
                                     <div tabIndex={0} role="button" className="m-1 flex gap-2 items-center">Tours</div>
-                                    {/* <ul tabIndex={0} className="dropdown-content absolute -left-40 z-50 menu p-2 shadow bg-base-100 w-[400px] rounded-box flex-row grid grid-cols-2">
-                                        <div className='flex flex-col'>
-                                            <div className="text-gray-700 font-semibold pl-2 capitalize">
-                                                <h1 className='border-b-2 pb-1'>{personalTours.length > 0 ? personalTours[0].group : ''}</h1>
-                                            </div>
-                                            <div className='text-black mt-2 flex flex-col font-openSans gap-3 capitalize'>
-                                                {personalTours.map((tour) =>
-                                                (
-                                                    <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-                                                )
-                                                )}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="text-gray-700 font-semibold pl-2 capitalize">
-                                                <h1 className='border-b-2 pb-1'>
-                                                    {groupTours.length > 0 ? groupTours[0].group : ''}
-                                                </h1>
-                                            </div>
-                                            <div className='text-black mt-2 flex flex-col gap-3 font-openSans capitalize'>
-                                                {groupTours.map((tour) => (
-                                                    <div><p className='hover:bg-slate-200 rounded-lg p-2 duration-300 transition-all ease-in-out'>{tour.english}</p></div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </ul> */}
                                 </div>
                             </div>
                             <Link href={'/about'}><p className='cursor-pointer hover:-translate-y-1 transition ease-in-out'>About</p></Link>
@@ -124,7 +99,7 @@ const Header = ({ toursData, destinationDatas, categoryDatas }: FetchDataProps) 
                             <XIcon width='18' fill='#4997D3' />
                         </button>
                         <div className='flex items-center justify-center'>
-                            <img className='w-1/2' src="logoNoBackground.png" alt="" />
+                            <img className='w-1/2' src="/logoNoBackground.png" alt="" />
                         </div>
                     </div>
                     <ul className='ml-2 mr-2 mt-10 font-primary flex flex-col gap-6'>
