@@ -15,11 +15,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { Travel, TravelObjectType } from "@/types/travelTypes";
 
-export const FormComponent = ({
-  travelData,
-}: {
-  travelData: TravelObjectType;
-}) => {
+export const FormComponent = () => {
   const formik = useFormik({
     initialValues: {
       firstName: "",

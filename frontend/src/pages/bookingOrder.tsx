@@ -34,12 +34,7 @@ export default function Bookingorder({
 
   return (
     <main>
-      <FormComponent
-        toursData={toursData}
-        travelDatas={travelDatas}
-        destinationDatas={destinationDatas}
-        categoryDatas={categoryDatas}
-      />
+      <FormComponent />
       <OrderCard calendar={calendars} />
     </main>
   );
