@@ -2,7 +2,7 @@ import React from "react";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import Header from "../homePage/Header";
 
-const Top = ({
+export const TopOrder = ({
   travelDatas,
   toursData,
   destinationDatas,
@@ -10,7 +10,11 @@ const Top = ({
 }: FetchDataProps) => {
   return (
     <>
-      <img src="DestinationHero.jpg" className="lg:w-full" alt="" />
+      <img
+        src="https://www.discovermongolia.mn/uploads/c-1-ice-festival-lake-huvsgul-winter.jpg"
+        className="lg:w-full"
+        alt=""
+      />
       <div className="absolute top-0 right-0  w-full bg-blue"></div>
       <div className="absolute top-0 right-0 left-0">
         <Header
@@ -37,5 +41,3 @@ const Top = ({
     </>
   );
 };
-
-export default Top;

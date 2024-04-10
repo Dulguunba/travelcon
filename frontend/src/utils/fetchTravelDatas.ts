@@ -8,7 +8,6 @@ import { instance } from "./functions/TravelUtilities";
 import { Review } from "@/types/reviewTypes";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-
   try {
     const travelRes = await instance.get("/travel/get");
     const travelDatas: Travel = travelRes.data;
@@ -31,9 +30,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
         toursData,
         categoryDatas,
         destinationDatas,
-        reviewDatas
-      }
-    }
+        reviewDatas,
+      },
+    };
   } catch (error) {
     console.error("Error fetching data:", error);
     return {
@@ -42,8 +41,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
         toursData: [],
         categoryDatas: [],
         destinationDatas: [],
-        reviewDatas: []
-      }
+        reviewDatas: [],
+      },
     };
   }
-}
+};
