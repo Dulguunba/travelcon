@@ -7,3 +7,4 @@ const travelRouter = (0, express_1.Router)();
 exports.travelRouter = travelRouter;
 travelRouter.route("/create").post(travelController_1.createTravel);
 travelRouter.route("/get").get(travelController_1.getTravel);
+travelRouter.route("/delete").delete(travelController_1.deleteTravel);

@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { Dollar, Left, LocationWhite, Right, Select, } from "@/components/icons/destinationPage";
+import {
+  Dollar,
+  Left,
+  LocationWhite,
+  Right,
+  Select,
+} from "@/components/icons/destinationPage";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import { Travel, TravelObjectType } from "@/types/travelTypes";
 
-export const FormComponent = ({
-  travelDatas,
-  toursData,
-  destinationDatas,
-  categoryDatas,
-}: FetchDataProps) => {
+export const FormComponent = () => {
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -167,37 +169,7 @@ export const FormComponent = ({
                 <Right />
               </div>
             </div>
-            <div>
-              <img
-                src="./sakura.png"
-                alt=""
-                className="absolute -z-1 rounded-3xl h-[562px] flex flex-col  justify-between"
-              />
-              <div className="relative rounded-3xl h-[562px] flex flex-col pl-9 justify-between">
-                <div className="w-[56px] h-[56px] rounded-full border-white border-2 flex items-center justify-center bg-blue mt-8">
-                  <Select />
-                </div>
-                <div className="pb-[64px]">
-                  <h1 className="font-oswald font-bold md:text-[100px] md:leading-[100px] text-[40px] leading-[50px] text-white">
-                    DISCOVER JAPAN TOUR PACKAGE
-                  </h1>
-                  <div className="flex items-center pt-10">
-                    <LocationWhite />
-                    <p className="font-normal text-[20px] text-white leading-[30px] pl-4 pr-6">
-                      {" "}
-                      Tokyo & Kyoto , Japan{" "}
-                    </p>
-                    <p className="font-normal text-[20px] text-white leading-[30px] pr-4 ">
-                      |
-                    </p>
-                    <Dollar />
-                    <p className="font-normal text-[20px] text-white leading-[30px] pl-4 pr-6">
-                      Start from $ 3,500
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
             <div className="md:flex justify-between pt-20 pb-[120px]">
               {travelDatas.result.map((item, index) =>
                 item._id === "66100067d0b3d401b5e0e2d8" ? (
@@ -213,14 +185,16 @@ export const FormComponent = ({
                         </div>
                         <div className="p-4 border border-black rounded-lg flex justify-between">
                           <button
-                            className={`w-7 h-7 ${childCount === 0 ? "bg-white" : "bg-orange-500"
-                              } border-gray-400  border rounded-sm flex items-center justify-center text-[30px] text-center`}
+                            className={`w-7 h-7 ${
+                              childCount === 0 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center text-[30px] text-center`}
                             disabled={childCount === 0}
                             onClick={handleChildDecrement}
                           >
                             <RemoveIcon
-                              className={`text-${childCount === 0 ? "gray-400" : "white"
-                                } w-[14px] `}
+                              className={`text-${
+                                childCount === 0 ? "gray-400" : "white"
+                              } w-[14px] `}
                             />
                           </button>
                           <input
@@ -231,13 +205,15 @@ export const FormComponent = ({
                             readOnly
                           />
                           <button
-                            className={`w-7 h-7 ${childCount === 19 ? "bg-white" : "bg-orange-500"
-                              }  border-gray-400 border  rounded-sm flex items-center justify-center`}
+                            className={`w-7 h-7 ${
+                              childCount === 19 ? "bg-white" : "bg-orange-500"
+                            }  border-gray-400 border  rounded-sm flex items-center justify-center`}
                             onClick={handleChildIncrement}
                           >
                             <AddIcon
-                              className={`text-${childCount === 19 ? "gray-400" : "white"
-                                } w-[14px] h-[14px]`}
+                              className={`text-${
+                                childCount === 19 ? "gray-400" : "white"
+                              } w-[14px] h-[14px]`}
                             />
                           </button>
                         </div>
@@ -249,14 +225,16 @@ export const FormComponent = ({
                         </div>
                         <div className="p-4 border border-black rounded-lg flex justify-between">
                           <button
-                            className={`w-7 h-7 ${adultCount === 1 ? "bg-white" : "bg-orange-500"
-                              } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            className={`w-7 h-7 ${
+                              adultCount === 1 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center`}
                             onClick={handleAdultDecrement}
                           >
                             {" "}
                             <RemoveIcon
-                              className={`text-${adultCount === 1 ? "gray-400" : "white"
-                                } w-[14px] `}
+                              className={`text-${
+                                adultCount === 1 ? "gray-400" : "white"
+                              } w-[14px] `}
                             />
                           </button>
                           <input
@@ -267,13 +245,15 @@ export const FormComponent = ({
                             readOnly
                           />
                           <button
-                            className={`w-7 h-7 ${adultCount === 20 ? "bg-white" : "bg-orange-500"
-                              } border-gray-400  border rounded-sm flex items-center justify-center`}
+                            className={`w-7 h-7 ${
+                              adultCount === 20 ? "bg-white" : "bg-orange-500"
+                            } border-gray-400  border rounded-sm flex items-center justify-center`}
                             onClick={handleAdultIncrement}
                           >
                             <AddIcon
-                              className={`text-${adultCount === 20 ? "gray-400" : "white"
-                                } w-[14px] h-[14px]`}
+                              className={`text-${
+                                adultCount === 20 ? "gray-400" : "white"
+                              } w-[14px] h-[14px]`}
                             />
                           </button>
                         </div>

@@ -69,3 +69,14 @@ export const getOrder = async (req: Request, res: Response) => {
     res.status(400).json({ message: "fail to get order data", error: error });
   }
 };
+export const deleteOrder = async(req: Request, res: Response)=>{
+  try {
+    console.log("hello")
+    const {_id} =req.query;
+    console.log(_id)
+    const deleteNode = await OrderModel.findByIdAndDelete({_id})
+    res.send("ok")
+  } catch (error) {
+    res.status(400).json({ message: "fail to delete user data", error: error });
+  }
+}

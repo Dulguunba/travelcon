@@ -5,4 +5,5 @@ const touristController_1 = require("../controllers/touristController");
 const touristRouter = (0, express_1.Router)();
 touristRouter.route("/create").post(touristController_1.createTourist);
 touristRouter.route("/get").get(touristController_1.getTourist);
+touristRouter.route("/delete").delete(touristController_1.deleteTourist);
 exports.default = touristRouter;

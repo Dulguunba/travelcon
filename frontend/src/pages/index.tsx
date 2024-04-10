@@ -12,23 +12,49 @@ import { Travel } from "@/types/travelTypes";
 import { Footer } from "@/components/supports/destinationPage/Footer";
 import { Destination } from "@/types/destinationTypes";
 import { DestinationCategory } from "@/types/destinationCategoryTypes";
-import { getServerSideProps } from '@/utils/fetchTravelDatas'
+import { getServerSideProps } from "@/utils/fetchTravelDatas";
 import { FetchDataProps } from "@/types/fetchDataProps";
+import { useEffect, useState } from "react";
 import { Loading } from "@/components/supports/Loading";
+import { useLoading } from "@/functions/UseLoading";
 
 const poppins = Poppins({
   weight: "400",
   subsets: ["latin"],
 });
 
-function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) {
+function Home({
+  travelDatas,
+  toursData,
+  destinationDatas,
+  categoryDatas,
+}: FetchDataProps) {
+  const isLoading = useLoading([travelDatas, destinationDatas, categoryDatas]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div>
-      <Hero travelDatas={travelDatas} destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} />
-      <PopularDestinations travelDatas={travelDatas} destinationDatas={destinationDatas} />
+      <Hero
+        travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+        toursData={toursData}
+      />
+      <PopularDestinations
+        travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+      />
       <Process />
       <Gallery travelDatas={travelDatas} />
-      <Value text="VALUES" miniText="OUR VALUES" margin="mb-20" padding="pt-20" />
+      <Value
+        text="VALUES"
+        miniText="OUR VALUES"
+        margin="mb-20"
+        padding="pt-20"
+      />
       <Questions />
       <MainFooter />
       <Footer />
@@ -36,6 +62,6 @@ function Home({ travelDatas, toursData, destinationDatas, categoryDatas }: Fetch
   );
 }
 
-export { getServerSideProps }
+export { getServerSideProps };
 
 export default Home;
