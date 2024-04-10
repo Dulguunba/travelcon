@@ -111,3 +111,18 @@ export const useTravelCalendarStore = create<
       ),
     })),
 }));
+
+type CartTravel = {
+  travelId: string;
+};
+
+type CartAction = {
+  updateTravel: (qty: string) => void;
+  removeTravel: () => void;
+};
+
+export const useTravelCartStore = create<CartTravel & CartAction>((set) => ({
+  travelId: "",
+  updateTravel: (qty: string) => set((state) => ({ travelId: qty })),
+  removeTravel: () => set((state) => ({ travelId: "" })),
+}));

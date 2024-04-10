@@ -13,13 +13,13 @@ import * as Yup from "yup";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import { Travel, TravelObjectType } from "@/types/travelTypes";
 
 export const FormComponent = ({
-  travelDatas,
-  toursData,
-  destinationDatas,
-  categoryDatas,
-}: FetchDataProps) => {
+  travelData,
+}: {
+  travelData: TravelObjectType;
+}) => {
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -207,7 +207,7 @@ export const FormComponent = ({
               </div>
             </div>
             <div className="md:flex justify-between pt-20 pb-[120px]">
-              {travelDatas.result.map((item, index) =>
+              {/* {travelDatas.result.map((item, index) =>
                 item._id === "66100067d0b3d401b5e0e2d8" ? (
                   <>
                     <div
@@ -309,7 +309,7 @@ export const FormComponent = ({
                     </div>
                   </>
                 ) : null
-              )}
+              )} */}
               <button
                 type="submit"
                 className="md:py-[30px] md:px-[100px] py-[15px] px-12 bg-blue text-white rounded-xl"
