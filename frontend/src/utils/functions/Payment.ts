@@ -1,12 +1,17 @@
 import { instance } from "@/functions/TravelUtilities";
+import axios from "axios";
 
 export const pay = async (setQr: Function) => {
     try {
-      const tokenRes = await instance.post(
+      console.log('check');
+      
+      const tokenRes = await axios.post(
         "https://merchant.qpay.mn/v2/auth/token",
         null,
         { headers: { Authorization: "Basic UE9XRVJfRVhQTzpvOXc4V0xoWg==" } }
       );
+      console.log('token', tokenRes);
+      
       const invoice = await instance.post("/createinvoice", {
         token: tokenRes.data.access_token,
       });
@@ -19,17 +24,17 @@ export const pay = async (setQr: Function) => {
     }
   };
 
-  const check = async () => {
+  export const checkPaymentBack = async (set: Function, orderId: string) => {
     const checkRes = await instance.post("/check", {
       invoiceId: localStorage.getItem("invoiceId"),
       token: localStorage.getItem("paymentToken"),
+      orderId: orderId,
+      
     });
     if (checkRes.data.check.rows.length == 0) {
-        console.log('paid');
-        
+set(true)        
     } else {
-        console.log('not paid');
-    }
+set(false)    }
   };
 
  export const createOrder = async ( set: Function, data: {})=>{

@@ -10,8 +10,9 @@ import { Loading } from "@/components/supports/Loading";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { createOrder } from "@/utils/functions/Payment";
+import { checkPaymentBack, createOrder } from "@/utils/functions/Payment";
 import {pay} from "@/utils/functions/Payment"
+import {useQRCode} from "next-qrcode"
 
 function Bookingorder({
   travelDatas,
@@ -25,7 +26,9 @@ function Bookingorder({
   const [qr, SetQr] = useState()
   const [hideGeneralSection, setHideGeneralSection] =useState(false)
 
-  const [orderId, setOrderID] =  useState()
+  const {Canvas} = useQRCode()
+
+  const [orderId, setOrderID] =  useState("")
 
   const [childCount, setChildCount] = useState(0);
   const [adultCount, setAdultCount] = useState(0);
@@ -81,7 +84,7 @@ function Bookingorder({
     onSubmit: (values) => {
       const totalAmount = tourArray[0].price.adultPrice*adultCount+ tourArray[0].price.childPrice*childCount;
       const orderData = {
-        lastname: formik.values.lastName,
+        lastName: formik.values.lastName,
         firstName: formik.values.firstName,
         email: formik.values.email,
         phoneNumber: formik.values.phoneNumber,
@@ -92,9 +95,16 @@ function Bookingorder({
       createOrder(setOrderID ,orderData);
       pay(SetQr);
       console.log('qr', qr);
+      setHideGeneralSection(true)
       
     },
   });
+
+  const [isPaid, setIsPaid] =useState(false)
+
+  const checkPayment =()=>{
+    checkPaymentBack(setIsPaid, orderId)
+  }
 
   const isLoading = useLoading([
     travelDatas,
@@ -158,7 +168,7 @@ function Bookingorder({
                     </div>
                   </div>
                 </div>
-                <form onSubmit={formik.handleSubmit}  className="w-2/3 flex flex-col gap-6">
+                <form onSubmit={formik.handleSubmit}  className={`w-2/3  gap-6 ${hideGeneralSection ? 'hidden' : 'flex flex-col' }`}>
                   <div className="w-full flex flex-col ">
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-xl p-1 px-4 border border-gray-100">
                       Tour Summary
@@ -333,27 +343,35 @@ function Bookingorder({
                         ) : null}
                       </div>
                       
+                      
 
                     </div>
+                    
+                    <button type="submit" className="p-2 bg-blue w-1/3 text-white rounded-lg mt-5">Buy travel</button>
                   </div>
-                  
-                  <div className="w-full flex justify-end">
-                    <button type="submit" className="p-2 px-5 w-1/3 bg-blue text-white rounded-lg">Buy travel</button>
-                  </div>
-
-                  <div className="w-full flex flex-col ">
+                  </form>
+                  <div className={`w-2/3  ${hideGeneralSection ? "flex flex-col" : "hidden"}`}>
+                  <div className={`w-full`}>
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-xl p-1 px-4 border border-gray-100">
                       Payment detail
                     </h1>
                     <div className="w-full border border-gray-100 rounded-b-lg p-4 flex flex-col gap-5" >
                       <div className="flex justify-between">
-                        <span>{`status`}</span>
+                        <span>{isPaid ? 'Paid' : 'Not paid'}</span>
+                        <div className="cursor-pointer" onClick={checkPayment}>
                         <Replay/>
+                        </div>
                       </div>
-                      <div className="w-full flex justify-center items-center">{`QR`}</div>
+                      {qr && <Canvas text={qr}/>}
                     </div>
                   </div>
-                </form>
+                    
+
+                  </div>
+                  
+
+                  
+                
               </div>
             </div>
           </main>
