@@ -23,6 +23,10 @@ function Destination({
         toursData={toursData}
       />
       <MainTours />
+      {/* <Hero         travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+        toursData={toursData}/> */}
     </>
   );
 }

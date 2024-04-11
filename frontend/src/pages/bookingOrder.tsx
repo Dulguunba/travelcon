@@ -1,14 +1,9 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { OrderCard } from "@/components/supports/bookingOrderPage/OrderCard";
-import { FormComponent } from "@/components/supports/destinationPage/FormComponent";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import { TopOrder } from "@/components/supports/bookingOrderPage/TopOrder";
 import { getServerSideProps } from "../utils/fetchTravelDatas";
-import { OrderTour } from "@/components/supports/bookingOrderPage/OrderTour";
-import { LocalAirport } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { useTravelCartStore } from "@/functions/AdminFunctions";
 import { useEffect, useState } from "react";
 import { getTravelId } from "@/functions/TravelUtilities";

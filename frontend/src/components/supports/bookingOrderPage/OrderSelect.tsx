@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
   Dollar,
-  Minus,
-  Plus,
   Left,
   LocationWhite,
   Right,

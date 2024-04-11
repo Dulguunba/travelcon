@@ -11,4 +11,5 @@ export interface FetchDataProps {
   categoryDatas: DestinationCategory;
   state?: string;
   reviewDatas?: Review;
+  search? : string;
 }
