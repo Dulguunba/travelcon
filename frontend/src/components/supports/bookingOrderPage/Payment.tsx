@@ -9,7 +9,6 @@ export const Payment = () => {
             <Replay10Rounded/>
         </div>
         <div className='w-full justify-center items-center'>h</div>
-      
     </div>
   )
 }

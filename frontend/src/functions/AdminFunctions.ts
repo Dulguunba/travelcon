@@ -136,7 +136,7 @@ type OrderIdAction = {
   removeOrderId: () => void;
 };
 
-export const useOrderIDStore = create<OrderId & OrderIdAction>((set) => ({
+export const useOrderIdStore = create<OrderId & OrderIdAction>((set) => ({
   OrderId: "",
   updateOrderId: (qty: string) => set((state) => ({ OrderId: qty })),
   removeOrderId: () => set((state) => ({ OrderId: "" })),
