@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { LeftArrow, RightArrow } from "@/components/icons/travelDetail";
 import ReviewCard from "./ReviewCard";
-import { getServerSideProps } from "./TourDetailHero";
-import { Tours } from "@/types/toursTypes";
-import { Travel } from "@/types/travelTypes";
-// import { ReviewForm } from './ReviewForm';
+import { getServerSideProps } from '@/utils/fetchTravelDatas'
+import { ReviewForm } from './ReviewForm';
+import { useRouter } from "next/router";
+import { Review } from "@/types/reviewTypes";
 
 interface Props {
-  toursData: Tours;
-  travelDatas: Travel;
+  reviewDatas?: Review
 }
 
-const Reviews = ({ toursData, travelDatas }: Props) => {
-  const tourDatas = toursData.result;
+const Reviews = ({ reviewDatas }: Props) => {
+  const router = useRouter();
+  const { tour } = router.query;
+
+  const filteredReviewData = reviewDatas?.result.filter(review => review.travelId === tour)
+
   const [index, setIndex] = useState(0);
 
   const handlePrev = () => {
@@ -22,11 +25,12 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
     if (index > 0) setIndex(index - 1);
   };
   const handleNext = () => {
-    if (index < tourDatas.length - 2) setIndex(index + 2);
+    if (filteredReviewData && index < filteredReviewData.length - 2) setIndex(index + 2);
   };
   const handleNextMobile = () => {
-    if (index < tourDatas.length - 1) setIndex(index + 1);
+    if (filteredReviewData && index < filteredReviewData.length - -1) setIndex(index + 1);
   };
+
 
   return (
     <div className="flex flex-col mt-20 mb-20">
@@ -39,7 +43,7 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
             {index > 0 ? <LeftArrow /> : <LeftArrow fill="#F6F6F6" />}
           </button>
           <button onClick={handleNext}>
-            {index < tourDatas.length - 2 ? (
+            {filteredReviewData && index < filteredReviewData.length - 1 ? (
               <RightArrow />
             ) : (
               <RightArrow fill="#F6F6F6" />
@@ -51,7 +55,7 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
             {index > 0 ? <LeftArrow /> : <LeftArrow fill="#F6F6F6" />}
           </button>
           <button onClick={handleNextMobile}>
-            {index < tourDatas.length - 1 ? (
+            {filteredReviewData && index < filteredReviewData.length - 1 ? (
               <RightArrow />
             ) : (
               <RightArrow fill="#F6F6F6" />
@@ -60,26 +64,34 @@ const Reviews = ({ toursData, travelDatas }: Props) => {
         </div>
       </div>
       <div className="lg:mt-10 lg:flex hidden lg:flex-row flex-col justify-between">
-        {tourDatas.slice(index, index + 2).map((review) => (
-          <ReviewCard
-            message={review.english}
-            proPic={review.english}
-            name={review.english}
-            bio={review.english}
-          />
-        ))}
+        {filteredReviewData && filteredReviewData.length > 0 ? (
+          filteredReviewData.slice(index, index + 2).map((review) =>
+            <ReviewCard
+              message={review.comment}
+              proPic="https://pixy.org/src/120/thumbs350/1206832.jpg"
+              name={review.email}
+            />
+          )
+        ) : (
+
+          <p className='lg:text-[20px] font-normal'>There are no reviews</p>
+
+        )}
       </div>
       <div className="mt-10 lg:hidden flex lg:flex-row flex-col justify-between">
-        {tourDatas.slice(index, index + 1).map((review) => (
-          <ReviewCard
-            message={review.english}
-            proPic={review.english}
-            name={review.english}
-            bio={review.english}
-          />
-        ))}
+        {filteredReviewData && filteredReviewData.length > 0 ? (
+          filteredReviewData.slice(index, index + 1).map((review) =>
+            <ReviewCard
+              message={review.comment}
+              proPic="https://pixy.org/src/120/thumbs350/1206832.jpg"
+              name={review.email}
+            />
+
+          )
+        ) : null
+        }
       </div>
-      {/* <ReviewForm /> */}
+      <ReviewForm />
     </div>
   );
 };

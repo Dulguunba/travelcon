@@ -9,7 +9,6 @@ export const instance = axios.create({
 });
 
 export const createTravelInfo = async (data: {} | null) => {
-
   try {
     const response = await instance.post("/travel/create", data);
     console.log(response);
@@ -22,6 +21,16 @@ export const createTravelInfo = async (data: {} | null) => {
     );
   } catch (error) {
     return alert(`Та дахин оролдоно уу.`);
+  }
+};
+
+export const getTravelId = async (set: Function, travelId: string) => {
+  try {
+    const response = await instance.post("/travel/id", { travelId });
+    set(response.data.result);
+    console.log("travel data", response.data.response);
+  } catch (error) {
+    return alert(`Уучлаарай алдаа үүслээ`);
   }
 };
 
@@ -50,4 +59,14 @@ export const showToastMessage = () => {
     "Мэдээлэл амжилттай хадгалагдлаа. Та NEXT товчийг дарна уу.",
     {}
   );
+};
+
+export const getReviews = async (set: Function) => {
+  try {
+    const response = await instance.get("/review/get");
+    set(response.data.result);
+    console.log("review data", response.data.response);
+  } catch (error) {
+    return alert(`Уучлаарай алдаа үүслээ`);
+  }
 };

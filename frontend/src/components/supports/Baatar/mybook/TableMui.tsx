@@ -103,5 +103,5 @@ export const TableMui = () => {
             />
         </Box>
     </div>
-  )
-}
+  );
+};

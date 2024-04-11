@@ -1,5 +1,4 @@
-import { Minus } from './Minus';
-
+import { Play } from './Play';
 export { LocationWhite } from './LocationWhite';
 export { Correct } from './Correct';
 export { Wrong } from './Wrong';
@@ -27,7 +26,6 @@ export { Logo } from './Logo'
 export { Time } from './Time'
 export { UpArrow } from './UpArrow'
 export { DollarBlack } from './DollarBlack'
-export { Minus } from './Minus'
-export { Plus } from './Plus'
+
 
 

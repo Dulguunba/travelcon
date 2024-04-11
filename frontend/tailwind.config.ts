@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
+
       colors: {
         blue: "#4997D3",
         grayColor: "#F6F6F6"

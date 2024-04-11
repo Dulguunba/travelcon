@@ -35,12 +35,12 @@ export const getCategory = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteCategory = async(req: Request, res: Response)=>{
+export const deleteCategory = async (req: Request, res: Response) => {
   try {
     const { name, english } = req.body;
-    const deleteCategory = await CategoryModel.deleteMany({name, english});
-    res.status(201).json({messaga:"successFully delete"})
+    const deleteCategory = await CategoryModel.deleteMany({ name, english });
+    res.status(201).json({ messaga: "successFully delete" });
   } catch (error) {
-    res.status(400).json({message:"failed delete"})
+    res.status(400).json({ message: "failed delete" });
   }
-}
+};

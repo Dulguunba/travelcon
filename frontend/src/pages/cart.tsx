@@ -8,6 +8,15 @@ export default function Cart() {
     <main
       className={`flex min-h-screen max-h-screen h-full flex-col w-full items-start justify-start bg-gray-50 ${inter.className}`}
     >
+            {/* <Cart
+        toursData={toursData}
+        travelDatas={travelDatas}
+        destinationDatas={destinationDatas}
+        categoryDatas={categoryDatas}
+      /> */}
+      {/* <Order /> */}
+            {/* <FormComponent /> */}
+
 
     </main>
   );

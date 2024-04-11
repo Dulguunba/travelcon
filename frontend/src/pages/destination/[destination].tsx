@@ -16,6 +16,7 @@ const DestinationDetailHero = ({
   const router = useRouter();
   const { destination } = router.query;
 
+
   return (
     <>
       {travelDatas.result.map((data) =>
