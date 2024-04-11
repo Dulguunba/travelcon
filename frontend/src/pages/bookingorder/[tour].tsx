@@ -27,6 +27,14 @@ function Bookingorder({
   const { travelId, updateTravel, removeTravel } = useTravelCartStore();
   const [travelChoose, setTravelChoose] = useState<TravelObjectType>();
 
+  const [checkedIndex, setCheckedIndex] = useState(null);
+  const [adults, setAdults] = useState(0);
+  const [children, setChildren] = useState(0);
+
+  const handleCheckboxChange = (index: any) => {
+    setCheckedIndex(index);
+  }
+
   const [childCount, setChildCount] = useState(0);
   const [adultCount, setAdultCount] = useState(1);
 
@@ -116,7 +124,7 @@ function Bookingorder({
                         </h1>
                         <div className="flex justify-start gap-2">
                           <LocationOnIcon />
-                          <p>{travelChoose?.destination.english} province</p>
+                          <p className="capitalize">{travel.destination.english}</p>
                         </div>
                         <div className="flex gap-2 justify-start">
                           <span>{travel.duration}</span>
@@ -129,9 +137,44 @@ function Bookingorder({
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-2xl p-4 border border-gray-100">
                       Travel Calendar Summary
                     </h1>
-                    <div className="w-full border border-gray-100 rounded-b-lg p-4 flex gap-2">
+                    <div className="w-full border border-gray-100 rounded-b-lg p-4 flex flex-col gap-2">
                       <h2>Choose travel calendar</h2>
-                      <select name="travel calendar" id="travel"></select>
+                      <select name="travel calendar" id="travel">
+                        <option value="">
+                          <div className="w-[200px] bg-blue">
+                            asdasd
+                          </div>
+                        </option>
+                        <option value="">asdasd</option>
+                      </select>
+                      {/* <div className='flex items-center w-full flex-col gap-10 justify-center mt-5'>
+                        {travel.calendar.map((cal, index) => (
+                          <div className='flex gap-4 ml-12 items-center'>
+                            <input
+                              type="checkbox"
+                              className="checkbox"
+                              onChange={() => handleCheckboxChange(index)}
+                              checked={checkedIndex === index}
+                            />
+                            <div className='w-[1000px] bg-grayColor flex flex-col'>
+                              <div className='w-full bg-gray-200 p-5 flex justify-between'>
+                                <h1>Check-in</h1>
+                                <h1>Check-out</h1>
+                                <h1>Adult</h1>
+                                <h1>Child</h1>
+                                <h1>Total Price</h1>
+                              </div>
+                              <div className='w-full flex justify-between p-5'>
+                                <h1>{cal.startDay}</h1>
+                                <h1>{cal.endDay}</h1>
+                                <input type="number" value={adults} onChange={(e) => setAdults(parseInt(e.target.value))} />
+                                <input type="number" value={children} onChange={(e) => setChildren(parseInt(e.target.value))} />
+                                <h1>{travel.price.childPrice}</h1>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div> */}
                     </div>
                   </div>
                   <div className="w-full flex flex-col ">

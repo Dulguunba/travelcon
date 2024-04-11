@@ -50,7 +50,7 @@ const TourDetailHero = ({
             <img
               src={data.image.mainImage}
               className="w-full h-[500px] lg:h-[950px]"
-              alt=""
+              alt="Main Image"
             />
             <div className="absolute top-0 right-0 left-0">
               <Header
@@ -72,8 +72,8 @@ const TourDetailHero = ({
                     </div>
                     <h1
                       className={`uppercase font-oswald lg:mt-0 mt-5 drop-shadow-md font-bold text-4xl ${data.name.length > 25
-                          ? "lg:text-[130px]"
-                          : "lg:text-[200px] "
+                        ? "lg:text-[130px]"
+                        : "lg:text-[200px] "
                         } lg:leading-[200px] text-white text-center`}
                     >
                       {data.name}
@@ -89,18 +89,21 @@ const TourDetailHero = ({
                   <img
                     src={data.image.supportImage}
                     className="w-full h-[250px] lg:h-[500px] rounded-3xl"
+                    alt="Support Image 1"
                   />
                 </div>
                 <div className="slide w-full">
                   <img
                     src={data.image.supportImage}
                     className="lg:w-[932px] w-full h-[250px] lg:h-[500px] rounded-3xl"
+                    alt="Support"
                   />
                 </div>
                 <div className="slide w-full">
                   <img
                     src={data.image.supportImage}
                     className="lg:w-[932px] w-full h-[250px] lg:h-[500px] rounded-3xl"
+                    alt="Support Images"
                   />
                 </div>
               </Slider>

@@ -23,7 +23,7 @@ const TourPackageCard = ({ image, title, destinationName, startPrice, duration }
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='relative overflow-hidden h-[250px] lg:w-[487px] lg:h-[459px] rounded-3xl cursor-pointer'>
             <div className={`w-full h-full ${isHovered ? "scale-125" : "scale-100 "} transform transition-all duration-700`}>
-                <img src={image} alt="" className='h-full w-full' />
+                <img src={image} alt="Image" className='h-full w-full' />
                 <div className='w-full h-full absolute top-0 bg-gradient-to-t from-black'>
                 </div>
             </div>

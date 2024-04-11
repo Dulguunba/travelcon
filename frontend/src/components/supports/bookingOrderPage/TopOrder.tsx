@@ -1,6 +1,7 @@
 import React from "react";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import Header from "../homePage/Header";
+import { useRouter } from "next/router";
 
 export const TopOrder = ({
   travelDatas,
@@ -8,13 +9,18 @@ export const TopOrder = ({
   destinationDatas,
   categoryDatas,
 }: FetchDataProps) => {
+  const router = useRouter();
+  const { tour } = router.query;
   return (
     <>
-      <img
-        src="https://www.discovermongolia.mn/uploads/c-1-ice-festival-lake-huvsgul-winter.jpg"
-        className="lg:w-full"
-        alt=""
-      />
+      {travelDatas.result.map((travelData) => travelData._id === tour
+        ? <img
+          src={travelData.image.mainImage}
+          className="lg:w-full lg:h-[800px]"
+          alt=""
+        />
+        : null
+      )}
       <div className="absolute top-0 right-0  w-full bg-blue"></div>
       <div className="absolute top-0 right-0 left-0">
         <Header
@@ -31,7 +37,7 @@ export const TopOrder = ({
                   TRAVEL TO MONGOLIA
                 </h1>
                 <h1 className="font-oswald drop-shadow-md font-bold lg:text-[200px] xl:text-[200px] text-[50px] text-white ">
-                  TOURS
+                  BOOKING DETAIL
                 </h1>
               </div>
             </div>

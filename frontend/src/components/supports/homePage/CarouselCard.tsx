@@ -27,7 +27,7 @@ const CarouselCard = ({ responsiveTitle, image, title, icon, miniTitle, descript
   return (
     <div className='relative'>
       <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className='cursor-pointer rounded-3xl'>
-        <img src={image} className={`${isHovered ? "lg:w-[713px] lg:h-[609px]" : "lg:w-[472px] lg:h-[503px]"} transition-all w-[417px] h-[464px] m-auto ease-out duration-1000 rounded-3xl`} />
+        <img src={image} alt='Carousel images' className={`${isHovered ? "lg:w-[713px] lg:h-[609px]" : "lg:w-[472px] lg:h-[503px]"} transition-all w-[417px] h-[464px] m-auto ease-out duration-1000 rounded-3xl`} />
         <div className='lg:hidden flex items-center flex-col mt-2'>
           <div className='font-primary text-2xl font-bold'>{responsiveTitle}</div>
           <div className='flex gap-1 items-center font-primary mt-2'>

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { LeftArrow, RightArrow } from "@/components/icons/travelDetail";
 import ReviewCard from "./ReviewCard";
 import { getServerSideProps } from '@/utils/fetchTravelDatas'
-import { Tours } from "@/types/toursTypes";
-import { Travel } from "@/types/travelTypes";
 import { ReviewForm } from './ReviewForm';
 import { useRouter } from "next/router";
 import { Review } from "@/types/reviewTypes";
@@ -16,20 +14,21 @@ const Reviews = ({ reviewDatas }: Props) => {
   const router = useRouter();
   const { tour } = router.query;
 
+  const filteredReviewData = reviewDatas?.result.filter(review => review.travelId === tour)
 
   const [index, setIndex] = useState(0);
 
   const handlePrev = () => {
-    if (index > 2) setIndex(index - 2);
+    if (index > 0) setIndex(index - 2);
   };
   const handlePrevMobile = () => {
-    if (index > 1) setIndex(index - 1);
+    if (index > 0) setIndex(index - 1);
   };
   const handleNext = () => {
-    if (reviewDatas && reviewDatas.result && index < reviewDatas.result.length - 2) setIndex(index + 2);
+    if (filteredReviewData && index < filteredReviewData.length - 2) setIndex(index + 2);
   };
   const handleNextMobile = () => {
-    if (reviewDatas && reviewDatas.result && index < reviewDatas.result.length) setIndex(index + 1);
+    if (filteredReviewData && index < filteredReviewData.length - -1) setIndex(index + 1);
   };
 
 
@@ -44,7 +43,7 @@ const Reviews = ({ reviewDatas }: Props) => {
             {index > 0 ? <LeftArrow /> : <LeftArrow fill="#F6F6F6" />}
           </button>
           <button onClick={handleNext}>
-            {reviewDatas && reviewDatas.result && index < reviewDatas.result.length - 2 ? (
+            {filteredReviewData && index < filteredReviewData.length - 1 ? (
               <RightArrow />
             ) : (
               <RightArrow fill="#F6F6F6" />
@@ -56,7 +55,7 @@ const Reviews = ({ reviewDatas }: Props) => {
             {index > 0 ? <LeftArrow /> : <LeftArrow fill="#F6F6F6" />}
           </button>
           <button onClick={handleNextMobile}>
-            {reviewDatas && reviewDatas.result && index < reviewDatas.result.length - 1 ? (
+            {filteredReviewData && index < filteredReviewData.length - 1 ? (
               <RightArrow />
             ) : (
               <RightArrow fill="#F6F6F6" />
@@ -65,32 +64,31 @@ const Reviews = ({ reviewDatas }: Props) => {
         </div>
       </div>
       <div className="lg:mt-10 lg:flex hidden lg:flex-row flex-col justify-between">
-        {reviewDatas && reviewDatas.result && reviewDatas.result.length > 0 ? (
-          reviewDatas.result.map((review) =>
-            review.travelId === tour ? (
-              <ReviewCard
-                message={review.comment}
-                proPic="https://pixy.org/src/120/thumbs350/1206832.jpg"
-                name={review.email}
-              />
-            ) : null
+        {filteredReviewData && filteredReviewData.length > 0 ? (
+          filteredReviewData.slice(index, index + 2).map((review) =>
+            <ReviewCard
+              message={review.comment}
+              proPic="https://pixy.org/src/120/thumbs350/1206832.jpg"
+              name={review.email}
+            />
           )
         ) : (
-          <p className="bg-black w-[300px] h-[300px]">No reviews yet</p>
+
+          <p className='lg:text-[20px] font-normal'>There are no reviews</p>
+
         )}
       </div>
       <div className="mt-10 lg:hidden flex lg:flex-row flex-col justify-between">
-        {reviewDatas?.result.map((review) =>
-          review.travelId === tour ?
-            (
-              <ReviewCard
-                message={review.comment}
-                proPic="https://pixy.org/src/120/thumbs350/1206832.jpg"
-                name={review.email}
-              />
-            )
-            : null
-        )
+        {filteredReviewData && filteredReviewData.length > 0 ? (
+          filteredReviewData.slice(index, index + 1).map((review) =>
+            <ReviewCard
+              message={review.comment}
+              proPic="https://pixy.org/src/120/thumbs350/1206832.jpg"
+              name={review.email}
+            />
+
+          )
+        ) : null
         }
       </div>
       <ReviewForm />

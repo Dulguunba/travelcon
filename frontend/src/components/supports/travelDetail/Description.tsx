@@ -103,7 +103,7 @@ const Description = ({ toursData, travelDatas, destinationDatas, categoryDatas, 
                             </div>
                         </div>
                         <Itinerary destinationDatas={destinationDatas} categoryDatas={categoryDatas} toursData={toursData} travelDatas={travelDatas} />
-                        <Reviews reviewDatas={reviewDatas} toursData={toursData} travelDatas={travelDatas} />
+                        <Reviews reviewDatas={reviewDatas} />
                     </div>
                 </div>
                 : null

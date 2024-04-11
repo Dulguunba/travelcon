@@ -3,10 +3,6 @@ import { getServerSideProps } from "./TourDetailHero";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import { useRouter } from "next/router";
 import { CheckIcon, XIcon } from "@/components/icons/travelDetail";
-import { OrderCard } from "../bookingOrderPage/OrderCard";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { Tours } from "@/types/toursTypes";
-import { Travel } from "@/types/travelTypes";
 import Link from "next/link";
 import { useTravelCartStore } from "@/functions/AdminFunctions";
 
@@ -58,17 +54,11 @@ const Included = ({ toursData, travelDatas }: FetchDataProps) => {
               </div>
             </div>
             <div className="flex flex-col gap-5 lg:w-[615px]">
-              {/* <div className='lg:text-[40px] text-2xl font-oswald font-bold'>
-                            NOT INCLUDED
-                        </div>
-                        <ul className='list-disc font-primary ml-5'>
-                            {notIncludedData.map((data) => <li>{data.english}</li>)}
-                        </ul> */}
               <div className="relative">
                 <img
                   src={data.image.mainImage}
-                  className="w-full lg:h-[204px] rounded-3xl"
-                  alt=""
+                  className="w-full lg:h-[204px] h-full rounded-3xl"
+                  alt="Main Image"
                 />
                 <div className="w-full lg:h-[204px] rounded-3xl bg-[#D9D9D9] absolute top-0 opacity-30"></div>
                 <div className="absolute flex top-12 left-10 items-start flex-col gap-5 justify-center ">
