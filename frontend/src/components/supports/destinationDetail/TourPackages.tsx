@@ -3,7 +3,7 @@ import TourPackageCard from "./TourPackageCard";
 import { useRouter } from "next/router";
 import { Travel } from "@/types/travelTypes";
 import Link from "next/link";
-import { Loading } from "../Loading";
+
 
 export const TourPackages = ({ travelDatas }: { travelDatas: Travel }) => {
   const router = useRouter();

@@ -50,11 +50,10 @@ const Header = ({
       <div className="flex flex-col items-center justify-center">
         <div className="flex max-w-[1520px] w-[90%] z-10">
           <div
-            className={`${
-              isScrolled
-                ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black"
-                : ""
-            } flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}
+            className={`${isScrolled
+              ? "duration-700 ease-in-out transition-all lg:static fixed top-0 right-0 left-0 bg-white shadow-lg text-black"
+              : ""
+              } flex items-center justify-between w-full text-white lg:p-8 p-4 font-primary text-base`}
           >
             <Link href={"/"}>
               {isScrolled ? (
@@ -117,13 +116,15 @@ const Header = ({
                 onClick={jumpToDestination}
               >
                 <div className="dropdown dropdown-hover relative">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="m-1 flex gap-2 items-center"
-                  >
-                    Tours
-                  </div>
+                  <Link href={'/tours'}>
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="m-1 flex gap-2 items-center"
+                    >
+                      Tours
+                    </div>
+                  </Link>
                 </div>
               </div>
               <Link href={"/about"}>

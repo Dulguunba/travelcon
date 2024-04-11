@@ -4,7 +4,11 @@ import { TopOrder } from "@/components/supports/bookingOrderPage/TopOrder";
 import { getServerSideProps } from "@/utils/fetchTravelDatas";
 import { Replay, Timeline } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import {  useState } from "react";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { useTravelCartStore } from "@/functions/AdminFunctions";
+import { useEffect, useState } from "react";
+import { getTravelId } from "@/functions/TravelUtilities";
+import { TravelObjectType } from "@/types/travelTypes";
 import { useLoading } from "@/functions/UseLoading";
 import { Loading } from "@/components/supports/Loading";
 import { useRouter } from "next/router";
@@ -29,6 +33,7 @@ function Bookingorder({
   const {Canvas} = useQRCode()
 
   const [orderId, setOrderID] =  useState("")
+
 
   const [childCount, setChildCount] = useState(0);
   const [adultCount, setAdultCount] = useState(0);
@@ -187,7 +192,7 @@ function Bookingorder({
                         </h1>
                         <div className="flex justify-start gap-2">
                           <LocationOnIcon />
-                          <p className="capitalize">{travel?.destination.english} province</p>
+                          <p className="capitalize">{travel.destination.english}</p>
                         </div>
                         <div className="flex gap-2 justify-start">
                           <Timeline/>

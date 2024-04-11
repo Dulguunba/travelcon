@@ -9,6 +9,7 @@ import { useLoading } from "@/functions/UseLoading";
 import { Loading } from "@/components/supports/Loading";
 
 
+
   const TourDetail = ({
     toursData,
     travelDatas,
@@ -16,6 +17,7 @@ import { Loading } from "@/components/supports/Loading";
     categoryDatas,
     reviewDatas,
   }: FetchDataProps) => {
+
     const isLoading = useLoading([
       travelDatas,
       ,

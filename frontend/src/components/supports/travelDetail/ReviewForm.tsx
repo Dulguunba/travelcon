@@ -47,9 +47,9 @@ export const ReviewForm = () => {
 
     return (
         <div className='mt-20'>
-            <div className='w-[1100px] p-5 bg-grayColor rounded-3xl'>
+            <div className='lg:w-[1100px] p-5 bg-grayColor rounded-3xl'>
                 <div className='pl-2 text-2xl'>Write your comment</div>
-                <form onSubmit={formik.handleSubmit} className='flex mt-5'>
+                <form onSubmit={formik.handleSubmit} className='flex mt-5 lg:flex-row lg:gap-0 gap-5 flex-col'>
                     <div className='flex w-full flex-col gap-5'>
                         <textarea
                             id="review"
@@ -64,7 +64,7 @@ export const ReviewForm = () => {
                             <div className='text-red-500'>{formik.errors.review}</div>
                         ) : null}
                     </div>
-                    <div className='ml-10 flex flex-col justify-between'>
+                    <div className='ml-10 flex flex-col lg:gap-0 gap-5 lg:justify-between'>
                         <div className='flex flex-col gap-2'>
                             <Typography component="legend">Please rate out package</Typography>
                             <Rating
