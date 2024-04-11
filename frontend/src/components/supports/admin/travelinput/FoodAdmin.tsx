@@ -65,12 +65,12 @@ export const FoodAdmin = () => {
       className={`w-full h-full gap-7 flex flex-col justify-start items-start`}
     >
       <form
-        className="p-10 flex gap-5 w-full items-center justify-center h-full"
+        className=" sm:p-10 flex gap-5 w-full items-center justify-center h-full"
         onSubmit={formik.handleSubmit}
       >
         <div className="w-full flex flex-col gap-2">
-          <div className="flex  gap-5 w-full  bg-white p-5 rounded-lg">
-            <div className="w-1/2 text-sm  flex flex-col gap-2">
+          <div className="flex flex-col sm:flex-row sm:gap-5 gap-10 w-full  bg-white p-5 rounded-lg">
+            <div className=" sm:w-1/2 w-full text-sm  flex flex-col gap-2">
               <label htmlFor="duration">Хоолны мэдээлэл</label>
               <div className="w-full gap-3 flex flex-col items-center">
                 <div className="w-full flex justify-start items-center gap-4 mb-2">
@@ -162,7 +162,7 @@ export const FoodAdmin = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 text-sm  flex flex-col gap-2">
+            <div className=" sm:w-1/2 w-full text-sm  flex flex-col gap-2">
               <label htmlFor="duration">Тээврийн мэдээлэл</label>
               <div className="w-full gap-3 flex flex-col items-center">
                 <div className="w-full flex justify-start items-center gap-4 mb-2">

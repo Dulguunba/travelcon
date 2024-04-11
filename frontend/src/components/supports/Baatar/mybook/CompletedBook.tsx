@@ -5,12 +5,10 @@ export const CompletedBook = () => {
     const {count} = useBooking((state)=>state)
   return (
     <div className={`${count===3?"":"hidden"}`}>
-    {
-        <div className="overflow-x-auto m-5 border border-gray-300 rounded-xl p-5">
+        <div className="overflow-x-auto sm:m-5 border border-gray-300 rounded-xl p-5">
         <table className="table">
-          {/* head */}
           <thead>
-            <tr>
+            <tr className=' bg-green-200'>
               <th className='text-lg font-bold text-black'>Check-In</th>
               <th className='text-lg font-bold text-black'>Check-Out</th>
               <th className='text-lg font-bold text-black'>Travel</th>
@@ -18,7 +16,6 @@ export const CompletedBook = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
             <tr>
               <th>1</th>
               <td>Cy Ganderton</td>
@@ -40,7 +37,6 @@ export const CompletedBook = () => {
           </tbody>
         </table>
       </div>
-    }
 </div>
   )
 }

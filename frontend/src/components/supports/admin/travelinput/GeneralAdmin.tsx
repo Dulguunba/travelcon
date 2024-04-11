@@ -77,11 +77,11 @@ export const GeneralAdmin = () => {
       className={` flex" w-full h-full gap-7  flex-col justify-start items-start`}
     >
       <form
-        className="p-10 flex gap-5 w-full items-center justify-center h-full"
+        className=" sm:p-10 flex gap-5 w-full items-center justify-center h-full"
         onSubmit={formik.handleSubmit}
       >
-        <div className="flex gap-5 w-full">
-          <div className="w-1/2 flex flex-col gap-2">
+        <div className="flex flex-col sm:flex-row gap-5 w-full">
+          <div className=" sm:w-1/2 w-full flex flex-col gap-2">
             <div className="w-full h-20 text-sm flex-col  gap-1">
               <label htmlFor="travelName">Аялалын нэр</label>
               <input
@@ -134,7 +134,7 @@ export const GeneralAdmin = () => {
               ) : null}
             </div>
           </div>
-          <div className="w-1/2 flex flex-col gap-2">
+          <div className=" sm:w-1/2 w-full flex flex-col gap-2">
             <div className="w-full h-20 text-sm flex-col  gap-1">
               <label htmlFor="name">Аялалын компанийн нэр</label>
               <input
@@ -205,7 +205,7 @@ export const GeneralAdmin = () => {
                 </select>
                 <span className="w-1/4">аймаг</span>
               </div>
-              <div className="flex justify-end items-center">
+              <div className="flex justify-end items-center mt-10 sm:mt-0">
                 <button
                   type="submit"
                   className="bg-blue text-white p-2 rounded-lg font-semibold"

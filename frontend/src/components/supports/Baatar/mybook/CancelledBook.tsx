@@ -6,11 +6,11 @@ export const CancelledBook = () => {
   return (
     <div className={`${count===2?"":"hidden"}`}>
     {
-        <div className="overflow-x-auto m-5 border border-gray-300 rounded-xl p-5">
+        <div className="overflow-x-auto sm:m-5 border border-gray-300 rounded-xl p-5">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className='bg-red-200'>
               <th className='text-lg font-bold text-black'>Check-In</th>
               <th className='text-lg font-bold text-black'>Check-Out</th>
               <th className='text-lg font-bold text-black'>Travel</th>

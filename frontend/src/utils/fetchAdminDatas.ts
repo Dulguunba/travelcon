@@ -6,7 +6,6 @@ export const adminDashboardData = async () => {
     try {
         const totalTravelNumberRes = await instance.get("/travel/number")
         const totalTravelNumber: totalTravelNumber = totalTravelNumberRes.data
-        console.log(totalTravelNumber);
         
 
         const travelNumberChartRes = await instance.get("/travel/numberlastweek")

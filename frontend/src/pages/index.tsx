@@ -12,10 +12,10 @@ import { FetchDataProps } from "@/types/fetchDataProps";
 
 
 
-const poppins = Poppins({
-  weight: "400",
-  subsets: ["latin"],
-});
+// const poppins = Poppins({
+//   weight: "400",
+//   subsets: ["latin"],
+// });
 
 function Home({
   travelDatas,

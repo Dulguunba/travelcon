@@ -55,18 +55,16 @@ export const Tour = () => {
   return (
     <div className='bg-gray-50 h-full w-full flex flex-col'>
       <Header/>
-      <div className='w-full h-full bg-gray-50 p-5'>
+      <div className=' sm:w-full h-full bg-gray-50 p-5'>
         <Box
         sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex-col', height: '100%', width: '100%', borderRadius: '20px', gap: '10px' }}
         >
           <Tabs
               value={value} onChange={handleChange} centered
           >
-              <Tab  icon={<ModeOfTravelIcon/>} iconPosition='start' label={`Аялалын жагсаалт`}  sx={{justifyContent: 'flex-start', padding: 3, paddingX: 7}} {...a11yProps(0)}/>
+              <Tab  icon={<ModeOfTravelIcon/>} iconPosition='start' label={`Аялалын жагсаалт`}  sx={{justifyContent: 'flex-start', padding: 3, paddingX: 7, }} {...a11yProps(0)}/>
 
               <Tab  icon={<Add/>} iconPosition='start' label={`Аялал нэмэх`}  sx={{justifyContent: 'flex-start', padding: 3, paddingX: 7}} {...a11yProps(1)}/>
-
-              
           </Tabs>
           <TabPanel value={value} index={0}>
               <TravelData/>
@@ -74,8 +72,6 @@ export const Tour = () => {
           <TabPanel value={value} index={1}  >
               <NewTravel/>
           </TabPanel>
-
-       
         </Box>
       </div>
     </div>

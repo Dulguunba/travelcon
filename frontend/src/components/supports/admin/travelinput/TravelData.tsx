@@ -14,15 +14,15 @@ export const TravelData = () => {
     name: string,
     duration: number,
     price:{
-        adult: number,
-        child: number
+        adultPrice: number,
+        childPrice: number
     },
     _id: string,
     travelCompany: string
   }
 
   return (
-    <div className='w-full h-full flex flex-col items-center mt-8'>
+    <div className=' max-w-350 overflow-x-auto h-full flex flex-col items-center mt-8'>
         <table className="table w-2/3 ">
             <thead>
                 <tr>
@@ -34,12 +34,14 @@ export const TravelData = () => {
                 </tr>
             </thead>
             <tbody>
-                {travelData?.map((travel:TravelData, index)=> {return(
+                {travelData?.map((travel:TravelData, index)=> {
+                    console.log(travel)
+                    return(
                         <tr>
                             <th>{index+1}</th>
                             <th>{travel.name}</th>
                             <th>{travel.duration}</th>
-                            <th>{`Том хүн -${travel.price.adult}`} <br /> {`Хүүхэд -${travel.price.child}`}
+                            <th>{`Том хүн -${travel.price.adultPrice}`} <br /> {`Хүүхэд -${travel.price.childPrice}`}
                             </th>
                         </tr>
                     )})

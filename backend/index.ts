@@ -56,7 +56,6 @@ app.use("/upload", upload.single("image"), async (req, res) => {
 
   try {
     const newImage = await cloudinary.uploader.upload(uploadedFile.path);
-
     const image = new ImageModel({ imageUrl: newImage.secure_url });
     await image.save();
     return res.status(200).json({ message: "successful", image: image });
