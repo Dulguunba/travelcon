@@ -4,17 +4,13 @@ import { TopOrder } from "@/components/supports/bookingOrderPage/TopOrder";
 import { getServerSideProps } from "@/utils/fetchTravelDatas";
 import { Replay, Timeline } from "@mui/icons-material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-<<<<<<< HEAD
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { useTravelCartStore } from "@/functions/AdminFunctions";
 import { useEffect, useState } from "react";
 import { getTravelId } from "@/functions/TravelUtilities";
 import { TravelObjectType } from "@/types/travelTypes";
-=======
-import {  useState } from "react";
 import { useLoading } from "@/functions/UseLoading";
 import { Loading } from "@/components/supports/Loading";
->>>>>>> main
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -38,13 +34,6 @@ function Bookingorder({
 
   const [orderId, setOrderID] =  useState("")
 
-  const [checkedIndex, setCheckedIndex] = useState(null);
-  const [adults, setAdults] = useState(0);
-  const [children, setChildren] = useState(0);
-
-  const handleCheckboxChange = (index: any) => {
-    setCheckedIndex(index);
-  }
 
   const [childCount, setChildCount] = useState(0);
   const [adultCount, setAdultCount] = useState(0);
