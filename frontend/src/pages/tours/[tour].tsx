@@ -8,19 +8,6 @@ import { FetchDataProps } from "@/types/fetchDataProps";
 import { useLoading } from "@/functions/UseLoading";
 import { Loading } from "@/components/supports/Loading";
 
-const TourDetail = ({
-  toursData,
-  travelDatas,
-  destinationDatas,
-  categoryDatas,
-}: FetchDataProps) => {
-  const isLoading = useLoading([
-    travelDatas,
-    ,
-    toursData,
-    destinationDatas,
-    categoryDatas,
-  ]);
 
   const TourDetail = ({
     toursData,
@@ -53,7 +40,7 @@ const TourDetail = ({
       </div>
     );
   };
-};
+
 
 export { getServerSideProps };
 

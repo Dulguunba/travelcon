@@ -9,45 +9,39 @@ dotenv.config();
 
 export const createOrder = async (req: Request, res: Response) => {
   const {
-    orderNumber,
-    status,
+    amount,
+    email,
     phoneNumber,
     travelDate,
-    amountPaid,
-    amountToBePaid,
-    coupon,
     description,
     details,
     lastName,
     firstName,
+    travelId
   } = req.body;
   console.log(
-    orderNumber,
-    status,
+    amount,
+    email,
     phoneNumber,
     travelDate,
-    amountPaid,
-    amountToBePaid,
-    coupon,
     description,
     details,
     lastName,
-    firstName
+    firstName,
+    travelId
   );
 
   try {
     const newOrder = await OrderModel.create({
-      orderNumber,
-      status,
+      amount,
+      email,
       phoneNumber,
       travelDate,
-      amountPaid,
-      amountToBePaid,
-      coupon,
       description,
       details,
       lastName,
       firstName,
+      travelId,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -80,3 +74,4 @@ export const deleteOrder = async(req: Request, res: Response)=>{
     res.status(400).json({ message: "fail to delete user data", error: error });
   }
 }
+

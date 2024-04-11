@@ -17,6 +17,8 @@ import commmentRouter from "./routes/commentRoute";
 import reviewRouter from "./routes/reviewRoute";
 import paymentRouter from "./routes/paymentRoute";
 import shoppingCartRouter from "./routes/shoppingCartRoute";
+import axios from "axios";
+import { OrderModel } from "./models/orderModel";
 
 const app = express();
 const PORT = 8800;
@@ -63,6 +65,50 @@ app.use("/upload", upload.single("image"), async (req, res) => {
     res.status(400).json({ message: "fail to upload image" });
   }
 });
+
+app.post("/createinvoice",async(req , res)=>{
+  const {token}= req.body
+  console.log('token', token);
+  
+
+    const createQr = await axios.post("https://merchant.qpay.mn/v2/invoice",{
+      "invoice_code": "POWER_EXPO_INVOICE",
+      "sender_invoice_no": "1234567",
+      "invoice_receiver_code": "terminal",
+      "invoice_description": "test",
+      "amount": 10,
+      "callback_url": "http://localhost:3000"
+  },{headers: { Authorization: `Bearer ${token}`}});
+
+    console.log('invoice', createQr);
+  
+    return res.status(201).json({invoiceId: createQr.data})
+})
+
+app.post("/check", async (req , res ) => {
+  const { orderId } = req.body;
+  const checkRes = await axios.post(
+    "https://merchant.qpay.mn/v2/payment/check",
+    {
+      object_type: "INVOICE",
+      object_id: req.body.invoiceId,
+      offset: {
+        page_number: 1,
+        page_limit: 100,
+      },
+    },
+ 
+    { headers: { Authorization: `Bearer ${req.body.token}` } }
+  );
+ console.log(checkRes.data.rows.length);
+ 
+  if (checkRes.data.rows.length > 0) {
+    await OrderModel.findByIdAndUpdate(orderId, {IsPaidStatus: true});
+    
+  }
+  return res.status(200).json({ check: checkRes.data });
+});
+
 
 app.listen(PORT, () => {
   console.log("running at http://localhost:" + PORT);
