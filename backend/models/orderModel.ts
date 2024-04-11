@@ -1,20 +1,10 @@
 import { Schema, model } from "mongoose";
 
 const orderSchema = new Schema({
-  orderNumber: {
-    type: String,
-    required: [true, "Please insert input"],
-  },
-  status: {
-    type: String,
-    enum: [
-      "шинэ захиалга",
-      "төлбөр хийгдээгүй",
-      "төлбөр хийгдсэн",
-      "захиалга баталгаажсан",
-    ],
-    required: [true, "Please insert input"],
-    default: "шинэ захиалга",
+
+  IsPaidStatus: {
+    type: Boolean,
+    default: false,
   },
   phoneNumber: {
     type: Number,
@@ -28,15 +18,19 @@ const orderSchema = new Schema({
     type: String,
     required: [true, "Please insert input"],
   },
-  travelDate: {
-    type: Date,
-  },
-  amountPaid: {
-    type: Number,
+  email: {
+    type: String,
     required: [true, "Please insert input"],
-    default: 0,
   },
-  amountToBePaid: {
+  travelDate: {
+    type: Object,
+  },
+  travelId:{
+    type: Schema.ObjectId,
+    ref: 'travelinfo',
+    required: [true, 'please insert data']
+  },
+  amount: {
     type: Number,
     required: [true, "Please insert input"],
     default: 0,

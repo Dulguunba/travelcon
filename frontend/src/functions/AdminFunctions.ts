@@ -126,3 +126,18 @@ export const useTravelCartStore = create<CartTravel & CartAction>((set) => ({
   updateTravel: (qty: string) => set((state) => ({ travelId: qty })),
   removeTravel: () => set((state) => ({ travelId: "" })),
 }));
+
+type OrderId = {
+  OrderId: string;
+};
+
+type OrderIdAction = {
+  updateOrderId: (qty: string) => void;
+  removeOrderId: () => void;
+};
+
+export const useOrderIDStore = create<OrderId & OrderIdAction>((set) => ({
+  OrderId: "",
+  updateOrderId: (qty: string) => set((state) => ({ OrderId: qty })),
+  removeOrderId: () => set((state) => ({ OrderId: "" })),
+}));

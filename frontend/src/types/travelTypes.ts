@@ -49,7 +49,6 @@ export interface Travel {
         additionalInfo: string;
         destinationCategory: string;
         image: string;
-        destinationCategory: string;
       };
       maxTourist: number;
     }
@@ -108,3 +107,10 @@ export interface TravelObjectType {
   };
   maxTourist: number;
 }
+
+export type TravelCalendar = {
+  startDay: string;
+  startTime: string;
+  endDay: string;
+  endTime: string;
+};

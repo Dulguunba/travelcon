@@ -19,7 +19,7 @@ import paymentRouter from "./routes/paymentRoute";
 import shoppingCartRouter from "./routes/shoppingCartRoute";
 
 const app = express();
-const PORT = 8800;
+const PORT = 8900;
 connectToDb();
 
 app.use(cors());
@@ -63,6 +63,8 @@ app.use("/upload", upload.single("image"), async (req, res) => {
     res.status(400).json({ message: "fail to upload image" });
   }
 });
+
+
 
 app.listen(PORT, () => {
   console.log("running at http://localhost:" + PORT);
