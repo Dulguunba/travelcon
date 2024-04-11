@@ -41,13 +41,13 @@ export const CalendarAdmin = () => {
     <div
       className={`   w-full h-full flex gap-7  flex-col justify-start items-start relative`}
     >
-      <div className="p-10 flex gap-5 w-full items-center justify-center h-full">
-        <div className="flex flex-col w-full  bg-white rounded-lg p-5">
-          <div className="w-full flex gap-3">
-            <div className="w-1/3">
+      <div className=" sm:p-10 flex gap-5 w-full items-center justify-center h-full">
+        <div className="flex flex-col gap-5 w-full  bg-white rounded-lg sm:p-5">
+          <div className="w-full flex flex-col sm:flex-row gap-3">
+            <div className=" sm:w-1/3 w-full">
               <CalendarAdd />
             </div>
-            <div className="w-2/3">
+            <div className=" sm:w-2/3 w-full overflow-auto border border-black rounded-xl ">
               <table className="table bg-white">
                 {/* head */}
                 <thead>

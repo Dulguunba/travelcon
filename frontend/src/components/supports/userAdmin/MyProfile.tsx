@@ -11,15 +11,15 @@ import { CancelledBook } from '../Baatar/mybook/CancelledBook';
 export const MyProfile = () => {
   return (
     <div className=' py-10 px-5 bg-white rounded-xl'>
-        <div className=' flex justify-between'>
-            <div className='flex gap-3'>
+        <div className=' flex sm:justify-between sm:flex-row flex-col gap-9'>
+            <div className='flex gap-10 sm:gap-3'>
                 <img src='./place.png' alt="place" className=' w-32 h-36 rounded-lg border border-black p-1' />
                 <div className='mt-5'>
                     <h1 className='text-3xl text-black font-bold'>Erica Stocklin</h1>
                     <p>Paris, France</p>
                 </div>
             </div>
-            <div>
+            <div className=' sm:m-5'>
                 <label>Email</label>
                 <div className='flex gap-5 my-3
                 '>
@@ -30,7 +30,7 @@ export const MyProfile = () => {
                 </div>
             </div>
         </div>
-        <div className='w-full h-full bg-white p-8 my-10  rounded-lg'>
+        <div className='w-full h-full bg-white sm:p-8 my-10  rounded-lg'>
         <h1 className='text-black text-2xl  font-semibold mb-3'>Booking Summary</h1> 
         <hr />
         <div className='flex justify-center gap-5 mt-3 mb-5' >

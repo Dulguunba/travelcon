@@ -37,15 +37,15 @@ export const RouteAdmin = () => {
 
   return (
     <div
-      className={`   w-full h-full flex gap-7  flex-col justify-start items-start`}
+      className={`   w-full h-full flex flex-col justify-start items-start`}
     >
-      <div className="p-10 flex gap-5 w-full items-center justify-center h-full">
-        <div className="flex flex-col w-[95%]  bg-white rounded-lg p-5">
-          <div className="w-full flex gap-3">
-            <div className="w-1/3">
+      <div className=" sm:p-10 flex gap-5 w-full items-center justify-center h-full">
+        <div className="flex w-[95%] flex-col sm:flex-row gap-5 bg-white rounded-lg sm:p-5">
+          <div className="w-full flex flex-col sm:flex-row gap-5">
+            <div className=" sm:w-1/3 w-full">
               <RouteAdd />
             </div>
-            <div className="w-2/3">
+            <div className=" sm:w-2/3 w-full overflow-x-auto border border-black rounded-xl p-1">
               <table className="table bg-gray-50">
                 {/* head */}
                 <thead>

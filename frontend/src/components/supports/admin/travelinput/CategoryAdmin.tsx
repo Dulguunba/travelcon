@@ -104,9 +104,9 @@ export const CategoryAdmin = () => {
       className={`w-full h-full gap-7 flex flex-col justify-start items-start`}
     >
       <div className="p-5 flex  w-full justify-center items-start">
-        <div className="w-full text-sm  flex flex-col mb-2 gap-5 p-10 bg-white rounded-lg ">
-          <div className="flex">
-            <div className="flex flex-col w-1/2">
+        <div className="w-full text-sm  flex flex-col mb-2 gap-5 sm:p-10 bg-white rounded-lg ">
+          <div className="flex flex-col sm:flex-row gap-5">
+            <div className="flex flex-col sm:w-1/2 w-full">
               <label htmlFor="">1. Аялалын ангилалыг сонгоно уу.</label>
               {categoryData?.map(
                 (category: { name: string; english: string; _id: string }) => (
@@ -128,7 +128,7 @@ export const CategoryAdmin = () => {
                 )
               )}
             </div>
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col sm:w-1/2 w-full">
               <label htmlFor="">
                 2. Аялалд хамрагдах жуулчдын ангилалыг сонгоно уу.
               </label>

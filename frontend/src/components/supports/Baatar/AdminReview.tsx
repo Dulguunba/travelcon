@@ -54,7 +54,6 @@ export const AdminReview = () => {
             <div className=' rounded-lg bg-white p-3 w-fit '>
                 <h1 className=' text-xl text-black mb-3'>Total Reviews Average</h1>
                 <div className=' flex flex-col rounded-lg border border-gray-200 mt-1 h-fit p-1'>
-
                     <div className='flex justify-center'>
                        <h1 className=' text-xl text-black'>{reviewData.average}</h1>
                     </div>
@@ -64,7 +63,7 @@ export const AdminReview = () => {
                 </div>
             </div>
         </div>
-        <div>
+        <div className=' max-w-full overflow-x-auto'>
         <Box 
         sx={{
             height:400,

@@ -78,12 +78,12 @@ export const PictureAdmin = () => {
       className={` flex w-full h-full gap-7  flex-col justify-start items-start`}
     >
       <form
-        className="p-10 flex gap-5 w-full items-center justify-center h-full"
+        className=" sm:p-10 flex gap-5 w-full items-center justify-center h-full"
         onSubmit={formik.handleSubmit}
       >
-        <div className="flex flex-col w-full  bg-white rounded-lg p-5">
-          <div className="flex gap-5 w-full">
-            <div className="w-1/2 text-sm h-96 flex-col mb-2 gap-1">
+        <div className="flex flex-col w-full gap-5 bg-white rounded-lg sm:p-5">
+          <div className="flex flex-col sm:flex-row sm:gap-5 w-full">
+            <div className=" sm:w-1/2 w-full text-sm h-96 flex-col mb-2 gap-1">
               <label htmlFor="additionalInfo">
                 Аялалын дэлгэрэнгүй мэдээлэл
               </label>
@@ -99,7 +99,7 @@ export const PictureAdmin = () => {
                 </div>
               ) : null}
             </div>
-            <div className="w-1/2 flex flex-col gap-4">
+            <div className=" sm:w-1/2 w-full flex flex-col gap-4">
               <div className="w-full h-40 text-sm flex-col">
                 <label htmlFor="image">Аялалын нүүр зураг</label>
                 <div className="bg-gray-100 border-dashed border-2 border-gray-300 h-36 rounded-lg w-full relative">

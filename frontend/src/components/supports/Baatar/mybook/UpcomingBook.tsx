@@ -6,7 +6,7 @@ export const UpcomingBook = () => {
     const { count } = useBooking((state)=>state)
   return (
     <div className={`${count===1?"":"hidden"}`}>
-            <div className="overflow-x-auto m-5 border border-gray-300 rounded-xl p-5">
+            <div className="overflow-x-auto sm:m-5 border border-gray-300 rounded-xl p-5">
             <table className="table ">
               {/* head */}
               <thead>

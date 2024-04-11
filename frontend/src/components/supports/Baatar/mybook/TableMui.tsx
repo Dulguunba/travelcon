@@ -82,7 +82,7 @@ export const TableMui = () => {
 )
     
   return (
-    <div>
+    <div className=' flex flex-col w-full'>
         <Box 
         sx={{
             height:400,

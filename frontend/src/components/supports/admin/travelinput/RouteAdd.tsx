@@ -86,7 +86,7 @@ export const RouteAdd = () => {
 
   return (
     <form
-      className="w-full flex flex-col gap-2 bg-gray-50 p-4 rounded-lg"
+      className="w-full flex flex-col gap-2 bg-gray-50 sm:p-4 rounded-lg"
       onSubmit={formik.handleSubmit}
     >
       <div className="w-full flex gap-2">

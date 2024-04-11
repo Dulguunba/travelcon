@@ -26,8 +26,8 @@ export const ProfileSettings = () => {
         <div className=' bg-white rounded-lg p-5'>
             <h1 className='my-5 text-2xl text-black font-bold'>Personal Information</h1>
             <hr />
-            <div className=' w-full flex gap-5 my-5'>
-                <div className=' flex flex-col w-6/12'>
+            <div className=' w-full flex flex-col sm:flex-row gap-5 my-5'>
+                <div className=' flex flex-col sm:w-6/12 w-full'>
                     <label className='text-black text-lg'>Full Name</label>
                     <input type="text" className='rounded p-2 bg-white border border-gray-300 mb-3' onChange={(e)=>setUserData({...userData,name:e.target.value})}/>
                     <label className='text-black text-lg'>Phone</label>
@@ -35,7 +35,7 @@ export const ProfileSettings = () => {
                     <label className='text-black text-lg'>Date of Birth</label>
                     <input type="date" className='rounded p-2 bg-white border border-gray-300 mb-3' onChange={(e)=>setUserData({...userData,date:e.target.value})}/>
                 </div>
-                <div className=' flex flex-col w-6/12'>
+                <div className=' flex flex-col sm:w-6/12 w-full'>
                     <label className='text-black text-lg'>Email</label>
                     <input type="text" className='rounded p-2 bg-white border border-gray-300 mb-3' onChange={(e)=>setUserData({...userData,email:e.target.value})}/>
                     <label className='text-black text-lg'>Gender</label>

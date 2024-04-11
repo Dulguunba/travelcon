@@ -126,19 +126,11 @@ export default function Admin() {
         />
 
         <Tab
-          icon={<AccountBalanceWalletIcon />}
-          iconPosition="start"
-          label={`${toggle ? "Income" : ""}`}
-          sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(2)}
-        />
-
-        <Tab
           icon={<TravelExploreIcon />}
           iconPosition="start"
           label={`${toggle ? "tour" : ""}`}
           sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(3)}
+          {...tabPageNumber(2)}
         />
 
         <Tab
@@ -146,7 +138,7 @@ export default function Admin() {
           iconPosition="start"
           label={`${toggle ? "reviews" : ""}`}
           sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(4)}
+          {...tabPageNumber(3)}
         />
 
         <Tab
@@ -154,7 +146,7 @@ export default function Admin() {
           iconPosition="start"
           label={`${toggle ? "setting" : ""}`}
           sx={{ justifyContent: "flex-start", padding: 3, paddingX: 7 }}
-          {...tabPageNumber(5)}
+          {...tabPageNumber(4)}
         />
       </Tabs>
       <TabPanel value={value} index={0}>
@@ -167,15 +159,12 @@ export default function Admin() {
         <Booking />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <Income />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
         <Tour />
       </TabPanel>
-      <TabPanel value={value} index={5}>
+      <TabPanel value={value} index={4}>
         <Reviews />
       </TabPanel>
-      <TabPanel value={value} index={6}>
+      <TabPanel value={value} index={5}>
         <GenerelSetting />
       </TabPanel>
     </Box>
