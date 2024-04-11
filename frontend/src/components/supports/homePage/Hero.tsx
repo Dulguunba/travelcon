@@ -3,13 +3,25 @@ import { getServerSideProps } from '@/utils/fetchTravelDatas'
 import DestinationDropdown from './DestinationDropdown'
 import { FetchDataProps } from '@/types/fetchDataProps';
 import Header from './Header';
+import Image from 'next/image';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
 
 
 const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: FetchDataProps) => {
-
+    const [startDate, setStartDate] = useState(new Date());
     return (
         <>
-            <img src="HomeBackground.jpg" className='lg:w-full h-[600px] lg:h-[1200px]' alt="" />
+            <div className='relative lg:w-full w-full h-[600px] lg:h-[1200px]'>
+                <Image
+                    src="/HomeBackground.jpg"
+                    alt="Background image"
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
+                />
+            </div>
             <div className='absolute top-0 right-0 left-0'>
                 <Header travelDatas={travelDatas} toursData={toursData} destinationDatas={destinationDatas} categoryDatas={categoryDatas} />
                 <div className='lg:max-w-[1520px] lg:m-auto lg:w-[90%] lg:h-[600px] mt-8 flex lg:mt-8 justify-center'>
@@ -28,8 +40,7 @@ const Hero = ({ travelDatas, toursData, destinationDatas, categoryDatas }: Fetch
                                         <div className='flex items-center justify-between w-full cursor-pointer'>
                                             <p className='font-medium lg:text-lg text-lg p-2 lg:p-1'>Date</p>
                                         </div>
-                                        <input type="date" className='text-sm text-center outline-none border-none cursor-pointer' />
-                                    </div>
+                                        <DatePicker selected={startDate} onChange={(date: Date) => setStartDate(date)} className='ml-2 text-start text-sm outline-none border-none cursor-pointer' />                                    </div>
                                     <button className='px-5 py-2 lg:mt-0 lg:mb-0 mt-2 mb-2 lg:w-40 lg:h-full rounded-lg bg-blue text-white'>
                                         Search
                                     </button>

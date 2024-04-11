@@ -21,7 +21,7 @@ const PopularDestinations = ({ travelDatas, destinationDatas }: { travelDatas: T
                     <div className="w-full mt-10 justify-center flex lg:flex-row flex-col gap-5">
                         {slicedData.map((data) => (
                             < Link href={`/tours/${data._id}`}>
-                                <CarouselCard responsiveTitle={data.route[0].endPoint} responsivePackage={data.duration} image={data.image.supportImage} title={data.name} icon={<LocationIcon />} miniTitle={data.destination.english} description={data.createdAt} />
+                                <CarouselCard responsiveTitle={data.route[0].endPoint} responsivePackage={data.duration} image={data.image.supportImage} title={data.name} icon={<LocationIcon />} miniTitle={data.destination.english} description={data.calendar[0].startDay} />
                             </Link>
                         )
                         )}

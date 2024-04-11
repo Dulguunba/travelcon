@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Process } from "@/components/supports/homePage/Process";
 import { Value } from "@/components/supports/homePage/Value";
@@ -7,16 +6,11 @@ import { MainFooter } from "@/components/supports/homePage/MainFooter";
 import Hero from "@/components/supports/homePage/Hero";
 import Gallery from "@/components/supports/homePage/Gallery";
 import PopularDestinations from "@/components/supports/homePage/PopularDestinations";
-import { Tours } from "@/types/toursTypes";
-import { Travel } from "@/types/travelTypes";
 import { Footer } from "@/components/supports/destinationPage/Footer";
-import { Destination } from "@/types/destinationTypes";
-import { DestinationCategory } from "@/types/destinationCategoryTypes";
 import { getServerSideProps } from "@/utils/fetchTravelDatas";
 import { FetchDataProps } from "@/types/fetchDataProps";
-import { useEffect, useState } from "react";
-import { Loading } from "@/components/supports/Loading";
-import { useLoading } from "@/functions/UseLoading";
+
+
 
 const poppins = Poppins({
   weight: "400",
@@ -29,11 +23,7 @@ function Home({
   destinationDatas,
   categoryDatas,
 }: FetchDataProps) {
-  const isLoading = useLoading([travelDatas, destinationDatas, categoryDatas]);
 
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <div>

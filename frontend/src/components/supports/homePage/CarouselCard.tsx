@@ -42,7 +42,7 @@ const CarouselCard = ({ responsiveTitle, image, title, icon, miniTitle, descript
                 <h1 className='text-3xl font-medium '>{title}</h1>
                 <div className='flex gap-2 items-center'>
                   {icon}
-                  <p className='text-xl font-normal'>{miniTitle}</p>
+                  <p className='text-xl capitalize font-normal'>{miniTitle}</p>
                 </div>
                 <p className='text-xl text-gray-500'>{description}</p>
                 <div className='flex gap-5'>

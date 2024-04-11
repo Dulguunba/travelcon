@@ -13,8 +13,6 @@ import { useTravelCartStore } from "@/functions/AdminFunctions";
 import { useEffect, useState } from "react";
 import { getTravelId } from "@/functions/TravelUtilities";
 import { TravelObjectType } from "@/types/travelTypes";
-import { useLoading } from "@/functions/UseLoading";
-import { Loading } from "@/components/supports/Loading";
 import { useRouter } from "next/router";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,18 +53,6 @@ function Bookingorder({
       setAdultCount(adultCount - 1);
     }
   };
-
-  const isLoading = useLoading([
-    travelDatas,
-    ,
-    toursData,
-    destinationDatas,
-    categoryDatas,
-  ]);
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <>
