@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { MainTours } from "@/components/supports/destinationPage/MainTours";
 import { Footer } from "@/components/supports/destinationPage/Footer";
 
-function Destination({
+function Tour({
   travelDatas,
   toursData,
   destinationDatas,
@@ -35,4 +35,4 @@ function Destination({
 
 export { getServerSideProps };
 
-export default Destination;
+export default Tour;
