@@ -11,12 +11,15 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Mon Sky</title>
         <meta property="og:title" content="Travel to Mongolia" />
         <meta property="og:description" content="Explore our top destinations" />
-        <meta property="og:image" content="https://travelcon-p0dtdjlkc-dulguuns-projects-946229cd.vercel.app/HomeBackground.jpg" />
-        <meta property="og:url" content="https://travelcon-p0dtdjlkc-dulguuns-projects-946229cd.vercel.app/" />
+        <meta property="og:image" content="travelcon-eta.vercel.app
+/HomeBackground.jpg" />
+        <meta property="og:url" content="travelcon-eta.vercel.app
+" />
         <meta property="og:type" content="website" />
         <meta name="description" content="Travel to Mongolia" />
         <meta name="keywords" content="Travel,visit,best place,mongolia, best time, travel guide " />
-        <link rel="canonical" href="https://travelcon-p0dtdjlkc-dulguuns-projects-946229cd.vercel.app/" />
+        <link rel="canonical" href="travelcon-eta.vercel.app
+" />
       </Head>
       <Component {...pageProps} />
     </UserProvider>
