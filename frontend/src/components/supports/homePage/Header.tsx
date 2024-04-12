@@ -39,9 +39,7 @@ const Header = ({
     return { category, destination: destinationsInCategory };
   });
 
-  const jumpToDestination = () => {
-    route.push("/destination");
-  };
+
 
   const { user, error } = useUser();
 
@@ -113,7 +111,7 @@ const Header = ({
               </div>
               <div
                 className="flex items-center gap-2 cursor-pointer hover:-translate-y-1 transition ease-in-out"
-                onClick={jumpToDestination}
+
               >
                 <div className="dropdown dropdown-hover relative">
                   <Link href={'/tour'}>
