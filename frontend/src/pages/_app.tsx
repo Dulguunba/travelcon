@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Mon Sky</title>
         <meta property="og:title" content="Travel to Mongolia" />
         <meta property="og:description" content="Explore our top destinations" />
-        <meta property="og:image" content="https://travelcon-p0dtdjlkc-dulguuns-projects-946229cd.vercel.app//HomeBackground.jpg" />
+        <meta property="og:image" content="https://travelcon-p0dtdjlkc-dulguuns-projects-946229cd.vercel.app/HomeBackground.jpg" />
         <meta property="og:url" content="https://travelcon-p0dtdjlkc-dulguuns-projects-946229cd.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta name="description" content="Travel to Mongolia" />
