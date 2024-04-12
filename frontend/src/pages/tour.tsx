@@ -7,6 +7,7 @@ import { FetchDataProps } from "@/types/fetchDataProps";
 import Top from "@/components/supports/destinationPage/Top";
 const inter = Inter({ subsets: ["latin"] });
 import { MainTours } from "@/components/supports/destinationPage/MainTours";
+import { Footer } from "@/components/supports/destinationPage/Footer";
 
 function Destination({
   travelDatas,
@@ -27,6 +28,7 @@ function Destination({
         destinationDatas={destinationDatas}
         categoryDatas={categoryDatas}
         toursData={toursData}/> */}
+      <Footer />
     </>
   );
 }

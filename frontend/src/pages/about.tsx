@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { FetchDataProps } from "@/types/fetchDataProps";
 import { getServerSideProps } from "@/utils/fetchTravelDatas";
 import AboutPageHero from "@/components/supports/aboutPage/AboutPageHero";
+import { Footer } from "@/components/supports/destinationPage/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 function About({
@@ -21,6 +22,7 @@ function About({
         destinationDatas={destinationDatas}
         categoryDatas={categoryDatas}
       />
+      <Footer />
     </div>
   );
 }

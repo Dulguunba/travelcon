@@ -15,8 +15,9 @@ import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { checkPaymentBack, createOrder } from "@/utils/functions/Payment";
-import {pay} from "@/utils/functions/Payment"
-import {useQRCode} from "next-qrcode"
+import { pay } from "@/utils/functions/Payment"
+import { useQRCode } from "next-qrcode"
+import { Footer } from "@/components/supports/destinationPage/Footer";
 
 function Bookingorder({
   travelDatas,
@@ -28,11 +29,11 @@ function Bookingorder({
   const { tour } = router.query;
 
   const [qr, SetQr] = useState()
-  const [hideGeneralSection, setHideGeneralSection] =useState(false)
+  const [hideGeneralSection, setHideGeneralSection] = useState(false)
 
-  const {Canvas} = useQRCode()
+  const { Canvas } = useQRCode()
 
-  const [orderId, setOrderID] =  useState("")
+  const [orderId, setOrderID] = useState("")
 
 
   const [childCount, setChildCount] = useState(0);
@@ -66,7 +67,7 @@ function Bookingorder({
   const [checkedIndex, setCheckedIndex] = useState(0);
 
   const handleCheckboxChange = (index: any) => {
-      setCheckedIndex(index);
+    setCheckedIndex(index);
   }
 
   const formik = useFormik({
@@ -87,7 +88,7 @@ function Bookingorder({
       phoneNumber: Yup.string().required("Phone number is required"),
     }),
     onSubmit: (values) => {
-      const totalAmount = tourArray[0].price.adultPrice*adultCount+ tourArray[0].price.childPrice*childCount;
+      const totalAmount = tourArray[0].price.adultPrice * adultCount + tourArray[0].price.childPrice * childCount;
       const orderData = {
         lastName: formik.values.lastName,
         firstName: formik.values.firstName,
@@ -97,17 +98,17 @@ function Bookingorder({
         travelDate: tourArray[0].calendar[checkedIndex],
         amount: totalAmount
       };
-      createOrder(setOrderID ,orderData);
+      createOrder(setOrderID, orderData);
       pay(SetQr);
       console.log('qr', qr);
       setHideGeneralSection(true)
-      
+
     },
   });
 
-  const [isPaid, setIsPaid] =useState(false)
+  const [isPaid, setIsPaid] = useState(false)
 
-  const checkPayment =()=>{
+  const checkPayment = () => {
     checkPaymentBack(setIsPaid, orderId)
   }
 
@@ -135,14 +136,14 @@ function Bookingorder({
               toursData={toursData}
             />
             <div className="flex w-full items-start justify-center h-full">
-              <div className="mt-10 max-w-[1520px] w-[90%]  h-full flex items-center gap-6">
+              <div className="mt-10 max-w-[1520px] w-[90%]  h-full flex  gap-6">
                 <div className="w-1/3 flex h-full items-start">
                   <div className="w-full flex flex-col">
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-xl p-1 px-4 border border-gray-100">
                       Price Summary
                     </h1>
                     <div className="w-full border border-gray-100 p-4 flex flex-col gap-2">
-                    <div className="w-full flex justify-between">
+                      <div className="w-full flex justify-between">
                         <h2 className="flex justify-center font-medium">Type</h2>
                         <p className="flex justify-center font-medium">Quantity</p>
                         <p className="flex justify-center font-medium">
@@ -173,7 +174,7 @@ function Bookingorder({
                     </div>
                   </div>
                 </div>
-                <form onSubmit={formik.handleSubmit}  className={`w-2/3  gap-6 ${hideGeneralSection ? 'hidden' : 'flex flex-col' }`}>
+                <form onSubmit={formik.handleSubmit} className={`w-2/3  gap-6 ${hideGeneralSection ? 'hidden' : 'flex flex-col'}`}>
                   <div className="w-full flex flex-col ">
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-xl p-1 px-4 border border-gray-100">
                       Tour Summary
@@ -195,7 +196,7 @@ function Bookingorder({
                           <p className="capitalize">{travel.destination.english}</p>
                         </div>
                         <div className="flex gap-2 justify-start">
-                          <Timeline/>
+                          <Timeline />
                           <span>{travel.duration}</span>
                           <span>days</span>
                         </div>
@@ -208,87 +209,87 @@ function Bookingorder({
                     </h1>
                     <div className='w-full p-5 flex flex-col gap-10 justify-center items-start border border-gray-100 '>
                       {tourArray.map((data) => (
-                          data.calendar.map((cal, index) => (
-                              <div className='w-2/3 flex '>
-                                  <div className='w-full bg-grayColor flex flex-col'>
-                                      <div className='w-full bg-gray-200 p-1 px-5 grid grid-cols-3 rounded-t-lg '>
-                                          <h1 className="flex justify-center">Select</h1>
-                                          <h1 className="flex justify-center">Check-in</h1>
-                                          <h1 className="flex justify-center">Check-out</h1>
-                                      </div>
-                                      <div className='w-full grid grid-cols-3 p-1 px-5 rounded-b-lg'>
-                                        <div className="flex justify-center items-center">
-                                            <input
-                                                type="checkbox"
-                                                className="checkbox"
-                                                onChange={() => handleCheckboxChange(index)}
-                                                checked={checkedIndex === index}
-                                            />
-                                        </div>
-                                          <h1 className="flex justify-center">{cal.startDay}</h1>
-                                          <h1 className="flex justify-center">{cal.endDay}</h1>
-                                      </div>
-                                  </div>
+                        data.calendar.map((cal, index) => (
+                          <div className='w-2/3 flex '>
+                            <div className='w-full bg-grayColor flex flex-col'>
+                              <div className='w-full bg-gray-200 p-1 px-5 grid grid-cols-3 rounded-t-lg '>
+                                <h1 className="flex justify-center">Select</h1>
+                                <h1 className="flex justify-center">Check-in</h1>
+                                <h1 className="flex justify-center">Check-out</h1>
                               </div>
-                          ))
+                              <div className='w-full grid grid-cols-3 p-1 px-5 rounded-b-lg'>
+                                <div className="flex justify-center items-center">
+                                  <input
+                                    type="checkbox"
+                                    className="checkbox"
+                                    onChange={() => handleCheckboxChange(index)}
+                                    checked={checkedIndex === index}
+                                  />
+                                </div>
+                                <h1 className="flex justify-center">{cal.startDay}</h1>
+                                <h1 className="flex justify-center">{cal.endDay}</h1>
+                              </div>
+                            </div>
+                          </div>
+                        ))
                       ))}
-                       <div className='w-full flex gap-5 '>
-                                    <div className='w-full bg-grayColor flex flex-col'>
-                                        <div className='w-full bg-gray-200 px-5 p-1 grid grid-cols-3 rounded-t-lg '>
-                                            <h1 className="flex justify-center">Adult</h1>
-                                            <h1 className="flex justify-center">Child</h1>
-                                            <h1 className="flex justify-center">Total</h1>
+                      <div className='w-full flex gap-5 '>
+                        <div className='w-full bg-grayColor flex flex-col'>
+                          <div className='w-full bg-gray-200 px-5 p-1 grid grid-cols-3 rounded-t-lg '>
+                            <h1 className="flex justify-center">Adult</h1>
+                            <h1 className="flex justify-center">Child</h1>
+                            <h1 className="flex justify-center">Total</h1>
 
-                                        </div>
-                                        <div className='w-full grid grid-cols-3 px-5 p-2 rounded-b-lg'>
-                                            <div className=" flex items-center justify-center">
-                                              <button
-                                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
-                                                onClick={handleAdultIncrement}
-                                              >
-                                                +
-                                              </button>
-                                              <input
-                                                type="number"
-                                                className="h-8 p-2 w-12 text-center rounded border bg-gray-50 border-gray-100"
-                                                min={0}
-                                                max={travel.maxTourist}
-                                                value={adultCount}
-                                                readOnly
-                                              />
-                                              <button
-                                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
-                                                onClick={handleAdultDecrement}
-                                              >
-                                                -
-                                              </button>
-                                            </div>
-                                            <div className=" flex items-center justify-center">
-                                              <button
-                                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
-                                                onClick={handleChildIncrement}
-                                              >
-                                                +
-                                              </button>
-                                              <input
-                                                type="number"
-                                                className="h-8 p-2 w-12 text-center rounded border bg-gray-50 border-gray-100"
-                                                min={0}
-                                                max={travel.maxTourist}
-                                                value={childCount}
-                                              />
-                                              <button
-                                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
-                                                onClick={handleChildDecrement}
-                                              >
-                                                -
-                                              </button>
-                                            </div>
-                                            <div className="flex justify-center">{adultCount+childCount}</div>
-                                        </div>
-                                    </div>
+                          </div>
+                          <div className='w-full grid grid-cols-3 px-5 p-2 rounded-b-lg'>
+                            <div className=" flex items-center justify-center">
+                              <button
+                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
+                                onClick={handleAdultIncrement}
+                              >
+                                +
+                              </button>
+                              <input
+                                type="number"
+                                className="h-8 p-2 w-12 text-center rounded border bg-gray-50 border-gray-100"
+                                min={0}
+                                max={travel.maxTourist}
+                                value={adultCount}
+                                readOnly
+                              />
+                              <button
+                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
+                                onClick={handleAdultDecrement}
+                              >
+                                -
+                              </button>
+                            </div>
+                            <div className=" flex items-center justify-center">
+                              <button
+                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
+                                onClick={handleChildIncrement}
+                              >
+                                +
+                              </button>
+                              <input
+                                type="number"
+                                className="h-8 p-2 w-12 text-center rounded border bg-gray-50 border-gray-100"
+                                min={0}
+                                max={travel.maxTourist}
+                                value={childCount}
+                              />
+                              <button
+                                className={`rounded p-2 w-8 h-8 bg-blue text-white flex justify-center items-center`}
+                                onClick={handleChildDecrement}
+                              >
+                                -
+                              </button>
+                            </div>
+                            <div className="flex justify-center">{adultCount + childCount}</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                   </div>
                   </div>
                   <div className="w-full flex flex-col ">
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-xl p-1 px-4 border border-gray-100">
@@ -347,15 +348,15 @@ function Bookingorder({
                           <div className="text-red-400 text-xs">{formik.errors.phoneNumber}</div>
                         ) : null}
                       </div>
-                      
-                      
+
+
 
                     </div>
-                    
-                    <button type="submit" className="p-2 bg-blue w-1/3 text-white rounded-lg mt-5">Buy travel</button>
+
+                    <button type="submit" className="p-2 bg-blue w-1/3 mb-10 text-white rounded-lg mt-5">Book travel</button>
                   </div>
-                  </form>
-                  <div className={`w-2/3  ${hideGeneralSection ? "flex flex-col" : "hidden"}`}>
+                </form>
+                <div className={`w-2/3  ${hideGeneralSection ? "flex flex-col" : "hidden"}`}>
                   <div className={`w-full`}>
                     <h1 className="w-full rounded-t-lg bg-gray-50 font-bold text-xl p-1 px-4 border border-gray-100">
                       Payment detail
@@ -364,24 +365,23 @@ function Bookingorder({
                       <div className="flex justify-between">
                         <span>{isPaid ? 'Paid' : 'Not paid'}</span>
                         <div className="cursor-pointer" onClick={checkPayment}>
-                        <Replay/>
+                          <Replay />
                         </div>
                       </div>
-                      {qr && <Canvas text={qr}/>}
+                      {qr && <Canvas text={qr} />}
                     </div>
                   </div>
-                    
+                </div>
 
-                  </div>
-                  
 
-                  
-                
+
+
               </div>
             </div>
           </main>
         ) : null
       )}
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Destination } from '@/types/destinationTypes'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { Highlights } from '@/components/supports/destinationPage/Highlights'
 
 
 export const DestinationDetailMain = ({ destinationDatas }: { destinationDatas: Destination }) => {
@@ -8,7 +9,7 @@ export const DestinationDetailMain = ({ destinationDatas }: { destinationDatas: 
     const { destination } = router.query;
 
     return (
-        <div className='w-full flex gap-10 font-openSans justify-center'>
+        <div className='w-full flex flex-col gap-10 font-openSans justify-center'>
             {destinationDatas.result.map((dest) => {
                 if (dest.english === destination) {
                     let midpoint = Math.ceil(dest.additionalInfo.length / 2);
@@ -26,6 +27,10 @@ export const DestinationDetailMain = ({ destinationDatas }: { destinationDatas: 
                 }
                 return null;
             })}
+            <div className='mt-10 mb-10'>
+                <Highlights />
+            </div>
+
         </div>
     )
 }

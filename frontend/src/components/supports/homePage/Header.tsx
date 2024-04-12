@@ -116,7 +116,7 @@ const Header = ({
                 onClick={jumpToDestination}
               >
                 <div className="dropdown dropdown-hover relative">
-                  <Link href={'/tours'}>
+                  <Link href={'/tour'}>
                     <div
                       tabIndex={0}
                       role="button"
@@ -207,7 +207,7 @@ const Header = ({
             >
               <li>Destination</li>
             </Link>
-            <Link className="w-full  text-xl font-semibold" href={"/tours"}>
+            <Link className="w-full  text-xl font-semibold" href={"/tour"}>
               <li>Tours</li>
             </Link>
             <Link className="w-full text-xl font-semibold" href={"/about"}>
