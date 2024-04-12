@@ -13,7 +13,7 @@ export const ReviewForm = () => {
     const { tour } = router.query;
 
     const postReview = async (review: string) => {
-        const res = await axios.post("http://localhost:8800/review/create", {
+        const res = await axios.post("https://backenddeploy-so3p.onrender.com/review/create", {
             travelId: tour,
             phoneNumber: rating,
             userId: user?.sid,

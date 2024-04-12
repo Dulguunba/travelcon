@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const PopularDestinations = ({ travelDatas, destinationDatas }: { travelDatas: Travel, destinationDatas: Destination }) => {
-    const slicedData = travelDatas.result.slice(0, 3);
+    const slicedData = travelDatas.result.slice(1, 4);
     const router = useRouter();
     const { tour } = router.query;
     return (
